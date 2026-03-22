@@ -1,1 +1,153 @@
-<!DOCTYPE html><html><head><title>Contact</title><link rel='stylesheet' href='styles.css'></head><body><h1>Contact</h1><form action='https://formspree.io/f/yourid' method='POST'><input name='email' placeholder='Email'><button type='submit'>Send</button></form></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | IronLine Systems</title>
+  <meta name="description" content="Contact IronLine Systems to discuss operational bottlenecks, software, automation, and systems strategy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0c0f;--panel:#141a22;--text:#edf2f7;--muted:#9ca8b8;--accent:#c5a261;--accent2:#e6c78f;--shadow:0 20px 60px rgba(0,0,0,.35);--max:1220px;--nav:76px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0} body{font-family:"Inter",sans-serif;color:var(--text);background:linear-gradient(180deg,#0a0c0f 0%,#0d1117 100%);line-height:1.55}
+    a{text-decoration:none;color:inherit}.container{width:min(100% - 2rem,var(--max));margin:0 auto}.section{padding:94px 0}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.06);border-radius:22px;box-shadow:var(--shadow)}
+    .nav{position:sticky;top:0;z-index:100;height:var(--nav);backdrop-filter:blur(12px);background:rgba(10,12,15,.76);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{width:min(100% - 2rem,var(--max));height:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em}.brand-mark{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:var(--accent2);border:1px solid rgba(197,162,97,.32);background:linear-gradient(145deg,rgba(197,162,97,.18),rgba(255,255,255,.02))}
+    .nav-links{display:flex;align-items:center;gap:24px;color:var(--muted);font-size:.95rem}.nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:14px;font-weight:700;border:1px solid transparent}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#161109}
+    .hero{padding:86px 0 40px}.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;border:1px solid rgba(197,162,97,.28);background:rgba(197,162,97,.08);color:var(--accent2);font-size:.84rem}
+    .hero h1{font-family:"DM Serif Display",serif;font-size:clamp(3rem,7vw,5rem);line-height:.94;letter-spacing:-.05em;max-width:10ch;margin:18px 0 16px}
+    .muted{color:var(--muted)}
+    .contact-wrap{display:grid;grid-template-columns:.92fr 1.08fr;gap:22px}
+    .contact-card{padding:24px}
+    .contact-card h3{margin-bottom:10px;font-size:1.14rem}
+    .contact-list{display:grid;gap:14px;margin-top:18px}
+    .contact-row{padding:16px;border-radius:16px;background:var(--panel);border:1px solid rgba(255,255,255,.06)}
+    .contact-row strong{display:block;margin-bottom:4px}
+    form{display:grid;gap:14px;margin-top:18px}
+    .input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .input-group{display:grid;gap:8px}
+    label{font-size:.92rem;color:var(--muted)}
+    input,textarea,select{width:100%;background:#0f1318;color:var(--text);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 15px;outline:none;font:inherit}
+    textarea{min-height:140px;resize:vertical}
+    .footer{padding:30px 0 46px;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)} .footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    @media (max-width:900px){.contact-wrap,.input-grid{grid-template-columns:1fr}.nav-links,.desktop-cta{display:none}.hero h1{max-width:none}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand"><div class="brand-mark">IL</div><div>IRONLINE SYSTEMS</div></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="insights.html">Insights</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <a href="contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Contact</div>
+        <h1>Start with the actual operational problem.</h1>
+        <p class="muted">
+          Do not lead with “we want AI.” Lead with what is breaking, slowing down, getting dropped,
+          or creating unnecessary labor.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-wrap">
+        <div class="contact-card card">
+          <h3>Good starting points</h3>
+          <p class="muted">Serious buyers describe the business problem, not the trend they want to chase.</p>
+          <div class="contact-list">
+            <div class="contact-row">
+              <strong>Strong starting point</strong>
+              “We have too much manual follow-up and no clean visibility into the pipeline.”
+            </div>
+            <div class="contact-row">
+              <strong>Another strong starting point</strong>
+              “Our systems do not talk to each other and work gets lost between handoffs.”
+            </div>
+            <div class="contact-row">
+              <strong>Bad starting point</strong>
+              “We want something with AI because AI sounds modern.”
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card card">
+          <h3>Book a strategy call</h3>
+          <p class="muted">Tell IronLine what is slowing growth, creating friction, or weakening control.</p>
+          <form id="contactForm">
+            <div class="input-grid">
+              <div class="input-group">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" required />
+              </div>
+              <div class="input-group">
+                <label for="company">Company</label>
+                <input id="company" type="text" placeholder="Your company" />
+              </div>
+            </div>
+
+            <div class="input-grid">
+              <div class="input-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@company.com" required />
+              </div>
+              <div class="input-group">
+                <label for="need">Primary need</label>
+                <select id="need">
+                  <option>Custom Software Development</option>
+                  <option>Automation & AI Workflows</option>
+                  <option>Systems Integration</option>
+                  <option>Systems Strategy / Audit</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="message">What is breaking or slowing things down?</label>
+              <textarea id="message" placeholder="Example: We have disconnected systems, inconsistent follow-up, manual admin overload, and poor visibility into workflow status." required></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Send Inquiry</button>
+            <p class="muted" id="formMessage"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div><strong>IRONLINE SYSTEMS</strong><br><span class="muted">Operational software. Automation. Systems strategy.</span></div>
+      <div>© 2026 IronLine Systems. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const contactForm = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    contactForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      formMessage.textContent = "Form captured. Connect this to Formspree, Netlify Forms, Basin, Zapier, or your backend.";
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>

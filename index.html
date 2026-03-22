@@ -1,1 +1,305 @@
-<!DOCTYPE html><html><head><title>IronLine Systems</title><link rel='stylesheet' href='styles.css'></head><body><h1>IronLine Systems</h1><a href='insights.html'>Insights</a> | <a href='case-studies.html'>Case Studies</a> | <a href='contact.html'>Contact</a></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IronLine Systems | Operational Software, Automation & Systems Strategy</title>
+  <meta name="description" content="IronLine Systems helps growing businesses fix operational drag with custom software, AI automation, system integrations, and systems strategy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0c0f;--panel:#141a22;--panel2:#1a212b;--line:#2a3340;--text:#edf2f7;--muted:#9ca8b8;
+      --accent:#c5a261;--accent2:#e6c78f;--success:#8fd4a7;--shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:22px;--max:1220px;--nav:76px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Inter",sans-serif;color:var(--text);line-height:1.55;overflow-x:hidden;
+      background:radial-gradient(circle at top left,rgba(197,162,97,.14),transparent 24%),linear-gradient(180deg,#0a0c0f 0%,#0d1117 100%);
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(100% - 2rem,var(--max));margin:0 auto}
+    .section{padding:94px 0}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;border:1px solid rgba(197,162,97,.28);background:rgba(197,162,97,.08);color:var(--accent2);font-size:.84rem}
+    .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .section-head{max-width:780px;margin-bottom:30px}
+    .section-head h2{font-family:"DM Serif Display",serif;font-size:clamp(2.2rem,4vw,3.8rem);line-height:.97;letter-spacing:-.045em;margin:18px 0 14px}
+    .section-head p,.muted{color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;padding:14px 20px;font-weight:700;border:1px solid transparent;transition:.2s ease;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#161109;box-shadow:0 10px 28px rgba(197,162,97,.22)}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-secondary{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.08)}
+    .btn-secondary:hover{background:rgba(197,162,97,.07);border-color:rgba(197,162,97,.2)}
+    .grid-2,.grid-3,.grid-4{display:grid;gap:18px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .tag{display:inline-block;margin-bottom:14px;color:var(--accent2);background:rgba(197,162,97,.08);border:1px solid rgba(197,162,97,.18);border-radius:999px;padding:7px 12px;font-size:.82rem}
+    .nav{position:sticky;top:0;z-index:100;height:var(--nav);backdrop-filter:blur(12px);background:rgba(10,12,15,.76);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{width:min(100% - 2rem,var(--max));height:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em}
+    .brand-mark{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:var(--accent2);border:1px solid rgba(197,162,97,.32);background:linear-gradient(145deg,rgba(197,162,97,.18),rgba(255,255,255,.02))}
+    .nav-links{display:flex;align-items:center;gap:24px;color:var(--muted);font-size:.95rem}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .menu-btn{display:none;width:46px;height:46px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);color:var(--text)}
+    .mobile-menu{display:none;position:fixed;inset:var(--nav) 0 auto 0;background:rgba(10,12,15,.98);border-bottom:1px solid rgba(255,255,255,.06);padding:18px 1rem 22px;z-index:99}
+    .mobile-menu.open{display:block}
+    .mobile-links{width:min(100%,var(--max));margin:0 auto;display:grid;gap:12px}
+    .mobile-menu a{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .hero{padding:86px 0 54px}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:28px;align-items:stretch}
+    .hero-copy h1{font-family:"DM Serif Display",serif;font-size:clamp(3rem,7vw,6rem);line-height:.92;letter-spacing:-.05em;max-width:11ch;margin:18px 0 20px}
+    .hero-copy p{color:var(--muted);font-size:1.1rem;max-width:720px;margin-bottom:28px}
+    .hero-actions,.hero-proof{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px}
+    .proof-pill{border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);color:var(--muted);font-size:.92rem}
+    .hero-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:840px}
+    .mini-point{padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .mini-point strong{display:block;margin-bottom:4px}
+    .mini-point span{font-size:.92rem;color:var(--muted)}
+    .hero-panel{padding:24px}
+    .dashboard-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
+    .signal{display:inline-flex;align-items:center;gap:8px;color:var(--success);font-size:.86rem;padding:6px 10px;border-radius:999px;background:rgba(143,212,167,.08);border:1px solid rgba(143,212,167,.18)}
+    .stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:14px}
+    .stat-box,.panel-block,.service-card,.problem-card,.case-card,.contact-card,.process-card{padding:24px}
+    .stat-box,.panel-block{border-radius:18px;background:var(--panel);border:1px solid rgba(255,255,255,.06)}
+    .stat-box small{color:var(--muted);display:block;margin-bottom:8px}
+    .stat-box strong{display:block;font-size:1.8rem}
+    .panel-block + .panel-block{margin-top:14px}
+    .panel-list{display:grid;gap:10px}
+    .panel-list div{display:flex;justify-content:space-between;gap:16px;color:var(--muted);border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:10px}
+    .panel-list div:last-child{border-bottom:none;padding-bottom:0}
+    .panel-list b{color:var(--text)}
+    .service-card h3,.problem-card h3,.case-card h3,.process-card h3,.contact-card h3{margin-bottom:10px;font-size:1.14rem}
+    .service-card p,.problem-card p,.case-card p,.process-card p,.contact-card p{color:var(--muted);font-size:.97rem}
+    .service-list,.contact-list{display:grid;gap:10px;margin-top:16px}
+    .service-list li{list-style:none;position:relative;padding-left:22px}
+    .service-list li::before{content:"•";position:absolute;left:0;color:var(--accent)}
+    .step-num{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;margin-bottom:12px;background:rgba(197,162,97,.1);border:1px solid rgba(197,162,97,.2);color:var(--accent2);font-weight:700}
+    .article-link{color:var(--accent2);font-weight:700}
+    .cta-band{padding:32px;display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap}
+    .cta-band h3{font-family:"DM Serif Display",serif;font-size:clamp(2rem,4vw,3rem);line-height:1;letter-spacing:-.04em;margin-bottom:8px}
+    .footer{padding:30px 0 46px;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    @media (max-width:1060px){.hero-grid,.grid-4{grid-template-columns:1fr}.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-copy h1{max-width:none}}
+    @media (max-width:820px){
+      .nav-links,.desktop-cta{display:none}.menu-btn{display:inline-grid;place-items:center}
+      .hero-points,.grid-2,.grid-3,.stats-grid{grid-template-columns:1fr}.section{padding:72px 0}.hero{padding-top:58px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">IL</div>
+        <div>IRONLINE SYSTEMS</div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="insights.html">Insights</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div>
+        <a href="contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
+        <button class="menu-btn" id="menuToggle">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-links">
+      <a href="index.html">Home</a>
+      <a href="insights.html">Insights</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn btn-primary">Book a Strategy Call</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Operational systems for growing businesses</div>
+          <h1>Fix the systems that slow growth, leak revenue, and create operational drag.</h1>
+          <p>
+            IronLine Systems helps businesses strengthen operations with custom software,
+            automation, integrations, and systems strategy. The goal is not more tools.
+            The goal is a business that runs tighter.
+          </p>
+          <div class="hero-actions">
+            <a href="contact.html" class="btn btn-primary">Book a Strategy Call</a>
+            <a href="insights.html" class="btn btn-secondary">Read Insights</a>
+          </div>
+          <div class="hero-proof">
+            <div class="proof-pill">Custom software where off-the-shelf fails</div>
+            <div class="proof-pill">Automation tied to real business logic</div>
+            <div class="proof-pill">Operational clarity over software chaos</div>
+          </div>
+          <div class="hero-points">
+            <div class="mini-point"><strong>Software</strong><span>Purpose-built systems for real workflows.</span></div>
+            <div class="mini-point"><strong>Automation</strong><span>Remove manual bottlenecks and delays.</span></div>
+            <div class="mini-point"><strong>Strategy</strong><span>Diagnose before building the wrong thing.</span></div>
+          </div>
+        </div>
+
+        <div class="hero-panel card">
+          <div class="dashboard-head">
+            <h3>Operational Reality Check</h3>
+            <div class="signal">Improvement Opportunity</div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-box"><small>Response speed</small><strong>Too slow</strong></div>
+            <div class="stat-box"><small>Workflow consistency</small><strong>Uneven</strong></div>
+            <div class="stat-box"><small>Reporting visibility</small><strong>Fragmented</strong></div>
+            <div class="stat-box"><small>Target state</small><strong>Controlled</strong></div>
+          </div>
+          <div class="panel-block">
+            <h4>Most common breakdowns</h4>
+            <div class="panel-list">
+              <div><span>Manual admin</span><b>Too much wasted effort</b></div>
+              <div><span>Follow-up</span><b>Handled inconsistently</b></div>
+              <div><span>Multiple platforms</span><b>No clean data flow</b></div>
+              <div><span>Leadership view</span><b>Not clear enough to trust</b></div>
+            </div>
+          </div>
+          <div class="panel-block">
+            <h4>What IronLine improves</h4>
+            <div class="panel-list">
+              <div><span>Workflow architecture</span><b>Cleaner execution</b></div>
+              <div><span>Automation logic</span><b>Less manual drag</b></div>
+              <div><span>System integrations</span><b>Better handoffs</b></div>
+              <div><span>Operational visibility</span><b>Stronger control</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Services</div>
+          <h2>IronLine builds what messy operations actually need.</h2>
+          <p>Not generic software. Not fake AI hype. Real systems that make execution stronger.</p>
+        </div>
+        <div class="grid-2">
+          <article class="service-card card">
+            <div class="tag">Custom Software Development</div>
+            <h3>Build tools around the business.</h3>
+            <p>Internal platforms, dashboards, portals, and workflow systems designed around the way your company really operates.</p>
+            <ul class="service-list">
+              <li>Internal business apps</li>
+              <li>Workflow dashboards</li>
+              <li>Operational portals</li>
+              <li>Custom admin tools</li>
+            </ul>
+          </article>
+          <article class="service-card card">
+            <div class="tag">Automation & AI Workflows</div>
+            <h3>Automate what should not depend on memory.</h3>
+            <p>Reduce manual effort, tighten follow-up, and keep important actions from getting dropped.</p>
+            <ul class="service-list">
+              <li>Lead routing</li>
+              <li>Status triggers</li>
+              <li>AI-assisted communication</li>
+              <li>Process automation</li>
+            </ul>
+          </article>
+          <article class="service-card card">
+            <div class="tag">Systems Integration</div>
+            <h3>Make your stack function like a system.</h3>
+            <p>Connect tools, move data cleanly, and remove re-entry chaos.</p>
+            <ul class="service-list">
+              <li>CRM integrations</li>
+              <li>API connections</li>
+              <li>Cross-platform syncing</li>
+              <li>Process handoff architecture</li>
+            </ul>
+          </article>
+          <article class="service-card card">
+            <div class="tag">Systems Strategy</div>
+            <h3>Find the highest-value fix first.</h3>
+            <p>Audit bottlenecks, prioritize improvements, and avoid building the wrong thing.</p>
+            <ul class="service-list">
+              <li>Operational systems audits</li>
+              <li>Workflow reviews</li>
+              <li>AI implementation assessments</li>
+              <li>Execution support</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Featured proof paths</div>
+          <h2>Authority comes from insight and results, not empty claims.</h2>
+          <p>This site now has places to publish both.</p>
+        </div>
+        <div class="grid-2">
+          <article class="case-card card">
+            <div class="tag">Insights</div>
+            <h3>Teach the market what good systems look like.</h3>
+            <p>Publish operational breakdowns, workflow lessons, system audits, and articles that make buyers smarter.</p>
+            <a href="insights.html" class="article-link">Go to Insights →</a>
+          </article>
+          <article class="case-card card">
+            <div class="tag">Case Studies</div>
+            <h3>Document wins without fluff.</h3>
+            <p>Show the problem, what changed, and what improved. That is what serious buyers care about.</p>
+            <a href="case-studies.html" class="article-link">Go to Case Studies →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Process</div>
+          <h2>No software theater. Diagnose first. Build second.</h2>
+        </div>
+        <div class="grid-4">
+          <article class="process-card card"><div class="step-num">1</div><h3>Audit</h3><p>Find friction, dropped handoffs, weak reporting, and wasted labor.</p></article>
+          <article class="process-card card"><div class="step-num">2</div><h3>Map</h3><p>Decide what should be automated, integrated, or custom-built.</p></article>
+          <article class="process-card card"><div class="step-num">3</div><h3>Implement</h3><p>Deploy the system with a focus on usefulness, not hype.</p></article>
+          <article class="process-card card"><div class="step-num">4</div><h3>Refine</h3><p>Improve the system as real usage shows where the value compounds.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-band card">
+          <div>
+            <h3>Build the system your business should already have.</h3>
+            <p class="muted">If growth is exposing operational cracks, the answer is better infrastructure.</p>
+          </div>
+          <a href="contact.html" class="btn btn-primary">Talk to IronLine</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div><strong>IRONLINE SYSTEMS</strong><br><span class="muted">Operational software. Automation. Systems strategy.</span></div>
+      <div>© 2026 IronLine Systems. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuToggle.addEventListener("click", () => mobileMenu.classList.toggle("open"));
+  </script>
+</body>
+</html>
