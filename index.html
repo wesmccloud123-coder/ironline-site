@@ -18,19 +18,43 @@
     html{scroll-behavior:smooth}
     body{
       font-family:"Inter",sans-serif;color:var(--text);line-height:1.55;overflow-x:hidden;
-      background:radial-gradient(circle at top left,rgba(197,162,97,.14),transparent 24%),linear-gradient(180deg,#0a0c0f 0%,#0d1117 100%);
+      background:
+        radial-gradient(circle at top left,rgba(197,162,97,.14),transparent 24%),
+        linear-gradient(180deg,#0a0c0f 0%,#0d1117 100%);
     }
     a{text-decoration:none;color:inherit}
     .container{width:min(100% - 2rem,var(--max));margin:0 auto}
     .section{padding:94px 0}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;border:1px solid rgba(197,162,97,.28);background:rgba(197,162,97,.08);color:var(--accent2);font-size:.84rem}
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow)
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;
+      border:1px solid rgba(197,162,97,.28);background:rgba(197,162,97,.08);color:var(--accent2);font-size:.84rem
+    }
     .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;
+      border:1px solid rgba(197,162,97,.28);background:rgba(197,162,97,.08);color:var(--accent2);font-size:.84rem
+    }
+    .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
     .section-head{max-width:780px;margin-bottom:30px}
-    .section-head h2{font-family:"DM Serif Display",serif;font-size:clamp(2.2rem,4vw,3.8rem);line-height:.97;letter-spacing:-.045em;margin:18px 0 14px}
+    .section-head h2{
+      font-family:"DM Serif Display",serif;font-size:clamp(2.2rem,4vw,3.8rem);
+      line-height:.97;letter-spacing:-.045em;margin:18px 0 14px
+    }
     .section-head p,.muted{color:var(--muted)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;padding:14px 20px;font-weight:700;border:1px solid transparent;transition:.2s ease;cursor:pointer}
-    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#161109;box-shadow:0 10px 28px rgba(197,162,97,.22)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;
+      padding:14px 20px;font-weight:700;border:1px solid transparent;transition:.2s ease;cursor:pointer
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#161109;box-shadow:0 10px 28px rgba(197,162,97,.22)
+    }
     .btn-primary:hover{transform:translateY(-1px)}
     .btn-secondary{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.08)}
     .btn-secondary:hover{background:rgba(197,162,97,.07);border-color:rgba(197,162,97,.2)}
@@ -38,56 +62,200 @@
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
     .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-    .tag{display:inline-block;margin-bottom:14px;color:var(--accent2);background:rgba(197,162,97,.08);border:1px solid rgba(197,162,97,.18);border-radius:999px;padding:7px 12px;font-size:.82rem}
-    .nav{position:sticky;top:0;z-index:100;height:var(--nav);backdrop-filter:blur(12px);background:rgba(10,12,15,.76);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav-inner{width:min(100% - 2rem,var(--max));height:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .tag,.kicker{
+      display:inline-block;margin-bottom:14px;color:var(--accent2);background:rgba(197,162,97,.08);
+      border:1px solid rgba(197,162,97,.18);border-radius:999px;padding:7px 12px;font-size:.82rem
+    }
+
+    .nav{
+      position:sticky;top:0;z-index:100;height:var(--nav);
+      backdrop-filter:blur(12px);background:rgba(10,12,15,.76);border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav-inner{
+      width:min(100% - 2rem,var(--max));height:100%;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;gap:20px
+    }
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em}
-    .brand-mark{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:var(--accent2);border:1px solid rgba(197,162,97,.32);background:linear-gradient(145deg,rgba(197,162,97,.18),rgba(255,255,255,.02))}
+    .brand-mark{
+      width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:800;
+      color:var(--accent2);border:1px solid rgba(197,162,97,.32);
+      background:linear-gradient(145deg,rgba(197,162,97,.18),rgba(255,255,255,.02))
+    }
     .nav-links{display:flex;align-items:center;gap:24px;color:var(--muted);font-size:.95rem}
     .nav-links a:hover,.nav-links a.active{color:var(--text)}
-    .menu-btn{display:none;width:46px;height:46px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);color:var(--text)}
-    .mobile-menu{display:none;position:fixed;inset:var(--nav) 0 auto 0;background:rgba(10,12,15,.98);border-bottom:1px solid rgba(255,255,255,.06);padding:18px 1rem 22px;z-index:99}
+    .menu-btn{
+      display:none;width:46px;height:46px;border-radius:12px;border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.02);color:var(--text)
+    }
+    .mobile-menu{
+      display:none;position:fixed;inset:var(--nav) 0 auto 0;background:rgba(10,12,15,.98);
+      border-bottom:1px solid rgba(255,255,255,.06);padding:18px 1rem 22px;z-index:99
+    }
     .mobile-menu.open{display:block}
     .mobile-links{width:min(100%,var(--max));margin:0 auto;display:grid;gap:12px}
-    .mobile-menu a{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .mobile-menu a{
+      padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)
+    }
+
     .hero{padding:86px 0 54px}
     .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:28px;align-items:stretch}
-    .hero-copy h1{font-family:"DM Serif Display",serif;font-size:clamp(3rem,7vw,6rem);line-height:.92;letter-spacing:-.05em;max-width:11ch;margin:18px 0 20px}
+    .hero-copy h1{
+      font-family:"DM Serif Display",serif;font-size:clamp(3rem,7vw,6rem);
+      line-height:.92;letter-spacing:-.05em;max-width:11ch;margin:18px 0 20px
+    }
     .hero-copy p{color:var(--muted);font-size:1.1rem;max-width:720px;margin-bottom:28px}
-    .hero-actions,.hero-proof{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px}
-    .proof-pill{border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);color:var(--muted);font-size:.92rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:24px}
+    .hero-proof{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:24px}
+    .proof-pill{
+      border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.07);color:var(--muted);font-size:.92rem
+    }
     .hero-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:840px}
-    .mini-point{padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .mini-point{
+      padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)
+    }
     .mini-point strong{display:block;margin-bottom:4px}
     .mini-point span{font-size:.92rem;color:var(--muted)}
-    .hero-panel{padding:24px}
-    .dashboard-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
-    .signal{display:inline-flex;align-items:center;gap:8px;color:var(--success);font-size:.86rem;padding:6px 10px;border-radius:999px;background:rgba(143,212,167,.08);border:1px solid rgba(143,212,167,.18)}
-    .stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:14px}
-    .stat-box,.panel-block,.service-card,.problem-card,.case-card,.contact-card,.process-card{padding:24px}
-    .stat-box,.panel-block{border-radius:18px;background:var(--panel);border:1px solid rgba(255,255,255,.06)}
-    .stat-box small{color:var(--muted);display:block;margin-bottom:8px}
-    .stat-box strong{display:block;font-size:1.8rem}
+
+    .dashboard{padding:24px}
+    .dashboard-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
+    .signal{
+      display:inline-flex;align-items:center;gap:8px;color:var(--success);font-size:.86rem;
+      padding:6px 10px;border-radius:999px;background:rgba(143,212,167,.08);border:1px solid rgba(143,212,167,.18)
+    }
+    .hero-premium-panel{
+      background:
+        radial-gradient(circle at top right, rgba(197,162,97,.12), transparent 30%),
+        linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));
+    }
+    .premium-metrics{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin:18px 0 14px;
+    }
+    .premium-metric{
+      padding:18px;
+      border-radius:18px;
+      background:var(--panel2);
+      border:1px solid rgba(255,255,255,.06);
+    }
+    .premium-metric small{
+      display:block;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+    .premium-metric strong{
+      display:block;
+      font-size:1.4rem;
+      margin-bottom:6px;
+    }
+    .premium-metric span{
+      display:block;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .stat-box,.panel-block,.service-card,.problem-card,.case-card,.contact-card,.process-card,.result-story,.proof-side{
+      padding:24px
+    }
+    .stat-box,.panel-block,.result-box{
+      border-radius:18px;background:var(--panel);border:1px solid rgba(255,255,255,.06)
+    }
     .panel-block + .panel-block{margin-top:14px}
     .panel-list{display:grid;gap:10px}
-    .panel-list div{display:flex;justify-content:space-between;gap:16px;color:var(--muted);border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:10px}
+    .panel-list div{
+      display:flex;justify-content:space-between;gap:16px;color:var(--muted);
+      border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:10px
+    }
     .panel-list div:last-child{border-bottom:none;padding-bottom:0}
     .panel-list b{color:var(--text)}
-    .service-card h3,.problem-card h3,.case-card h3,.process-card h3,.contact-card h3{margin-bottom:10px;font-size:1.14rem}
-    .service-card p,.problem-card p,.case-card p,.process-card p,.contact-card p{color:var(--muted);font-size:.97rem}
-    .service-list,.contact-list{display:grid;gap:10px;margin-top:16px}
-    .service-list li{list-style:none;position:relative;padding-left:22px}
-    .service-list li::before{content:"•";position:absolute;left:0;color:var(--accent)}
-    .step-num{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;margin-bottom:12px;background:rgba(197,162,97,.1);border:1px solid rgba(197,162,97,.2);color:var(--accent2);font-weight:700}
+    .hero-highlight-block{
+      border:1px solid rgba(197,162,97,.14);
+      background:rgba(197,162,97,.05);
+    }
+
+    .service-card h3,.problem-card h3,.case-card h3,.process-card h3,.contact-card h3,.result-story h3,.proof-side h3{
+      margin-bottom:10px;font-size:1.14rem
+    }
+    .service-card p,.problem-card p,.case-card p,.process-card p,.contact-card p,.result-story p,.proof-side p{
+      color:var(--muted);font-size:.97rem
+    }
+    .service-list,.contact-list,.check-list{display:grid;gap:10px;margin-top:16px}
+    .service-list li,.check-list li{list-style:none;position:relative;padding-left:22px}
+    .service-list li::before,.check-list li::before{content:"•";position:absolute;left:0;color:var(--accent)}
+
+    .results-wrap{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:20px;
+      align-items:start;
+    }
+    .result-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:18px;
+    }
+    .result-box{
+      padding:18px;
+    }
+    .result-box small{
+      display:block;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+    .result-box strong{
+      display:block;
+      font-size:1rem;
+      margin-bottom:6px;
+    }
+    .result-box span{
+      display:block;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .step-num{
+      width:36px;height:36px;display:grid;place-items:center;border-radius:10px;margin-bottom:12px;
+      background:rgba(197,162,97,.1);border:1px solid rgba(197,162,97,.2);color:var(--accent2);font-weight:700
+    }
     .article-link{color:var(--accent2);font-weight:700}
-    .cta-band{padding:32px;display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap}
-    .cta-band h3{font-family:"DM Serif Display",serif;font-size:clamp(2rem,4vw,3rem);line-height:1;letter-spacing:-.04em;margin-bottom:8px}
-    .footer{padding:30px 0 46px;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
-    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-    @media (max-width:1060px){.hero-grid,.grid-4{grid-template-columns:1fr}.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-copy h1{max-width:none}}
+
+    .cta-band{
+      padding:32px;display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap
+    }
+    .cta-band h3{
+      font-family:"DM Serif Display",serif;font-size:clamp(2rem,4vw,3rem);line-height:1;letter-spacing:-.04em;margin-bottom:8px
+    }
+    .cta-band-strong{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .cta-band-copy{max-width:760px}
+    .cta-band-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+    .footer{
+      padding:30px 0 46px;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)
+    }
+    .footer-inner{
+      display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap
+    }
+
+    @media (max-width:1060px){
+      .hero-grid,.grid-4,.results-wrap,.result-grid,.premium-metrics{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .hero-copy h1{max-width:none}
+    }
     @media (max-width:820px){
-      .nav-links,.desktop-cta{display:none}.menu-btn{display:inline-grid;place-items:center}
-      .hero-points,.grid-2,.grid-3,.stats-grid{grid-template-columns:1fr}.section{padding:72px 0}.hero{padding-top:58px}
+      .nav-links,.desktop-cta{display:none}
+      .menu-btn{display:inline-grid;place-items:center}
+      .hero-points,.grid-2,.grid-3{grid-template-columns:1fr}
+      .section{padding:72px 0}
+      .hero{padding-top:58px}
     }
   </style>
 </head>
@@ -122,98 +290,87 @@
   </div>
 
   <main>
-   <section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <div class="badge">Operational systems for messy growing businesses</div>
-      <h1>Fix the bottlenecks that slow growth and leak revenue.</h1>
-      <p>
-        IronLine Systems helps growing businesses eliminate operational drag with
-        custom software, automation, system integrations, and workflow strategy
-        built around how the business actually runs.
-      </p>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="badge">Operational systems for messy growing businesses</div>
+          <h1>Fix the bottlenecks that slow growth and leak revenue.</h1>
+          <p>
+            IronLine Systems helps growing businesses eliminate operational drag with
+            custom software, automation, system integrations, and workflow strategy
+            built around how the business actually runs.
+          </p>
 
-      <div class="hero-actions">
-        <a href="contact.html" class="btn btn-primary">Get a Systems Bottleneck Review</a>
-        <a href="#fit" class="btn btn-secondary">See If IronLine Is a Fit</a>
-      </div>
+          <div class="hero-actions">
+            <a href="contact.html" class="btn btn-primary">Get a Systems Bottleneck Review</a>
+            <a href="#fit" class="btn btn-secondary">See If IronLine Is a Fit</a>
+          </div>
 
-      <div class="hero-proof">
-        <div class="proof-pill">Best for slow follow-up, disconnected tools, and weak visibility</div>
-        <div class="proof-pill">Custom software, automation, integrations, systems strategy</div>
-      </div>
+          <div class="hero-proof">
+            <div class="proof-pill">Best for slow follow-up, disconnected tools, and weak visibility</div>
+            <div class="proof-pill">Custom software, automation, integrations, systems strategy</div>
+          </div>
 
-      <div class="hero-points">
-        <div class="mini-point">
-          <strong>Custom Software</strong>
-          <span>Purpose-built systems for real workflows, not generic templates.</span>
+          <div class="hero-points">
+            <div class="mini-point">
+              <strong>Custom Software</strong>
+              <span>Purpose-built systems for real workflows, not generic templates.</span>
+            </div>
+            <div class="mini-point">
+              <strong>Automation</strong>
+              <span>Reduce manual admin and make critical actions happen on time.</span>
+            </div>
+            <div class="mini-point">
+              <strong>Operational Control</strong>
+              <span>See what is breaking, what is stuck, and what needs fixing first.</span>
+            </div>
+          </div>
         </div>
-        <div class="mini-point">
-          <strong>Automation</strong>
-          <span>Reduce manual admin and make critical actions happen on time.</span>
-        </div>
-        <div class="mini-point">
-          <strong>Operational Control</strong>
-          <span>See what is breaking, what is stuck, and what needs fixing first.</span>
-        </div>
-      </div>
-    </div>
 
-    <div class="dashboard card hero-premium-panel">
-      <div class="dashboard-top">
-        <div>
-          <div class="eyebrow">Operational reality check</div>
-          <h3 style="margin-top:10px;">Where growth usually breaks down</h3>
-        </div>
-        <div class="signal">High-impact fixes available</div>
-      </div>
+        <div class="dashboard card hero-premium-panel">
+          <div class="dashboard-top">
+            <div>
+              <div class="eyebrow">Operational reality check</div>
+              <h3 style="margin-top:10px;">Where growth usually breaks down</h3>
+            </div>
+            <div class="signal">High-impact fixes available</div>
+          </div>
 
-      <div class="premium-metrics">
-        <div class="premium-metric">
-          <small>Lead response</small>
-          <strong>Too slow</strong>
-          <span>Opportunities cool off before anyone acts.</span>
-        </div>
-        <div class="premium-metric">
-          <small>Workflow handoffs</small>
-          <strong>Inconsistent</strong>
-          <span>Work gets dropped between people, tools, and steps.</span>
-        </div>
-        <div class="premium-metric">
-          <small>Reporting</small>
-          <strong>Fragmented</strong>
-          <span>Leadership cannot trust what the business is showing them.</span>
-        </div>
-        <div class="premium-metric">
-          <small>Target state</small>
-          <strong>Controlled</strong>
-          <span>Cleaner systems, faster execution, stronger visibility.</span>
-        </div>
-      </div>
+          <div class="premium-metrics">
+            <div class="premium-metric">
+              <small>Lead response</small>
+              <strong>Too slow</strong>
+              <span>Opportunities cool off before anyone acts.</span>
+            </div>
+            <div class="premium-metric">
+              <small>Workflow handoffs</small>
+              <strong>Inconsistent</strong>
+              <span>Work gets dropped between people, tools, and steps.</span>
+            </div>
+            <div class="premium-metric">
+              <small>Reporting</small>
+              <strong>Fragmented</strong>
+              <span>Leadership cannot trust what the business is showing them.</span>
+            </div>
+            <div class="premium-metric">
+              <small>Target state</small>
+              <strong>Controlled</strong>
+              <span>Cleaner systems, faster execution, stronger visibility.</span>
+            </div>
+          </div>
 
-      <section class="section" id="fit">
-  <div class="container">
-    <div class="cta-band card cta-band-strong">
-      <div class="cta-band-copy">
-        <div class="eyebrow">Best fit</div>
-        <h3>IronLine is best for businesses with slow follow-up, disconnected systems, or weak operational visibility.</h3>
-        <p class="muted">
-          If growth is exposing cracks in execution, reporting, or workflow control,
-          the next move is not more software chaos. It is better infrastructure.
-        </p>
+          <div class="panel-block hero-highlight-block">
+            <h4>What IronLine helps fix</h4>
+            <div class="panel-list">
+              <div><span>Slow follow-up</span><b>Faster response logic</b></div>
+              <div><span>Manual admin drag</span><b>Workflow automation</b></div>
+              <div><span>Disconnected tools</span><b>System integration</b></div>
+              <div><span>Weak visibility</span><b>Clearer dashboards and reporting</b></div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="cta-band-actions">
-        <a href="contact.html" class="btn btn-primary">Get a Systems Bottleneck Review</a>
-        <a href="case-studies.html" class="btn btn-secondary">See Proof Paths</a>
-      </div>
-    </div>
-  </div>
-</section>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section class="section">
       <div class="container">
@@ -270,69 +427,89 @@
         </div>
       </div>
     </section>
-    
-<section class="section" id="results">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Proof</div>
-      <h2>What strong systems work actually looks like.</h2>
-      <p>
-        This is the kind of proof block that raises credibility fast. Replace the
-        placeholder language below with one real client example as soon as you can.
-      </p>
-    </div>
 
-    <div class="results-wrap">
-      <article class="result-story card">
-        <div class="kicker">Example outcome</div>
-        <h3>Service business with weak lead follow-up and poor visibility</h3>
-        <p>
-          Leads were coming in from multiple sources, response time was inconsistent,
-          and nobody had a clean view of what was being missed or delayed.
-        </p>
+    <section class="section" id="results">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Proof</div>
+          <h2>What strong systems work actually looks like.</h2>
+          <p>
+            This is the kind of proof block that raises credibility fast. Replace the
+            placeholder language below with one real client example as soon as you can.
+          </p>
+        </div>
 
-        <div class="result-grid">
-          <div class="result-box">
-            <small>Problem</small>
-            <strong>Scattered lead handling</strong>
-            <span>Opportunities were delayed, missed, or followed up too late.</span>
+        <div class="results-wrap">
+          <article class="result-story card">
+            <div class="kicker">Example outcome</div>
+            <h3>Service business with weak lead follow-up and poor visibility</h3>
+            <p>
+              Leads were coming in from multiple sources, response time was inconsistent,
+              and nobody had a clean view of what was being missed or delayed.
+            </p>
+
+            <div class="result-grid">
+              <div class="result-box">
+                <small>Problem</small>
+                <strong>Scattered lead handling</strong>
+                <span>Opportunities were delayed, missed, or followed up too late.</span>
+              </div>
+
+              <div class="result-box">
+                <small>What changed</small>
+                <strong>Centralized workflow logic</strong>
+                <span>Lead intake, status movement, and follow-up became more controlled.</span>
+              </div>
+
+              <div class="result-box">
+                <small>Outcome</small>
+                <strong>Faster response, cleaner visibility</strong>
+                <span>Leadership could see bottlenecks faster and staff had less guesswork.</span>
+              </div>
+            </div>
+          </article>
+
+          <aside class="proof-side card">
+            <div class="kicker">Why this matters</div>
+            <h3>Buyers trust evidence more than intelligence.</h3>
+            <p>
+              A polished site can get attention. Proof gets calls. Even one concrete
+              example makes the offer feel more real, more expensive, and more credible.
+            </p>
+
+            <ul class="check-list">
+              <li>Add one real before/after example</li>
+              <li>Use actual numbers when you have them</li>
+              <li>Keep it concrete, not fluffy</li>
+            </ul>
+
+            <a href="contact.html" class="btn btn-primary" style="margin-top:18px;width:100%;">
+              Talk Through Your Bottlenecks
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fit">
+      <div class="container">
+        <div class="cta-band card cta-band-strong">
+          <div class="cta-band-copy">
+            <div class="eyebrow">Best fit</div>
+            <h3>IronLine is best for businesses with slow follow-up, disconnected systems, or weak operational visibility.</h3>
+            <p class="muted">
+              If growth is exposing cracks in execution, reporting, or workflow control,
+              the next move is not more software chaos. It is better infrastructure.
+            </p>
           </div>
 
-          <div class="result-box">
-            <small>What changed</small>
-            <strong>Centralized workflow logic</strong>
-            <span>Lead intake, status movement, and follow-up became more controlled.</span>
-          </div>
-
-          <div class="result-box">
-            <small>Outcome</small>
-            <strong>Faster response, cleaner visibility</strong>
-            <span>Leadership could see bottlenecks faster and staff had less guesswork.</span>
+          <div class="cta-band-actions">
+            <a href="contact.html" class="btn btn-primary">Get a Systems Bottleneck Review</a>
+            <a href="case-studies.html" class="btn btn-secondary">See Proof Paths</a>
           </div>
         </div>
-      </article>
-
-      <aside class="proof-side card">
-        <div class="kicker">Why this matters</div>
-        <h3>Buyers trust evidence more than intelligence.</h3>
-        <p>
-          A polished site can get attention. Proof gets calls. Even one concrete
-          example makes the offer feel more real, more expensive, and more credible.
-        </p>
-
-        <ul class="check-list">
-          <li>Add one real before/after example</li>
-          <li>Use actual numbers when you have them</li>
-          <li>Keep it concrete, not fluffy</li>
-        </ul>
-
-        <a href="contact.html" class="btn btn-primary" style="margin-top:18px;width:100%;">
-          Talk Through Your Bottlenecks
-        </a>
-      </aside>
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
 
     <section class="section">
       <div class="container">
@@ -396,7 +573,9 @@
   <script>
     const menuToggle = document.getElementById("menuToggle");
     const mobileMenu = document.getElementById("mobileMenu");
-    menuToggle.addEventListener("click", () => mobileMenu.classList.toggle("open"));
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener("click", () => mobileMenu.classList.toggle("open"));
+    }
   </script>
 </body>
 </html>
