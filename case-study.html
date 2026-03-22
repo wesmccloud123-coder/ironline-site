@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Case Studies | IronLine Systems</title>
+<title>Case Study | IronLine Systems</title>
 <meta name="description" content="IronLine Systems content-driven static site." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,13 +38,16 @@
 <main>
 <section class="page-hero">
   <div class="container page-head">
-    <div class="badge">Case Studies</div>
-    <h1>Proof driven by one content file.</h1>
-    <p>Add or edit entries in <strong>case-studies.js</strong>. This page updates automatically and each case gets a dynamic page at <strong>case-study.html?slug=...</strong>.</p>
+    <div class="badge">Case Study</div>
+    <h1>Reusable case study template</h1>
+    <p>The content below is loaded by slug from <strong>case-studies.js</strong>.</p>
   </div>
 </section>
 <section class="section" style="padding-top:0;">
-  <div class="container"><div id="caseList" class="list-grid"></div></div>
+  <div class="container page-layout">
+    <div id="casePage"></div>
+    <aside id="caseMeta"></aside>
+  </div>
 </section>
 </main>
 

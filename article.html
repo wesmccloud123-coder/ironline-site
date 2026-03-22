@@ -1,1 +1,63 @@
-<!DOCTYPE html><html><head><title>Article</title><link rel='stylesheet' href='styles.css'></head><body><h1>Article Page</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Article | IronLine Systems</title>
+<meta name="description" content="IronLine Systems content-driven static site." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><div class="brand-mark">IL</div><div>IRONLINE SYSTEMS</div></a>
+    <nav class="nav-links">
+      <a href="index.html" class="">Home</a>
+      <a href="insights.html" class="active">Insights</a>
+      <a href="case-studies.html" class="">Case Studies</a>
+      <a href="contact.html" class="">Contact</a>
+    </nav>
+    <div>
+      <a href="contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
+      <button class="menu-btn" id="menuToggle">☰</button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-links">
+    <a href="index.html">Home</a>
+    <a href="insights.html">Insights</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero">
+  <div class="container page-head">
+    <div class="badge">Article</div>
+    <h1>Reusable article template</h1>
+    <p>The content below is loaded by slug from <strong>articles.js</strong>.</p>
+  </div>
+</section>
+<section class="section" style="padding-top:0;">
+  <div class="container page-layout">
+    <div id="articlePage"></div>
+    <aside id="articleMeta"></aside>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div><strong>IRONLINE SYSTEMS</strong><br><span class="muted">Operational software. Automation. Systems strategy.</span></div>
+    <div>© 2026 IronLine Systems. All rights reserved.</div>
+  </div>
+</footer>
+<script src="articles.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
