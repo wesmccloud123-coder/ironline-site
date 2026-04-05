@@ -3,10 +3,10 @@ window.PORTFOLIO_DATA = [
     title: "Aurelia Golf Club",
     slug: "aurelia-golf-club",
     category: "Golf Club / Luxury Demo",
-    image: "assets/portfolio/aurelia-golf-club.jpg",
-    liveUrl: "aurelia_golf_flythrough.html",
+    image: "demo-sites/aurelia-golf-club.jpg",
+    liveUrl: "demo-sites/aurelia_golf_flythrough.html",
     modalType: "details",
-    iframeUrl: "aurelia_golf_flythrough.html",
+    iframeUrl: "demo-sites/aurelia_golf_flythrough.html",
     summary: "A cinematic forward-travel golf course flythrough concept designed to showcase a premium club experience.",
     services: ["Web Design", "Interactive Experience", "Luxury Positioning", "Course Showcase"],
     featured: true
