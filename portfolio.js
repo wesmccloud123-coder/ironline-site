@@ -3,7 +3,7 @@ window.PORTFOLIO_DATA = [
     title: "Aurelia Golf Club",
     slug: "aurelia-golf-club",
     category: "Golf Club / Luxury Demo",
-    image: "demo-sites/aurelia-golf-club.jpg",
+    image: "demo-sites-images/aurelia-golf-club.jpg",
     liveUrl: "demo-sites/aurelia_golf_flythrough.html",
     modalType: "details",
     iframeUrl: "demo-sites/aurelia_golf_flythrough.html",
