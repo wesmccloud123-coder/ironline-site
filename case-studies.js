@@ -1,14 +1,14 @@
-window.CASE_STUDY_DATA = [
+﻿window.CASE_STUDY_DATA = [
   {
     slug: "lead-response-time-cut",
     title: "Lead response time cut from 6 hours to under 12 minutes",
     category: "Lead Handling",
-    summary: "A growing service business was losing deals to faster competitors. Leads came in from 3 channels with no unified tracking and no automatic follow-up - just reps manually checking inboxes and hoping nothing fell through.",
+    summary: "A growing service business was losing deals to faster competitors. Leads came in from 3 channels with no unified tracking and no automatic follow-up — just reps manually checking inboxes.",
     tags: ["Automation", "Pipeline Visibility", "Response Speed"],
     problem_title: "Response delays and no visibility",
     problem: "Average lead response was 6+ hours. No one had clear visibility into which leads were waiting or which had gone cold. The pipeline was managed by memory, not software.",
     change_title: "Centralized intake and follow-up",
-    change: "IronLine built a centralized intake system that routes leads by source, triggers an immediate automated response, and creates a tracked follow-up task within 15 minutes of every new submission.",
+    change: "IronLine built a centralized intake system that routes leads by source, triggers an immediate automated response, and creates a tracked follow-up task within 15 minutes of submission.",
     outcome_title: "Faster response and full control",
     outcome: "Lead response time dropped to under 12 minutes. Zero leads dropped in the 90 days post-launch. The team went from chasing the pipeline to managing it.",
     details: [
@@ -18,14 +18,14 @@ window.CASE_STUDY_DATA = [
   },
   {
     slug: "manual-data-entry-eliminated",
-    title: "14 hours of manual data entry eliminated every week",
+    title: "14 hours of manual data entry eliminated per week",
     category: "Systems Integration",
-    summary: "A 30-person professional services firm was manually re-entering project data between their CRM, project management tool, and billing system - multiple times a week, on every new engagement.",
+    summary: "A 30-person professional services firm was manually re-entering project data between their CRM, project management tool, and billing system — multiple times a week, on every new engagement.",
     tags: ["Integration", "Admin Reduction", "Workflow Cleanup"],
     problem_title: "Copy-paste work across three systems",
-    problem: "Every new project triggered a cascade of copy-paste tasks across 3 platforms. Errors were common. Billing was regularly delayed. Staff were spending meaningful time on work that should never require a human.",
+    problem: "Every new project triggered a cascade of copy-paste tasks across 3 platforms. Errors were common. Billing was delayed. Staff were spending meaningful time on work that should never require a human.",
     change_title: "Custom integration layer",
-    change: "IronLine connected the three platforms with a custom integration layer. New projects now flow automatically from CRM to project management to invoicing with no manual touchpoints required.",
+    change: "IronLine connected the three platforms with a custom integration layer. New projects now flow automatically from CRM to project management to invoicing with no manual touchpoints.",
     outcome_title: "Less admin, faster billing",
     outcome: "14 hours of admin eliminated per week. Billing cycle shortened by 4 days. Zero data entry errors in the 60 days post-launch.",
     details: [
@@ -35,16 +35,16 @@ window.CASE_STUDY_DATA = [
   },
   {
     slug: "issues-surface-in-24-hours",
-    title: "Operational problems now surface in 24 hours instead of 2 weeks",
+    title: "Leadership now finds out about operational problems in 24 hours instead of 2 weeks",
     category: "Operational Visibility",
-    summary: "A multi-unit services company held weekly leadership meetings where every department showed different numbers. No one could agree on the source of truth, and no one was finding out about problems until the damage was already done.",
+    summary: "A multi-unit services company ran weekly leadership meetings with conflicting numbers. Every department used a different reporting tool. No one could agree on the source of truth.",
     tags: ["Reporting", "Dashboards", "Leadership Visibility"],
     problem_title: "Delayed insight and partial truth",
-    problem: "Decisions were being made on incomplete data. Operational failures were surfacing 2-3 weeks after they started - by which point the cost was already baked in and the window to act had closed.",
+    problem: "Decisions were being made on partial data. Operational failures were surfacing 2–3 weeks after they started — by which point the cost was already baked in.",
     change_title: "Unified live dashboard",
-    change: "IronLine built a unified operations dashboard pulling live data from all 5 business units. Anomalies surface automatically. Each department lead has a tailored view of what matters to them specifically.",
+    change: "IronLine built a unified operations dashboard pulling live data from all 5 business units. Anomalies surface automatically. Each department lead has a tailored view of what matters to them.",
     outcome_title: "Earlier warnings, faster action",
-    outcome: "Two hours of weekly reporting prep eliminated. Operational issues now surface within 24 hours. Leadership stopped arguing about the numbers and started acting on them.",
+    outcome: "2 hours of weekly reporting prep eliminated. Operational issues now surface within 24 hours. Leadership stopped arguing about the numbers and started acting on them.",
     details: [
       "Visibility improved because the reporting system stopped asking leaders to reconcile conflicting sources by hand.",
       "The result was faster intervention, less debate, and a clearer operating picture across the business."
