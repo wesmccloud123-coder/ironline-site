@@ -5,7 +5,7 @@ window.PORTFOLIO_DATA = [
     category: "Golf Club / Luxury Demo",
     image: "demo-sites-images/aurelia-golf-club.jpg",
     liveUrl: "demo-sites/aurelia_golf_flythrough.html",
-    modalType: "details",
+    modalType: "iframe",
     iframeUrl: "demo-sites/aurelia_golf_flythrough.html",
     summary: "A cinematic forward-travel golf course flythrough concept designed to showcase a premium club experience.",
     services: ["Web Design", "Interactive Experience", "Luxury Positioning", "Course Showcase"],
