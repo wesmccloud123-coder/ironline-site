@@ -1,1 +1,0 @@
-Replace form endpoint with your own. Deploy on Vercel or Netlify.

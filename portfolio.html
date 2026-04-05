@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio | IronLine Systems</title>
+<meta name="description" content="Website design demos, mock projects, and client-style builds from IronLine Systems." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><div class="brand-mark">IL</div><div>IRONLINE SYSTEMS</div></a>
+    <nav class="nav-links">
+      <a href="index.html" class="">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="insights.html" class="">Insights</a>
+      <a href="case-studies.html" class="">Case Studies</a>
+      <a href="contact.html" class="">Contact</a>
+    </nav>
+    <div>
+      <a href="contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
+      <button class="menu-btn" id="menuToggle">&#9776;</button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-links">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="insights.html">Insights</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero">
+  <div class="container page-head">
+    <div class="badge">Portfolio</div>
+    <h1>Web experiences designed to look sharp and convert cleanly.</h1>
+    <p>Browse IronLine-style website concepts, productized demos, and client-style mock builds. Each project supports a fast quick view and a direct visit link for the live experience.</p>
+  </div>
+</section>
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="portfolio-intro card">
+      <div>
+        <div class="eyebrow">What is included</div>
+        <h2>Static demos, branded mock projects, and polished front-end showcases.</h2>
+        <p class="muted">The portfolio grid below is rendered from <strong>portfolio.js</strong>, so adding or editing projects stays simple: update the data file and the page refreshes automatically.</p>
+      </div>
+      <div class="portfolio-intro-points">
+        <div class="portfolio-intro-point"><strong>Quick View modal</strong><span>Preview details or an embedded live page without leaving the grid.</span></div>
+        <div class="portfolio-intro-point"><strong>Visit Site action</strong><span>Open the full website in a new tab for a complete walkthrough.</span></div>
+        <div class="portfolio-intro-point"><strong>Easy to extend</strong><span>Drop in new objects, tags, URLs, and images whenever you want.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div id="portfolioGrid" class="portfolio-grid" aria-live="polite"></div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div><strong>IRONLINE SYSTEMS</strong><br><span class="muted">Operational software. Automation. Systems strategy.</span></div>
+    <div>© 2026 IronLine Systems. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="portfolio-modal" id="portfolioModal" aria-hidden="true">
+  <div class="portfolio-modal-overlay" data-modal-close="true"></div>
+  <div class="portfolio-modal-dialog card" role="dialog" aria-modal="true" aria-labelledby="portfolioModalTitle">
+    <button class="portfolio-modal-close" id="portfolioModalClose" type="button" aria-label="Close quick view">&times;</button>
+    <div class="portfolio-modal-content" id="portfolioModalContent"></div>
+  </div>
+</div>
+
+<script src="portfolio.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
