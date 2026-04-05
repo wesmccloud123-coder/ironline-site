@@ -106,7 +106,7 @@ function renderCasePage() {
       <div class="result-grid">
         <div class="result-box"><small>Problem</small><strong>${item.problem_title}</strong><span>${item.problem}</span></div>
         <div class="result-box"><small>What changed</small><strong>${item.change_title}</strong><span>${item.change}</span></div>
-        <div class="result-box"><small>Outcome</small><strong>${item.outcome_title}</strong><span>${item.outcome}</span></div>
+        <div class="result-box"><small>The result</small><strong>${item.outcome_title}</strong><span>${item.outcome}</span></div>
       </div>
       <div class="article-body" style="margin-top:28px;">${(item.details || []).map(detail => `<p>${detail}</p>`).join("")}</div>
     </article>`;

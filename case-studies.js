@@ -1,54 +1,53 @@
-
 window.CASE_STUDY_DATA = [
   {
-    slug: "lead-follow-up-visibility",
-    title: "Service business with weak lead follow-up and poor visibility",
+    slug: "lead-response-time-cut",
+    title: "Lead response time cut from 6 hours to under 12 minutes",
     category: "Lead Handling",
-    summary: "Leads were coming in from multiple sources, response time was inconsistent, and nobody had a clean view of what was delayed or missed.",
+    summary: "A growing service business was losing deals to faster competitors. Leads came in from 3 channels with no unified tracking and no automatic follow-up - just reps manually checking inboxes and hoping nothing fell through.",
     tags: ["Automation", "Pipeline Visibility", "Response Speed"],
-    problem_title: "Scattered lead handling",
-    problem: "Opportunities were delayed, missed, or followed up too late because intake and ownership were inconsistent.",
-    change_title: "Centralized workflow logic",
-    change: "Lead intake, status movement, and follow-up became more controlled and easier to track.",
-    outcome_title: "Faster response, cleaner visibility",
-    outcome: "Leadership could see bottlenecks faster and staff had less guesswork in day-to-day execution.",
+    problem_title: "Response delays and no visibility",
+    problem: "Average lead response was 6+ hours. No one had clear visibility into which leads were waiting or which had gone cold. The pipeline was managed by memory, not software.",
+    change_title: "Centralized intake and follow-up",
+    change: "IronLine built a centralized intake system that routes leads by source, triggers an immediate automated response, and creates a tracked follow-up task within 15 minutes of every new submission.",
+    outcome_title: "Faster response and full control",
+    outcome: "Lead response time dropped to under 12 minutes. Zero leads dropped in the 90 days post-launch. The team went from chasing the pipeline to managing it.",
     details: [
-      "This kind of case study works because it names an operational pain buyers immediately recognize.",
-      "As you collect real outcomes, replace placeholder language with actual numbers and a clearer before/after story."
+      "This build replaced scattered channel monitoring with a single, reliable intake path the team could trust.",
+      "The biggest gain was not just speed. It was knowing every lead had a next step and an owner."
     ]
   },
   {
-    slug: "lead-follow-up-visibility",
-    title: "Service business with weak lead follow-up and poor visibility",
-    category: "Lead Handling",
-    summary: "Leads were coming in from multiple sources, response time was inconsistent, and nobody had a clean view of what was delayed or missed.",
-    tags: ["Automation", "Pipeline Visibility", "Response Speed"],
-    problem_title: "Scattered lead handling",
-    problem: "Opportunities were delayed, missed, or followed up too late because intake and ownership were inconsistent.",
-    change_title: "Centralized workflow logic",
-    change: "Lead intake, status movement, and follow-up became more controlled and easier to track.",
-    outcome_title: "Faster response, cleaner visibility",
-    outcome: "Leadership could see bottlenecks faster and staff had less guesswork in day-to-day execution.",
-    details: [
-      "This kind of case study works because it names an operational pain buyers immediately recognize.",
-      "As you collect real outcomes, replace placeholder language with actual numbers and a clearer before/after story."
-    ]
-  },
-  {
-    slug: "disconnected-tools-admin-drag",
-    title: "Company dealing with disconnected systems and admin drag",
+    slug: "manual-data-entry-eliminated",
+    title: "14 hours of manual data entry eliminated every week",
     category: "Systems Integration",
-    summary: "Teams were re-entering data and compensating for broken handoffs with labor. The real issue was weak system design.",
+    summary: "A 30-person professional services firm was manually re-entering project data between their CRM, project management tool, and billing system - multiple times a week, on every new engagement.",
     tags: ["Integration", "Admin Reduction", "Workflow Cleanup"],
-    problem_title: "Too much manual movement",
-    problem: "Data moved between tools by hand and staff compensated for bad handoffs with extra admin effort.",
-    change_title: "Cleaner integrations",
-    change: "Key steps were connected more clearly so the process relied less on memory and manual copying.",
-    outcome_title: "Less drag, more consistency",
-    outcome: "The workflow became easier to trust and leadership had fewer invisible breakdowns to chase.",
+    problem_title: "Copy-paste work across three systems",
+    problem: "Every new project triggered a cascade of copy-paste tasks across 3 platforms. Errors were common. Billing was regularly delayed. Staff were spending meaningful time on work that should never require a human.",
+    change_title: "Custom integration layer",
+    change: "IronLine connected the three platforms with a custom integration layer. New projects now flow automatically from CRM to project management to invoicing with no manual touchpoints required.",
+    outcome_title: "Less admin, faster billing",
+    outcome: "14 hours of admin eliminated per week. Billing cycle shortened by 4 days. Zero data entry errors in the 60 days post-launch.",
     details: [
-      "A strong case study should isolate the business pain, explain the fix, and state the operational outcome.",
-      "Do not stuff case studies with vague language. Precision wins."
+      "The fix reduced labor, but it also removed a recurring source of downstream billing mistakes.",
+      "Once the handoffs were systemized, the team stopped spending energy babysitting routine project setup."
+    ]
+  },
+  {
+    slug: "issues-surface-in-24-hours",
+    title: "Operational problems now surface in 24 hours instead of 2 weeks",
+    category: "Operational Visibility",
+    summary: "A multi-unit services company held weekly leadership meetings where every department showed different numbers. No one could agree on the source of truth, and no one was finding out about problems until the damage was already done.",
+    tags: ["Reporting", "Dashboards", "Leadership Visibility"],
+    problem_title: "Delayed insight and partial truth",
+    problem: "Decisions were being made on incomplete data. Operational failures were surfacing 2-3 weeks after they started - by which point the cost was already baked in and the window to act had closed.",
+    change_title: "Unified live dashboard",
+    change: "IronLine built a unified operations dashboard pulling live data from all 5 business units. Anomalies surface automatically. Each department lead has a tailored view of what matters to them specifically.",
+    outcome_title: "Earlier warnings, faster action",
+    outcome: "Two hours of weekly reporting prep eliminated. Operational issues now surface within 24 hours. Leadership stopped arguing about the numbers and started acting on them.",
+    details: [
+      "Visibility improved because the reporting system stopped asking leaders to reconcile conflicting sources by hand.",
+      "The result was faster intervention, less debate, and a clearer operating picture across the business."
     ]
   }
 ];
