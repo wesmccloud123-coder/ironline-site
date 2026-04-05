@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trattoria Roma | Italian Bistro</title>
+  <meta
+    name="description"
+    content="Trattoria Roma is an elegant Italian bistro serving handmade pasta, signature entrées, and warm Roman hospitality."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --burgundy: #6B0F1A;
+      --burgundy-dark: #4f0912;
+      --cream: #f7f1e7;
+      --gold: #c9a55b;
+      --gold-soft: #e4cf9a;
+      --text-dark: #241616;
+      --text-light: #fff8f0;
+      --card: #fffaf3;
+      --border: rgba(201, 165, 91, 0.28);
+      --shadow: 0 18px 40px rgba(28, 11, 11, 0.18);
+      --max-width: 1200px;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Playfair Display", serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      color: var(--burgundy);
+      margin-bottom: 0.9rem;
+    }
+
+    .section-subtitle {
+      max-width: 720px;
+      font-size: 1.05rem;
+      color: rgba(36, 22, 22, 0.82);
+      margin-bottom: 2.25rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--gold);
+      margin-bottom: 0.85rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 2px solid transparent;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: var(--burgundy-dark);
+      box-shadow: 0 10px 24px rgba(201, 165, 91, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.03);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(255, 248, 240, 0.45);
+      color: var(--text-light);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(107, 15, 26, 0.88);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      color: var(--text-light);
+    }
+
+    .brand h1 {
+      font-size: 1.45rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-top: 0.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.35rem;
+      align-items: center;
+      color: var(--text-light);
+    }
+
+    .nav-links a {
+      position: relative;
+      font-size: 0.98rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(25, 8, 12, 0.35), rgba(25, 8, 12, 0.72)),
+        radial-gradient(circle at top left, rgba(201, 165, 91, 0.18), transparent 35%),
+        linear-gradient(135deg, rgba(107, 15, 26, 0.98), rgba(79, 9, 18, 0.95)),
+        linear-gradient(120deg, #8d1b2d, #5f0d18);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(10px);
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 360px;
+      height: 360px;
+      background: var(--gold);
+      top: -90px;
+      right: -80px;
+    }
+
+    .hero::after {
+      width: 280px;
+      height: 280px;
+      background: #f1d9aa;
+      bottom: -90px;
+      left: -70px;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 4rem 0;
+    }
+
+    .hero-copy {
+      color: var(--text-light);
+      max-width: 680px;
+    }
+
+    .hero-copy .eyebrow {
+      color: var(--gold-soft);
+    }
+
+    .hero h2 {
+      font-size: clamp(2.8rem, 6vw, 5.6rem);
+      line-height: 0.95;
+      margin-bottom: 1.2rem;
+      text-wrap: balance;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      max-width: 600px;
+      color: rgba(255, 248, 240, 0.88);
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      justify-self: end;
+      width: min(100%, 430px);
+      background: rgba(255, 250, 243, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-visual {
+      min-height: 460px;
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.26)),
+        linear-gradient(135deg, #d7b776, #b88234 35%, #7b1220 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 248, 240, 0.14);
+    }
+
+    .hero-visual::before {
+      width: 240px;
+      height: 240px;
+      top: 8%;
+      left: 8%;
+    }
+
+    .hero-visual::after {
+      width: 140px;
+      height: 140px;
+      bottom: 12%;
+      right: 10%;
+    }
+
+    .hero-note {
+      margin-top: 1rem;
+      color: var(--text-light);
+      font-size: 0.96rem;
+      opacity: 0.92;
+      text-align: center;
+    }
+
+    .dishes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .dish-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease;
+    }
+
+    .dish-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .dish-image {
+      height: 240px;
+      background:
+        linear-gradient(160deg, rgba(201, 165, 91, 0.8), rgba(107, 15, 26, 0.86)),
+        linear-gradient(120deg, #e4cf9a, #6B0F1A);
+    }
+
+    .dish-content {
+      padding: 1.35rem;
+    }
+
+    .dish-content h3 {
+      color: var(--burgundy);
+      font-size: 1.45rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .dish-content p {
+      color: rgba(36, 22, 22, 0.82);
+      font-size: 0.98rem;
+    }
+
+    .about {
+      background:
+        linear-gradient(180deg, rgba(107, 15, 26, 0.04), rgba(107, 15, 26, 0.01));
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      min-height: 480px;
+      border-radius: 24px;
+      background:
+        linear-gradient(rgba(30, 13, 13, 0.18), rgba(30, 13, 13, 0.18)),
+        linear-gradient(135deg, #c9a55b, #f0dfb4 45%, #6B0F1A 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .about-copy {
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2rem;
+    }
+
+    .about-copy p + p {
+      margin-top: 1rem;
+    }
+
+    .quote {
+      margin-top: 1.4rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--gold);
+      color: var(--burgundy);
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+
+    .location-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .location-copy .info-card {
+      margin-top: 1.4rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .map-placeholder {
+      min-height: 420px;
+      border-radius: 24px;
+      border: 2px dashed rgba(107, 15, 26, 0.25);
+      background:
+        linear-gradient(135deg, rgba(107, 15, 26, 0.08), rgba(201, 165, 91, 0.18)),
+        repeating-linear-gradient(
+          45deg,
+          rgba(255,255,255,0.35),
+          rgba(255,255,255,0.35) 12px,
+          rgba(255,255,255,0.15) 12px,
+          rgba(255,255,255,0.15) 24px
+        );
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 2rem;
+      color: var(--burgundy);
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+
+    .footer {
+      background: var(--burgundy);
+      color: var(--text-light);
+      padding: 3rem 0 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .footer h4 {
+      color: var(--gold-soft);
+      margin-bottom: 0.85rem;
+      font-size: 1.1rem;
+    }
+
+    .hours-list,
+    .footer-links {
+      list-style: none;
+    }
+
+    .hours-list li,
+    .footer-links li {
+      margin-bottom: 0.55rem;
+      color: rgba(255, 248, 240, 0.88);
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 248, 240, 0.72);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .location-wrap,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        justify-self: stretch;
+      }
+
+      .dishes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-links {
+        gap: 0.85rem;
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .site-header {
+        position: static;
+      }
+
+      .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        padding: 3rem 0 4rem;
+      }
+
+      .hero h2 {
+        line-height: 1;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .dishes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .dish-image,
+      .about-visual,
+      .map-placeholder,
+      .hero-visual {
+        min-height: 260px;
+        height: auto;
+      }
+
+      .about-copy {
+        padding: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <h1>Trattoria Roma</h1>
+        <span>Italian Bistro</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="#menu">Featured Dishes</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#visit">Visit</a></li>
+          <li><a href="#hours">Hours</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">An Evening in Rome</span>
+          <h2>Classic Italian dining with warmth, theater, and soul.</h2>
+          <p>
+            Trattoria Roma brings candlelit charm, handmade pasta, and rich
+            regional flavors to the table. Designed for date nights, family
+            dinners, and unforgettable celebrations.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#visit" class="btn btn-primary">Reserve a Table</a>
+            <a href="#menu" class="btn btn-secondary">Explore the Menu</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-visual" aria-label="Cinematic dining atmosphere placeholder"></div>
+          <p class="hero-note">Golden lighting, velvet tones, and a Roman-inspired dining experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="section">
+      <div class="container">
+        <span class="eyebrow">Featured Dishes</span>
+        <h2 class="section-title">Signature plates worth lingering over.</h2>
+        <p class="section-subtitle">
+          From slow-simmered sauces to delicate fresh pasta, every dish is built
+          to feel indulgent, balanced, and unmistakably Italian.
+        </p>
+
+        <div class="dishes-grid">
+          <article class="dish-card">
+            <div class="dish-image" aria-label="Pasta dish placeholder"></div>
+            <div class="dish-content">
+              <h3>Tagliatelle al Tartufo</h3>
+              <p>
+                Silky ribbons of fresh pasta tossed with truffle cream, aged
+                parmesan, and a touch of cracked black pepper for a rich, elegant finish.
+              </p>
+            </div>
+          </article>
+
+          <article class="dish-card">
+            <div class="dish-image" aria-label="Seafood dish placeholder"></div>
+            <div class="dish-content">
+              <h3>Branzino alla Romana</h3>
+              <p>
+                Pan-seared Mediterranean sea bass served with lemon herb butter,
+                roasted vegetables, and a delicate white wine reduction.
+              </p>
+            </div>
+          </article>
+
+          <article class="dish-card">
+            <div class="dish-image" aria-label="Dessert placeholder"></div>
+            <div class="dish-content">
+              <h3>Tiramisu della Casa</h3>
+              <p>
+                House-made tiramisu layered with espresso-soaked sponge,
+                mascarpone cream, and a dusting of dark cocoa for a timeless finish.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="container about-grid">
+        <div class="about-visual" aria-label="Chef portrait placeholder"></div>
+
+        <div class="about-copy">
+          <span class="eyebrow">Our Story</span>
+          <h2 class="section-title">A chef’s table shaped by memory and craft.</h2>
+          <p>
+            Chef Marco Romano grew up in a family kitchen where meals lasted for
+            hours and every recipe carried a story. After training in Rome and
+            working in modern bistros across Europe, he opened Trattoria Roma to
+            recreate that same feeling of generosity and ceremony.
+          </p>
+          <p>
+            The result is a restaurant built around handmade preparation, warm
+            hospitality, and dishes that honor tradition while still feeling refined.
+            Every plate is meant to slow the evening down.
+          </p>
+          <p class="quote">
+            “The best Italian meal doesn’t rush you. It invites you to stay.”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="visit" class="section">
+      <div class="container location-wrap">
+        <div class="location-copy">
+          <span class="eyebrow">Visit Us</span>
+          <h2 class="section-title">Find your table in the heart of the city.</h2>
+          <p class="section-subtitle">
+            Perfect for intimate dinners, celebrations, and spontaneous late-night pasta cravings.
+          </p>
+
+          <div class="info-card">
+            <strong>Trattoria Roma</strong><br />
+            128 Via Bellissima Avenue<br />
+            Downtown District, Your City, ST 00000<br /><br />
+            <strong>Reservations:</strong> (555) 123-4567
+          </div>
+        </div>
+
+        <div class="map-placeholder" aria-label="Google Maps placeholder">
+          <div>
+            <div style="font-size: 1.4rem; margin-bottom: 0.6rem;">Google Maps Placeholder</div>
+            <div style="font-weight: 400; color: rgba(107, 15, 26, 0.84);">
+              Replace this div with your embedded Google Map iframe when ready.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="hours" class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Trattoria Roma</h4>
+        <p>
+          An Italian bistro inspired by Roman evenings, timeless hospitality,
+          and beautifully composed food.
+        </p>
+      </div>
+
+      <div>
+        <h4>Opening Hours</h4>
+        <ul class="hours-list">
+          <li>Monday – Thursday: 4:30 PM – 9:30 PM</li>
+          <li>Friday: 4:30 PM – 10:30 PM</li>
+          <li>Saturday: 3:30 PM – 10:30 PM</li>
+          <li>Sunday: 3:30 PM – 8:30 PM</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#menu">Featured Dishes</a></li>
+          <li><a href="#about">Chef Story</a></li>
+          <li><a href="#visit">Reservations</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-note">
+      © 2026 Trattoria Roma. Crafted for a warm, elegant dining experience.
+    </div>
+  </footer>
+</body>
+</html>

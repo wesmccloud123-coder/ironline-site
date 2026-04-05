@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summit Financial Group</title>
+  <meta name="description" content="Summit Financial Group offers dependable accounting, tax strategy, bookkeeping, and advisory services for growing businesses and individuals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F8F6;
+      --surface: #ffffff;
+      --surface-alt: #f2f4ef;
+      --text: #2a2a2a;
+      --muted: #5f675f;
+      --accent: #2D6A4F;
+      --accent-dark: #224f3b;
+      --line: #d9dfd5;
+      --shadow: 0 18px 40px rgba(27, 39, 30, 0.08);
+      --radius: 22px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--accent) 22%, #52a37a 52%, var(--accent) 78%, transparent 100%);
+      transform-origin: left center;
+      animation: loadLine 2.2s ease forwards;
+      z-index: 9999;
+      box-shadow: 0 0 16px rgba(45, 106, 79, 0.35);
+    }
+
+    @keyframes loadLine {
+      0% {
+        transform: scaleX(0);
+        opacity: 0.1;
+      }
+      55% {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scaleX(1);
+        opacity: 0.85;
+      }
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--container));
+      margin: 0 auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .section {
+      padding: 5.5rem 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid rgba(45, 106, 79, 0.14);
+      border-radius: 999px;
+      background: rgba(45, 106, 79, 0.06);
+      color: var(--accent-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .section-copy {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 52px;
+      padding: 0.95rem 1.35rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.98rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(45, 106, 79, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(42, 42, 42, 0.12);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(248, 248, 246, 0.86);
+      border-bottom: 1px solid rgba(42, 42, 42, 0.06);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      background: rgba(255,255,255,0.9);
+      border-radius: 999px;
+    }
+
+    .brand-mark::before {
+      width: 20px;
+      height: 3px;
+      top: 13px;
+      left: 13px;
+      transform: rotate(-35deg);
+    }
+
+    .brand-mark::after {
+      width: 20px;
+      height: 3px;
+      top: 24px;
+      left: 13px;
+      transform: rotate(35deg);
+    }
+
+    .brand-text strong {
+      display: block;
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 0.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      position: relative;
+      padding: 5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.06;
+      margin: 1.2rem 0 1.25rem;
+      max-width: 12ch;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 58ch;
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .hero-points span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .hero-points span::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(45, 106, 79, 0.1);
+    }
+
+    .hero-visual {
+      background: radial-gradient(circle at top right, rgba(45, 106, 79, 0.15), transparent 38%), var(--surface);
+      border: 1px solid rgba(45, 106, 79, 0.1);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 1.2rem;
+    }
+
+    .dashboard-card {
+      border-radius: 24px;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f6f1 100%);
+      min-height: 510px;
+      overflow: hidden;
+      border: 1px solid rgba(45, 106, 79, 0.08);
+      position: relative;
+    }
+
+    .dashboard-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(45,106,79,0.08), transparent 35%, rgba(45,106,79,0.05));
+      pointer-events: none;
+    }
+
+    .dashboard-top {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+      padding: 1.15rem;
+    }
+
+    .mini-panel,
+    .main-panel,
+    .side-panel,
+    .chart-panel {
+      background: #fff;
+      border: 1px solid rgba(45, 106, 79, 0.08);
+      border-radius: 18px;
+    }
+
+    .mini-panel {
+      min-height: 88px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mini-panel small,
+    .panel-label,
+    .chart-header span,
+    .list-item span,
+    .timeline-row span {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .mini-panel strong,
+    .panel-value,
+    .list-item strong,
+    .timeline-row strong {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .dashboard-body {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 1rem;
+      padding: 0 1.15rem 1.15rem;
+    }
+
+    .main-panel {
+      min-height: 290px;
+      padding: 1rem;
+    }
+
+    .panel-head,
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .panel-chip {
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(45, 106, 79, 0.08);
+      color: var(--accent-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .bars {
+      display: flex;
+      align-items: end;
+      gap: 0.9rem;
+      height: 180px;
+      padding: 0.75rem 0.25rem 0;
+    }
+
+    .bar-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .bar {
+      width: 100%;
+      max-width: 46px;
+      border-radius: 18px 18px 10px 10px;
+      background: linear-gradient(180deg, #63b18a 0%, var(--accent) 100%);
+      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+
+    .bar.one { height: 52%; }
+    .bar.two { height: 76%; }
+    .bar.three { height: 61%; }
+    .bar.four { height: 88%; }
+    .bar.five { height: 70%; }
+
+    .bar-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .side-stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .side-panel,
+    .chart-panel {
+      padding: 1rem;
+    }
+
+    .list {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem 0.9rem;
+      border-radius: 14px;
+      background: var(--surface-alt);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+
+    .timeline-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(42, 42, 42, 0.07);
+    }
+
+    .services-grid,
+    .industries,
+    .stats-grid {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid rgba(45, 106, 79, 0.08);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 50px rgba(27, 39, 30, 0.12);
+    }
+
+    .icon-placeholder {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(45, 106, 79, 0.16), rgba(45, 106, 79, 0.06));
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .icon-placeholder::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 12px;
+      border: 2px solid rgba(45, 106, 79, 0.45);
+    }
+
+    .card h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.28rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .why-us {
+      background: linear-gradient(180deg, rgba(45, 106, 79, 0.05), rgba(45, 106, 79, 0.02));
+      border-top: 1px solid rgba(45, 106, 79, 0.08);
+      border-bottom: 1px solid rgba(45, 106, 79, 0.08);
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(45, 106, 79, 0.08);
+      border-radius: 24px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      line-height: 1;
+      color: var(--accent-dark);
+      margin-bottom: 0.65rem;
+      font-weight: 800;
+    }
+
+    .stat-card h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .stat-card p {
+      color: var(--muted);
+    }
+
+    .industries {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: start;
+    }
+
+    .industry-card,
+    .industry-visual {
+      background: var(--surface);
+      border-radius: 28px;
+      border: 1px solid rgba(45, 106, 79, 0.08);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+    }
+
+    .badge-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 1.25rem;
+    }
+
+    .badge {
+      padding: 0.8rem 1rem;
+      border-radius: 999px;
+      background: var(--surface-alt);
+      border: 1px solid rgba(45, 106, 79, 0.1);
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .industry-visual {
+      min-height: 100%;
+      display: grid;
+      gap: 1rem;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f6f1 100%);
+    }
+
+    .visual-block {
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(45,106,79,0.18), rgba(45,106,79,0.05));
+      min-height: 160px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visual-block::before,
+    .visual-block::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(45, 106, 79, 0.12);
+    }
+
+    .visual-block::before {
+      width: 220px;
+      height: 220px;
+      right: -60px;
+      top: -60px;
+    }
+
+    .visual-block::after {
+      width: 140px;
+      height: 140px;
+      left: -30px;
+      bottom: -40px;
+    }
+
+    .visual-copy {
+      position: relative;
+      z-index: 1;
+      padding: 1.4rem;
+      max-width: 26ch;
+    }
+
+    .visual-copy h3 {
+      font-family: 'Merriweather', serif;
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+    }
+
+    .visual-copy p {
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 4rem 0 2rem;
+      background: #eef2ec;
+      border-top: 1px solid rgba(45, 106, 79, 0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .footer-copy h2 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.15;
+      margin: 0.9rem 0 0.8rem;
+      padding-left: 1rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .footer-copy p {
+      color: var(--muted);
+      max-width: 52ch;
+    }
+
+    .newsletter-form {
+      background: var(--surface);
+      border: 1px solid rgba(45, 106, 79, 0.08);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      padding: 1.2rem;
+      display: flex;
+      gap: 0.85rem;
+      align-items: center;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      height: 54px;
+      border-radius: 999px;
+      border: 1px solid rgba(42, 42, 42, 0.1);
+      background: #fff;
+      padding: 0 1rem;
+      font: inherit;
+      color: var(--text);
+      outline: none;
+    }
+
+    .newsletter-form input:focus {
+      border-color: rgba(45, 106, 79, 0.4);
+      box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.08);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(42, 42, 42, 0.08);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .industries,
+      .footer-grid,
+      .dashboard-body,
+      .services-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dashboard-card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        min-height: 72px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 4rem 0 3rem;
+      }
+
+      .section {
+        padding: 4.2rem 0;
+      }
+
+      .services-grid,
+      .stats-grid,
+      .dashboard-top {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn,
+      .newsletter-form button {
+        width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-points {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Summit Financial Group home">
+        <div class="brand-mark"></div>
+        <div class="brand-text">
+          <strong>Summit Financial Group</strong>
+          <span>Accounting with direction and discipline</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#industries">Industries</a>
+        <a href="#newsletter">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Trusted accounting for growth-minded clients</span>
+          <h1>Financial clarity that helps you move with confidence.</h1>
+          <p>
+            Summit Financial Group helps business owners and individuals get organized,
+            stay compliant, and make smarter financial decisions with clean reporting,
+            steady guidance, and proactive support.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#newsletter" class="btn btn-primary">Book a Free Consult</a>
+            <a href="#services" class="btn btn-secondary">Explore Services</a>
+          </div>
+
+          <div class="hero-points">
+            <span>Year-round advisory support</span>
+            <span>Clear reporting and planning</span>
+            <span>Responsive, practical guidance</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Decorative accounting dashboard placeholder">
+          <div class="dashboard-card">
+            <div class="dashboard-top">
+              <div class="mini-panel">
+                <small>Cash Flow Health</small>
+                <strong>Strong</strong>
+              </div>
+              <div class="mini-panel">
+                <small>Quarterly Forecast</small>
+                <strong>+18%</strong>
+              </div>
+              <div class="mini-panel">
+                <small>Tax Readiness</small>
+                <strong>On Track</strong>
+              </div>
+            </div>
+
+            <div class="dashboard-body">
+              <div class="main-panel">
+                <div class="panel-head">
+                  <div>
+                    <div class="panel-label">Revenue Snapshot</div>
+                    <div class="panel-value">2026 Performance</div>
+                  </div>
+                  <div class="panel-chip">Quarterly View</div>
+                </div>
+                <div class="bars">
+                  <div class="bar-wrap">
+                    <div class="bar one"></div>
+                    <div class="bar-label">Jan</div>
+                  </div>
+                  <div class="bar-wrap">
+                    <div class="bar two"></div>
+                    <div class="bar-label">Feb</div>
+                  </div>
+                  <div class="bar-wrap">
+                    <div class="bar three"></div>
+                    <div class="bar-label">Mar</div>
+                  </div>
+                  <div class="bar-wrap">
+                    <div class="bar four"></div>
+                    <div class="bar-label">Apr</div>
+                  </div>
+                  <div class="bar-wrap">
+                    <div class="bar five"></div>
+                    <div class="bar-label">May</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="side-stack">
+                <div class="side-panel">
+                  <div class="chart-header">
+                    <strong>Focus Areas</strong>
+                    <span>This Month</span>
+                  </div>
+                  <div class="list">
+                    <div class="list-item">
+                      <span>Bookkeeping</span>
+                      <strong>100%</strong>
+                    </div>
+                    <div class="list-item">
+                      <span>Tax Planning</span>
+                      <strong>82%</strong>
+                    </div>
+                    <div class="list-item">
+                      <span>Reporting</span>
+                      <strong>94%</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="chart-panel">
+                  <div class="chart-header">
+                    <strong>Milestones</strong>
+                    <span>Recent</span>
+                  </div>
+                  <div class="timeline">
+                    <div class="timeline-row">
+                      <span>Forecast Updated</span>
+                      <strong>Today</strong>
+                    </div>
+                    <div class="timeline-row">
+                      <span>Tax Strategy Review</span>
+                      <strong>Mon</strong>
+                    </div>
+                    <div class="timeline-row" style="border-bottom:none; padding-bottom:0;">
+                      <span>Monthly Close</span>
+                      <strong>Done</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <h2 class="section-title">Services built for consistency, accuracy, and better decisions.</h2>
+        <p class="section-copy">
+          From daily financial organization to long-range planning, we help clients stay in control
+          of the numbers that shape the future of their business and personal finances.
+        </p>
+
+        <div class="services-grid">
+          <article class="card">
+            <div class="icon-placeholder"></div>
+            <h3>Bookkeeping</h3>
+            <p>
+              Clean monthly books, reconciled accounts, and dependable records that make every
+              report easier to trust.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon-placeholder"></div>
+            <h3>Tax Planning</h3>
+            <p>
+              Proactive tax guidance that helps reduce surprises, uncover opportunities, and support
+              better timing on major decisions.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon-placeholder"></div>
+            <h3>Financial Reporting</h3>
+            <p>
+              Straightforward reports and performance reviews that turn confusing numbers into useful
+              business insight.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon-placeholder"></div>
+            <h3>Advisory Services</h3>
+            <p>
+              Strategic support for cash flow, growth, budgeting, and planning when you need more than
+              compliance work.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why-us" id="why-us">
+      <div class="container">
+        <h2 class="section-title">Why clients choose Summit Financial Group.</h2>
+        <p class="section-copy">
+          The difference is not flashy language. It is disciplined execution, dependable communication,
+          and numbers you can actually use to make decisions.
+        </p>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <strong>15+</strong>
+            <h3>Years of Financial Experience</h3>
+            <p>
+              Built on seasoned accounting insight with practical recommendations that respect how real businesses operate.
+            </p>
+          </article>
+
+          <article class="stat-card">
+            <strong>98%</strong>
+            <h3>Client Retention</h3>
+            <p>
+              Clients stay because consistent support, thoughtful planning, and clean reporting are hard to replace.
+            </p>
+          </article>
+
+          <article class="stat-card">
+            <strong>24/7</strong>
+            <h3>Visibility Into Key Numbers</h3>
+            <p>
+              Better bookkeeping and better reporting mean fewer blind spots and faster, more confident decisions.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="industries">
+      <div class="container industries">
+        <div class="industry-card">
+          <h2 class="section-title">Serving a range of clients and industries.</h2>
+          <p class="section-copy">
+            We support businesses and individuals who need reliable accounting without the usual confusion,
+            delays, or reactive advice. Whether you are growing, restructuring, or just trying to get organized,
+            the right financial systems matter.
+          </p>
+
+          <div class="badge-wrap">
+            <span class="badge">Professional Services</span>
+            <span class="badge">Construction</span>
+            <span class="badge">Healthcare</span>
+            <span class="badge">Retail</span>
+            <span class="badge">Real Estate</span>
+            <span class="badge">Hospitality</span>
+            <span class="badge">Startups</span>
+            <span class="badge">Individuals & Families</span>
+          </div>
+        </div>
+
+        <aside class="industry-visual" aria-label="Decorative client industry placeholder">
+          <div class="visual-block">
+            <div class="visual-copy">
+              <h3>Reliable systems. Smarter planning.</h3>
+              <p>
+                Placeholder visual block for branded photography, office imagery, or reporting screenshots.
+              </p>
+            </div>
+          </div>
+          <div class="visual-block">
+            <div class="visual-copy">
+              <h3>Built for clarity.</h3>
+              <p>
+                Use this second placeholder for a team photo, consultation scene, or client success visual.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="newsletter">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-copy">
+          <span class="eyebrow">Stay informed</span>
+          <h2>Get practical financial insights delivered to your inbox.</h2>
+          <p>
+            Join the Summit Financial Group newsletter for updates on tax planning, reporting tips,
+            cash flow strategy, and business finance best practices.
+          </p>
+        </div>
+
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" aria-label="Email address" />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Summit Financial Group. All rights reserved.</span>
+        <span>123 Evergreen Avenue · Suite 200 · Your City, ST 00000</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

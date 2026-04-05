@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Nomad — Brand Designer</title>
+  <meta
+    name="description"
+    content="Studio Nomad is a brand design portfolio focused on identity systems, packaging, and visual direction."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #F5F0EB;
+      --text: #111111;
+      --muted: #5f5a55;
+      --line: rgba(17, 17, 17, 0.12);
+      --accent: #FF5C00;
+      --card: #efe7df;
+      --white: #ffffff;
+      --max: 1240px;
+      --radius: 22px;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Syne", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 5.5rem 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 32rem;
+      justify-self: end;
+    }
+
+    /* NAV */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(245, 240, 235, 0.72);
+      border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 2px;
+      transform: rotate(12deg);
+      box-shadow: 10px 10px 0 rgba(255, 92, 0, 0.12);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.05rem;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 5.5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: end;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3.4rem, 10vw, 8.8rem);
+      line-height: 0.88;
+      letter-spacing: -0.07em;
+      font-weight: 800;
+      max-width: 10ch;
+    }
+
+    .hero-copy h1 span {
+      color: var(--accent);
+      display: inline-block;
+    }
+
+    .hero-copy p {
+      margin-top: 1.4rem;
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      max-width: 38rem;
+      color: var(--muted);
+    }
+
+    .hero-note {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-note .small {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-note h3 {
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-note p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+    }
+
+    .stat {
+      padding: 1rem;
+      border-radius: 18px;
+      background: var(--card);
+      border: 1px solid rgba(17, 17, 17, 0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* CASE STUDIES */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .case-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 440px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      isolation: isolate;
+    }
+
+    .case-visual {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(140deg, rgba(255,255,255,0.12), rgba(255,255,255,0)),
+        var(--case-color, #ddd);
+      transition: transform 0.45s ease, filter 0.45s ease;
+    }
+
+    .case-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.35), transparent 25%),
+        linear-gradient(180deg, rgba(17,17,17,0.02) 0%, rgba(17,17,17,0.62) 100%);
+    }
+
+    .case-content {
+      position: relative;
+      z-index: 2;
+      padding: 1.6rem;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .case-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .case-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .case-tags span {
+      display: inline-flex;
+      padding: 0.5rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .case-index {
+      color: rgba(255,255,255,0.92);
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+    }
+
+    .case-content h3 {
+      color: var(--white);
+      font-size: clamp(1.65rem, 2.5vw, 2.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      max-width: 12ch;
+    }
+
+    .case-content p {
+      color: rgba(255,255,255,0.84);
+      max-width: 34ch;
+      font-size: 0.98rem;
+    }
+
+    .case-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--white);
+      font-weight: 700;
+      margin-top: 0.25rem;
+    }
+
+    .case-link::after {
+      content: "↗";
+      font-size: 1rem;
+    }
+
+    .case-card:hover .case-visual,
+    .case-card:focus-within .case-visual {
+      transform: scale(1.05);
+      filter: saturate(1.15) contrast(1.03);
+    }
+
+    .case-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      mix-blend-mode: color;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .case-card:hover::before,
+    .case-card:focus-within::before {
+      opacity: 0.38;
+    }
+
+    /* PROCESS */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .process-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .process-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 92, 0, 0.35);
+    }
+
+    .step-no {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .process-card h3 {
+      font-size: 1.45rem;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.8rem;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .step-bar {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: #ece3db;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .step-bar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: var(--fill, 70%);
+      background: var(--accent);
+      border-radius: inherit;
+    }
+
+    /* CONTACT */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .contact-main,
+    .contact-side {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-main {
+      padding: 2rem;
+    }
+
+    .contact-main h2 {
+      font-size: clamp(2.2rem, 5vw, 4.6rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      margin-bottom: 1rem;
+      max-width: 10ch;
+    }
+
+    .contact-main p {
+      color: var(--muted);
+      max-width: 35rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .email-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1rem 1.25rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--white);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 14px 30px rgba(255, 92, 0, 0.28);
+    }
+
+    .email-cta:hover,
+    .email-cta:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(255, 92, 0, 0.34);
+    }
+
+    .email-cta span:last-child {
+      font-size: 1.1rem;
+    }
+
+    .contact-side {
+      padding: 1.5rem;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.96)),
+        linear-gradient(135deg, #ffdbc7 0%, #f5f0eb 45%, #f1d3c2 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .contact-side .mini {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .contact-side h3 {
+      font-size: 1.65rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .contact-item {
+      border-top: 1px solid rgba(17, 17, 17, 0.08);
+      padding-top: 0.9rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-item span {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 2rem 0 3rem;
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--line);
+      padding-top: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .section-head,
+      .contact-wrap,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head p {
+        justify-self: start;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-copy h1 {
+        max-width: 12ch;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 0.85rem 1rem;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .case-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-card {
+        min-height: 380px;
+      }
+
+      .contact-main,
+      .contact-side {
+        padding: 1.35rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: min(calc(100% - 1.2rem), var(--max));
+      }
+
+      .section {
+        padding: 4.25rem 0;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(3rem, 16vw, 5.3rem);
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .case-content h3 {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="brand-mark"></span>
+        <span>Studio Nomad</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Independent Brand Designer</div>
+          <h1>
+            Bold identities
+            for brands that
+            <span>refuse to blend in.</span>
+          </h1>
+          <p>
+            Studio Nomad builds sharp, expressive brand systems for ambitious
+            founders, product launches, and businesses ready to look like they
+            actually know what they’re doing.
+          </p>
+        </div>
+
+        <aside class="hero-note" aria-label="Studio snapshot">
+          <div class="small">Selected Focus</div>
+          <h3>Identity with edge.</h3>
+          <p>
+            Strategy-led visuals, flexible systems, and memorable design that
+            gives brands a clearer voice and a stronger first impression.
+          </p>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>12+</strong>
+              <span>Years shaping brands</span>
+            </div>
+            <div class="stat">
+              <strong>40</strong>
+              <span>Identity systems delivered</span>
+            </div>
+            <div class="stat">
+              <strong>4</strong>
+              <span>Step creative process</span>
+            </div>
+            <div class="stat">
+              <strong>1:1</strong>
+              <span>Direct designer collaboration</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Selected Case Studies</div>
+            <h2>Brand systems built to be felt at a glance.</h2>
+          </div>
+          <p>
+            A curated mix of identity, packaging, digital direction, and visual
+            language development. Hover each project to see the color reveal.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-card">
+            <div class="case-visual" style="--case-color: #C9B39D;"></div>
+            <div class="case-content">
+              <div class="case-top">
+                <div class="case-tags">
+                  <span>Identity</span>
+                  <span>Packaging</span>
+                </div>
+                <div class="case-index">01</div>
+              </div>
+              <h3>Northline Roasters</h3>
+              <p>
+                A refined visual system for a premium coffee brand balancing
+                utility, warmth, and shelf presence.
+              </p>
+              <a href="#" class="case-link">View case study</a>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-visual" style="--case-color: #8FB0A9;"></div>
+            <div class="case-content">
+              <div class="case-top">
+                <div class="case-tags">
+                  <span>Rebrand</span>
+                  <span>Digital</span>
+                </div>
+                <div class="case-index">02</div>
+              </div>
+              <h3>Field Theory</h3>
+              <p>
+                A strategic rebrand for a modern consultancy needing clarity,
+                trust, and a stronger premium signal.
+              </p>
+              <a href="#" class="case-link">View case study</a>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-visual" style="--case-color: #D97D54;"></div>
+            <div class="case-content">
+              <div class="case-top">
+                <div class="case-tags">
+                  <span>Launch</span>
+                  <span>Art Direction</span>
+                </div>
+                <div class="case-index">03</div>
+              </div>
+              <h3>Sol &amp; State</h3>
+              <p>
+                A fashion-forward launch identity built to feel editorial,
+                directional, and instantly recognizable.
+              </p>
+              <a href="#" class="case-link">View case study</a>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-visual" style="--case-color: #7E829A;"></div>
+            <div class="case-content">
+              <div class="case-top">
+                <div class="case-tags">
+                  <span>Strategy</span>
+                  <span>Campaign</span>
+                </div>
+                <div class="case-index">04</div>
+              </div>
+              <h3>Monarch Goods</h3>
+              <p>
+                A visual refresh and campaign toolkit for a product brand ready
+                to move beyond generic and forgettable.
+              </p>
+              <a href="#" class="case-link">View case study</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Approach</div>
+            <h2>The process is structured so the output doesn’t feel generic.</h2>
+          </div>
+          <p>
+            Good brand design is not random inspiration. It is disciplined
+            thinking, sharp choices, and a system that survives the real world.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <div>
+              <div class="step-no">Step 01</div>
+              <h3>Discover</h3>
+              <p>
+                Audit the business, audience, category, and positioning until
+                the real problem is clear instead of guessed at.
+              </p>
+            </div>
+            <div class="step-bar" style="--fill: 100%;"></div>
+          </article>
+
+          <article class="process-card">
+            <div>
+              <div class="step-no">Step 02</div>
+              <h3>Define</h3>
+              <p>
+                Shape the narrative, creative territory, verbal cues, and visual
+                direction that give the brand its backbone.
+              </p>
+            </div>
+            <div class="step-bar" style="--fill: 82%;"></div>
+          </article>
+
+          <article class="process-card">
+            <div>
+              <div class="step-no">Step 03</div>
+              <h3>Design</h3>
+              <p>
+                Build the identity system across typography, color, composition,
+                application examples, and rollout-ready assets.
+              </p>
+            </div>
+            <div class="step-bar" style="--fill: 90%;"></div>
+          </article>
+
+          <article class="process-card">
+            <div>
+              <div class="step-no">Step 04</div>
+              <h3>Deploy</h3>
+              <p>
+                Deliver a brand that can actually be used across web, packaging,
+                social, print, and future growth without falling apart.
+              </p>
+            </div>
+            <div class="step-bar" style="--fill: 100%;"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact-wrap">
+        <div class="contact-main">
+          <div class="eyebrow">Contact</div>
+          <h2>Need a brand that looks sharper and sells harder?</h2>
+          <p>
+            Reach out with a short project brief, timeline, and what is broken
+            in your current brand. That is usually where the useful conversation
+            starts.
+          </p>
+
+          <a class="email-cta" href="mailto:hello@studionomad.co">
+            <span>hello@studionomad.co</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <aside class="contact-side">
+          <div>
+            <div class="mini">Availability</div>
+            <h3>Selective bookings for identity and rebrand work.</h3>
+          </div>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <strong>Based</strong>
+              <span>Working remotely worldwide</span>
+            </div>
+            <div class="contact-item">
+              <strong>Typical scope</strong>
+              <span>Identity systems, art direction, launch visuals</span>
+            </div>
+            <div class="contact-item">
+              <strong>Best fit</strong>
+              <span>Founders who are done looking average</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Studio Nomad</span>
+      <span>Brand design portfolio — fully responsive HTML/CSS demo</span>
+    </div>
+  </footer>
+</body>
+</html>

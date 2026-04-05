@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bright Smile Dental</title>
+  <meta name="description" content="Bright Smile Dental offers compassionate family dental care with preventive, cosmetic, and restorative services in a calm, welcoming environment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --mint: #A8DADC;
+      --mint-deep: #88c9cc;
+      --white: #fdfefe;
+      --gray-50: #f6f8f8;
+      --gray-100: #edf2f2;
+      --gray-200: #dde6e6;
+      --gray-500: #6f7f84;
+      --gray-700: #42545a;
+      --dark: #1f2c30;
+      --shadow: 0 18px 45px rgba(31, 44, 48, 0.08);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background: linear-gradient(180deg, #ffffff 0%, #f9fcfc 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 5rem 0;
+      border-radius: var(--radius-xl);
+    }
+
+    .card,
+    .soft-block,
+    .section-panel,
+    .service-card,
+    .team-card,
+    .review-card,
+    .insurance-logo,
+    .contact-card,
+    .hours-card,
+    .hero-visual,
+    .stat-bubble {
+      border-radius: var(--radius-lg);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: rgba(168, 218, 220, 0.26);
+      color: var(--gray-700);
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--mint-deep);
+      box-shadow: 0 0 0 5px rgba(168, 218, 220, 0.22);
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      color: var(--gray-700);
+      font-size: 1rem;
+    }
+
+    .section-head {
+      max-width: 700px;
+      margin-bottom: 2.2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 1rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      font-family: inherit;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: var(--dark);
+      color: white;
+      box-shadow: 0 14px 28px rgba(31, 44, 48, 0.18);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--dark);
+      border: 1px solid rgba(31, 44, 48, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(253, 254, 254, 0.8);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(66, 84, 90, 0.08);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--dark);
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      background: radial-gradient(circle at 35% 30%, #d8f2f3 0%, var(--mint) 55%, var(--mint-deep) 100%);
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      font-size: 1.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      color: var(--gray-700);
+      font-weight: 500;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a:hover {
+      color: var(--dark);
+    }
+
+    .hero {
+      padding: 4rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-copy p {
+      font-size: 1.08rem;
+      max-width: 620px;
+      margin: 1.25rem 0 1.8rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .stat-bubble {
+      background: white;
+      padding: 1rem 1.1rem;
+      min-width: 160px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(168, 218, 220, 0.25);
+    }
+
+    .stat-bubble strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-bubble span {
+      font-size: 0.92rem;
+      color: var(--gray-500);
+    }
+
+    .hero-visual {
+      min-height: 540px;
+      background: linear-gradient(180deg, rgba(168, 218, 220, 0.45), rgba(168, 218, 220, 0.15));
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.65);
+      padding: 1.5rem;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.55);
+      filter: blur(8px);
+    }
+
+    .hero-visual::before {
+      width: 180px;
+      height: 180px;
+      top: -35px;
+      right: -25px;
+    }
+
+    .hero-visual::after {
+      width: 120px;
+      height: 120px;
+      bottom: 25px;
+      left: -20px;
+    }
+
+    .dentist-scene {
+      position: absolute;
+      inset: 1.5rem;
+      border-radius: 28px;
+      background: linear-gradient(180deg, #fdfefe 0%, #eef7f7 100%);
+      overflow: hidden;
+      border: 1px solid rgba(168, 218, 220, 0.35);
+    }
+
+    .scene-window {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, #dff3f4 0%, #b9e3e5 100%);
+    }
+
+    .scene-window::before,
+    .scene-window::after {
+      content: "";
+      position: absolute;
+      background: rgba(255,255,255,0.85);
+      border-radius: 999px;
+    }
+
+    .scene-window::before {
+      width: 58px;
+      height: 12px;
+      top: 28px;
+      left: 18px;
+    }
+
+    .scene-window::after {
+      width: 78px;
+      height: 12px;
+      top: 52px;
+      left: 18px;
+    }
+
+    .chair {
+      position: absolute;
+      left: 12%;
+      bottom: 18%;
+      width: 44%;
+      height: 30%;
+    }
+
+    .chair-seat,
+    .chair-back,
+    .chair-base,
+    .chair-leg {
+      position: absolute;
+      background: linear-gradient(180deg, var(--mint) 0%, #96d2d5 100%);
+      border-radius: 24px;
+    }
+
+    .chair-seat {
+      width: 62%;
+      height: 24%;
+      bottom: 25%;
+      left: 12%;
+      transform: rotate(-6deg);
+    }
+
+    .chair-back {
+      width: 34%;
+      height: 42%;
+      left: 0;
+      bottom: 34%;
+      transform: rotate(-14deg);
+    }
+
+    .chair-base {
+      width: 50%;
+      height: 9%;
+      bottom: 14%;
+      left: 20%;
+      background: #cad8d8;
+    }
+
+    .chair-leg {
+      width: 12%;
+      height: 18%;
+      bottom: 0;
+      left: 42%;
+      background: #d5e2e2;
+      border-radius: 16px;
+    }
+
+    .tool-arm {
+      position: absolute;
+      right: 14%;
+      bottom: 28%;
+      width: 26%;
+      height: 8%;
+      background: #dde8e8;
+      border-radius: 999px;
+      transform: rotate(-30deg);
+      transform-origin: right center;
+    }
+
+    .tool-arm::after {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: white;
+      border: 8px solid var(--mint);
+    }
+
+    .tooth-badge {
+      position: absolute;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      width: 108px;
+      height: 108px;
+      border-radius: 28px;
+      background: white;
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+    }
+
+    .tooth-shape {
+      width: 50px;
+      height: 62px;
+      background: linear-gradient(180deg, #ffffff 0%, #edf7f7 100%);
+      border-radius: 45% 45% 42% 42% / 42% 42% 58% 58%;
+      position: relative;
+      box-shadow: inset 0 0 0 2px rgba(168, 218, 220, 0.45);
+    }
+
+    .tooth-shape::before,
+    .tooth-shape::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      width: 16px;
+      height: 20px;
+      background: inherit;
+      border-radius: 0 0 10px 10px;
+      box-shadow: inset 0 0 0 2px rgba(168, 218, 220, 0.45);
+    }
+
+    .tooth-shape::before {
+      left: 6px;
+      transform: rotate(6deg);
+    }
+
+    .tooth-shape::after {
+      right: 6px;
+      transform: rotate(-6deg);
+    }
+
+    .services-grid,
+    .team-grid,
+    .reviews-grid,
+    .insurance-bar,
+    .contact-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .service-card {
+      background: white;
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(168, 218, 220, 0.22);
+    }
+
+    .service-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #def1f2 0%, #bde5e6 100%);
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-icon::before,
+    .service-icon::after {
+      content: "";
+      position: absolute;
+      background: rgba(255,255,255,0.85);
+      border-radius: 999px;
+    }
+
+    .service-icon::before {
+      width: 28px;
+      height: 28px;
+      top: 10px;
+      left: 17px;
+    }
+
+    .service-icon::after {
+      width: 16px;
+      height: 10px;
+      bottom: 10px;
+      left: 23px;
+    }
+
+    .team-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .team-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f6fbfb 100%);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(168, 218, 220, 0.24);
+    }
+
+    .avatar {
+      width: 100%;
+      aspect-ratio: 1 / 1.08;
+      border-radius: 24px;
+      margin-bottom: 1rem;
+      background: linear-gradient(180deg, #d9efef 0%, #bedfdf 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar::before {
+      content: "";
+      position: absolute;
+      width: 38%;
+      height: 24%;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      top: 18%;
+      left: 31%;
+    }
+
+    .avatar::after {
+      content: "";
+      position: absolute;
+      width: 56%;
+      height: 48%;
+      border-radius: 42% 42% 30% 30%;
+      background: rgba(255,255,255,0.92);
+      bottom: 8%;
+      left: 22%;
+    }
+
+    .role {
+      display: inline-block;
+      background: rgba(168, 218, 220, 0.22);
+      color: var(--gray-700);
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .reviews-strip {
+      background: linear-gradient(180deg, #eef8f8 0%, #f9fcfc 100%);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(168, 218, 220, 0.2);
+    }
+
+    .reviews-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 1rem;
+    }
+
+    .review-card {
+      background: white;
+      padding: 1.4rem;
+      border: 1px solid rgba(168, 218, 220, 0.18);
+      box-shadow: var(--shadow);
+    }
+
+    .stars {
+      letter-spacing: 0.18em;
+      color: #f2c96b;
+      font-size: 1.05rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .insurance-bar {
+      grid-template-columns: repeat(5, 1fr);
+      margin-top: 1.5rem;
+    }
+
+    .insurance-logo {
+      min-height: 88px;
+      background: white;
+      border: 1px solid rgba(168, 218, 220, 0.24);
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .insurance-logo::before {
+      content: "";
+      width: 56%;
+      height: 16px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #d6ecec, #b8dddd);
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr 0.9fr;
+      align-items: start;
+    }
+
+    .contact-card,
+    .hours-card {
+      background: white;
+      padding: 1.7rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(168, 218, 220, 0.22);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--gray-700);
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid rgba(66, 84, 90, 0.14);
+      border-radius: 18px;
+      padding: 0.95rem 1rem;
+      font: inherit;
+      background: var(--gray-50);
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--mint-deep);
+      background: white;
+      transform: translateY(-1px);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .hours-list {
+      list-style: none;
+      margin: 1rem 0 1.4rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .hours-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px dashed rgba(66, 84, 90, 0.12);
+      color: var(--gray-700);
+    }
+
+    .mini-map {
+      margin-top: 1.2rem;
+      min-height: 180px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #dff1f2 0%, #c3e6e7 55%, #eef7f7 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mini-map::before,
+    .mini-map::after {
+      content: "";
+      position: absolute;
+      background: rgba(255,255,255,0.92);
+      border-radius: 999px;
+    }
+
+    .mini-map::before {
+      width: 70%;
+      height: 14px;
+      top: 38%;
+      left: 15%;
+      transform: rotate(-18deg);
+    }
+
+    .mini-map::after {
+      width: 14px;
+      height: 14px;
+      top: 46%;
+      left: 48%;
+      box-shadow: 0 0 0 10px rgba(255,255,255,0.25);
+    }
+
+    .footer {
+      padding: 1.4rem 0 2.2rem;
+      color: var(--gray-500);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(66, 84, 90, 0.08);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal,
+      .reveal.in-view,
+      .btn,
+      input,
+      textarea,
+      select {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .contact-grid,
+      .services-grid,
+      .team-grid,
+      .reviews-grid,
+      .insurance-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 460px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .services-grid,
+      .team-grid,
+      .reviews-grid,
+      .insurance-bar,
+      .contact-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .hero-visual {
+        min-height: 400px;
+      }
+
+      .hero-meta {
+        flex-direction: column;
+      }
+
+      .stat-bubble {
+        width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#top" class="brand" aria-label="Bright Smile Dental home">
+        <span class="brand-mark">✦</span>
+        <span>Bright Smile Dental</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#insurance">Insurance</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Gentle care for every smile</span>
+          <h1>Healthy, confident smiles start with a dental team that feels like family.</h1>
+          <p>
+            Bright Smile Dental provides preventive, cosmetic, and restorative care in a calm, welcoming office designed to make every visit feel easier—from first cleanings to full smile refreshes.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Book an Appointment</a>
+            <a href="#services" class="btn btn-secondary">Explore Services</a>
+          </div>
+          <div class="hero-meta">
+            <div class="stat-bubble">
+              <strong>Same-Week Visits</strong>
+              <span>Flexible scheduling for busy families</span>
+            </div>
+            <div class="stat-bubble">
+              <strong>Comfort-First Care</strong>
+              <span>Friendly team and a calming environment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="dentist-scene">
+            <div class="scene-window"></div>
+            <div class="chair">
+              <div class="chair-back"></div>
+              <div class="chair-seat"></div>
+              <div class="chair-base"></div>
+              <div class="chair-leg"></div>
+            </div>
+            <div class="tool-arm"></div>
+            <div class="tooth-badge">
+              <div class="tooth-shape"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our services</span>
+          <h2>Modern dental care designed around comfort, prevention, and lasting results.</h2>
+          <p>Everything is presented clearly, explained simply, and tailored to patients of all ages.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon"></div>
+            <h3>Routine Cleanings</h3>
+            <p>Preventive checkups and hygiene visits that keep your smile healthy and catch issues early.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon"></div>
+            <h3>Teeth Whitening</h3>
+            <p>Brighten your smile with professional whitening solutions for noticeable, even results.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon"></div>
+            <h3>Dental Fillings</h3>
+            <p>Natural-looking restorations that protect teeth, restore function, and blend beautifully.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon"></div>
+            <h3>Invisalign Consults</h3>
+            <p>Straighten your smile with clear, discreet aligner options and a personalized treatment plan.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon"></div>
+            <h3>Cosmetic Dentistry</h3>
+            <p>Smile makeover options that improve symmetry, shape, and confidence with subtle precision.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon"></div>
+            <h3>Emergency Care</h3>
+            <p>Prompt support for urgent dental needs when pain, damage, or discomfort cannot wait.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Meet the team</span>
+          <h2>Friendly faces, experienced hands, and patient care that never feels rushed.</h2>
+          <p>Every team member is focused on making visits smoother, clearer, and more comfortable.</p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <div class="avatar"></div>
+            <span class="role">Lead Dentist</span>
+            <h3>Dr. Emily Carter</h3>
+            <p>Known for gentle care, detailed treatment planning, and helping nervous patients feel at ease.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="avatar"></div>
+            <span class="role">Dental Hygienist</span>
+            <h3>Sophia Bennett</h3>
+            <p>Focused on prevention, patient education, and creating positive experiences for families.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="avatar"></div>
+            <span class="role">Patient Coordinator</span>
+            <h3>Olivia Reyes</h3>
+            <p>Helps patients with scheduling, insurance questions, and making every step feel simple.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section">
+      <div class="container reviews-strip reveal">
+        <div class="section-head" style="margin-bottom: 0;">
+          <span class="eyebrow">Patient reviews</span>
+          <h2>Patients come for expert care and stay because they feel genuinely cared for.</h2>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card reveal">
+            <div class="stars">★★★★★</div>
+            <p>“The office is calm, clean, and welcoming. The team explained everything clearly and made my visit feel easy.”</p>
+            <h3 style="margin-top: 1rem; margin-bottom: 0;">Sarah M.</h3>
+          </article>
+          <article class="review-card reveal">
+            <div class="stars">★★★★★</div>
+            <p>“Bright Smile Dental is the first place where my kids actually feel comfortable going to the dentist.”</p>
+            <h3 style="margin-top: 1rem; margin-bottom: 0;">James T.</h3>
+          </article>
+          <article class="review-card reveal">
+            <div class="stars">★★★★★</div>
+            <p>“From scheduling to treatment, everything felt organized, friendly, and professional. Highly recommend.”</p>
+            <h3 style="margin-top: 1rem; margin-bottom: 0;">Lena R.</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="insurance" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Insurance accepted</span>
+          <h2>We work with many major plans to help make dental care easier to access.</h2>
+          <p>Use these placeholder blocks for accepted insurance logos or partner badges.</p>
+        </div>
+
+        <div class="insurance-bar">
+          <div class="insurance-logo reveal" aria-label="Insurance logo placeholder"></div>
+          <div class="insurance-logo reveal" aria-label="Insurance logo placeholder"></div>
+          <div class="insurance-logo reveal" aria-label="Insurance logo placeholder"></div>
+          <div class="insurance-logo reveal" aria-label="Insurance logo placeholder"></div>
+          <div class="insurance-logo reveal" aria-label="Insurance logo placeholder"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact-grid">
+        <div class="contact-card reveal">
+          <span class="eyebrow">Get in touch</span>
+          <h2>Book your visit or ask a question.</h2>
+          <p>Fill out the form and a member of our team will follow up to help you schedule the right appointment.</p>
+
+          <form class="form-grid">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" type="text" placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input id="phone" type="tel" placeholder="(555) 123-4567" />
+            </div>
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input id="email" type="email" placeholder="you@example.com" />
+            </div>
+            <div class="field">
+              <label for="service">Service Needed</label>
+              <select id="service">
+                <option>Select a service</option>
+                <option>Routine Cleaning</option>
+                <option>Whitening</option>
+                <option>Cosmetic Dentistry</option>
+                <option>Emergency Care</option>
+                <option>Invisalign Consultation</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Tell us how we can help"></textarea>
+            </div>
+            <div class="field full">
+              <button type="submit" class="btn btn-primary">Send Appointment Request</button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="hours-card reveal">
+          <span class="eyebrow">Visit the office</span>
+          <h3 style="font-size: 1.6rem; margin-bottom: 0.35rem;">Office Hours</h3>
+          <p>123 Smile Avenue<br>Springfield, ST 12345<br>(555) 987-2020</p>
+
+          <ul class="hours-list">
+            <li><span>Monday</span><strong>8:00 AM – 5:00 PM</strong></li>
+            <li><span>Tuesday</span><strong>8:00 AM – 5:00 PM</strong></li>
+            <li><span>Wednesday</span><strong>9:00 AM – 6:00 PM</strong></li>
+            <li><span>Thursday</span><strong>8:00 AM – 5:00 PM</strong></li>
+            <li><span>Friday</span><strong>8:00 AM – 2:00 PM</strong></li>
+            <li><span>Saturday</span><strong>Closed</strong></li>
+            <li><span>Sunday</span><strong>Closed</strong></li>
+          </ul>
+
+          <div class="mini-map" aria-label="Map placeholder"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Bright Smile Dental. Clean, calming care for every patient.</p>
+      <p>Family Dentistry • Cosmetic Care • Preventive Visits</p>
+    </div>
+  </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealItems.forEach((item) => observer.observe(item));
+  </script>
+</body>
+</html>

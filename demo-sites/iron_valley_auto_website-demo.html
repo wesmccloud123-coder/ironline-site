@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iron Valley Auto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1A1A1A;
+      --bg-soft: #232323;
+      --panel: #202020;
+      --panel-2: #292929;
+      --accent: #F4721E;
+      --accent-dark: #c95710;
+      --text: #ffffff;
+      --muted: #c7c7c7;
+      --line: rgba(244, 114, 30, 0.4);
+      --white-soft: rgba(255,255,255,0.08);
+      --shadow: 0 16px 40px rgba(0,0,0,0.35);
+      --radius: 20px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Barlow', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .section + .section {
+      border-top: 3px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      line-height: 1;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      max-width: 10ch;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      max-width: 62ch;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0.95rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.98rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #ff8232;
+    }
+
+    .btn-secondary {
+      border: 2px solid rgba(255,255,255,0.18);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(26, 26, 26, 0.88);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #ff9a58);
+      position: relative;
+      box-shadow: 0 10px 26px rgba(244,114,30,0.24);
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      background: rgba(26,26,26,0.95);
+      border-radius: 999px;
+    }
+
+    .brand-mark::before {
+      width: 20px;
+      height: 6px;
+      top: 10px;
+      left: 11px;
+    }
+
+    .brand-mark::after {
+      width: 20px;
+      height: 6px;
+      bottom: 10px;
+      left: 11px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      align-items: center;
+      font-weight: 600;
+      color: #e6e6e6;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      padding: 5rem 0 2rem;
+      background:
+        radial-gradient(circle at top right, rgba(244,114,30,0.2), transparent 28%),
+        linear-gradient(180deg, #202020 0%, #1A1A1A 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual {
+      min-height: 470px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.6)),
+        linear-gradient(135deg, #343434, #202020 55%, #2d2d2d);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 8% 6%;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(244,114,30,0.22), rgba(255,255,255,0.02)),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,0.03) 0,
+          rgba(255,255,255,0.03) 28px,
+          transparent 28px,
+          transparent 56px
+        );
+    }
+
+    .hero-visual::after {
+      content: "Certified Techs • Honest Diagnostics • Fast Turnarounds";
+      position: absolute;
+      left: 1.25rem;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      padding: 1rem 1.1rem;
+      background: rgba(0,0,0,0.55);
+      border-left: 6px solid var(--accent);
+      border-radius: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .highlights-bar {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .highlight {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-left: 7px solid var(--accent);
+      border-radius: 16px;
+      padding: 1rem 1rem 1rem 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .highlight strong {
+      display: block;
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      box-shadow: var(--shadow);
+      min-height: 220px;
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(244,114,30,1), rgba(255,154,88,0.85));
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .icon::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 2px solid rgba(26,26,26,0.9);
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .card li,
+    .review li,
+    .footer-list li {
+      padding-left: 0.85rem;
+      border-left: 6px solid var(--accent);
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .step {
+      background: var(--panel);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 1.35rem;
+      position: relative;
+      min-height: 220px;
+      box-shadow: var(--shadow);
+    }
+
+    .step-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 3.2rem;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+      line-height: 1;
+    }
+
+    .step h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .review {
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: var(--shadow);
+    }
+
+    .stars {
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .review p {
+      color: #efefef;
+      margin-bottom: 1rem;
+    }
+
+    .review strong {
+      display: block;
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    footer {
+      padding: 4rem 0 2.5rem;
+      background: #151515;
+      border-top: 3px solid var(--line);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .footer-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .footer-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .footer-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .contact-block {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      background: var(--panel);
+      border-left: 7px solid var(--accent);
+      border-radius: 16px;
+      padding: 1rem 1rem 1rem 1.1rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-right: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--accent);
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-item strong {
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .subfooter {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #b5b5b5;
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .footer-grid,
+      .services-grid,
+      .reviews-grid,
+      .process-grid,
+      .highlights-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        padding: 0.9rem 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 0.9rem 1rem;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .hero-grid,
+      .footer-grid,
+      .services-grid,
+      .reviews-grid,
+      .process-grid,
+      .highlights-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .hero-visual {
+        min-height: 360px;
+      }
+
+      h1 {
+        max-width: 12ch;
+      }
+
+      .btn-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="brand-mark"></span>
+        <span>Iron Valley Auto</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Reliable Repairs. Straight Answers.</span>
+            <h1>Keep Your Car Running Like It Should.</h1>
+            <p class="lead">Iron Valley Auto delivers tough, dependable repair work with honest diagnostics, fast turnaround, and service that respects your time. From warning lights to major repairs, we get it handled right.</p>
+            <div class="btn-row">
+              <a href="#contact" class="btn btn-primary">Get an Estimate</a>
+              <a href="#services" class="btn btn-secondary">View Services</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-visual" aria-label="Auto shop placeholder visual"></div>
+          </div>
+        </div>
+
+        <div class="highlights-bar">
+          <div class="highlight">
+            <strong>Same-Day Diagnostics</strong>
+            <span>Fast answers so you know exactly what comes next.</span>
+          </div>
+          <div class="highlight">
+            <strong>Certified Technicians</strong>
+            <span>Skilled service backed by real hands-on experience.</span>
+          </div>
+          <div class="highlight">
+            <strong>Transparent Pricing</strong>
+            <span>No vague estimates. No surprise add-ons.</span>
+          </div>
+          <div class="highlight">
+            <strong>Pickup-Ready Updates</strong>
+            <span>We keep you informed from drop-off to final handoff.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">What We Handle</span>
+            <h2>Auto Repair Services Built for Real-World Reliability</h2>
+          </div>
+          <p class="lead">No fluff. Just the services drivers actually need to stay safe, avoid breakdowns, and protect their investment.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Brake Service</h3>
+            <p>Stopping power matters. We inspect, repair, and replace brake components before small issues become dangerous ones.</p>
+            <ul>
+              <li>Pad and rotor replacement</li>
+              <li>Brake inspections</li>
+              <li>Fluid and system checks</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Engine Diagnostics</h3>
+            <p>When the warning light comes on, guesswork is a waste of time and money. We pinpoint the problem and map the fix.</p>
+            <ul>
+              <li>Check engine light scans</li>
+              <li>Performance troubleshooting</li>
+              <li>Accurate repair recommendations</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Oil & Fluid Service</h3>
+            <p>Routine maintenance is the cheapest repair you will ever buy. We keep the essentials handled before they cost you.</p>
+            <ul>
+              <li>Oil and filter changes</li>
+              <li>Coolant and transmission fluids</li>
+              <li>Multi-point inspections</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Suspension & Steering</h3>
+            <p>Rough ride, pulling, or uneven wear means something is off. We restore control, comfort, and road confidence.</p>
+            <ul>
+              <li>Shock and strut replacement</li>
+              <li>Steering system repairs</li>
+              <li>Handling issue diagnosis</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Battery & Electrical</h3>
+            <p>Starting problems and electrical issues can leave you stranded. We test the system and fix the real cause.</p>
+            <ul>
+              <li>Battery and alternator testing</li>
+              <li>Starter replacement</li>
+              <li>Electrical troubleshooting</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Heating & A/C Repair</h3>
+            <p>Comfort systems matter more than people admit. We get your cabin heat and air working the way it should.</p>
+            <ul>
+              <li>A/C performance checks</li>
+              <li>Heating system repair</li>
+              <li>Leak and pressure diagnosis</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">How It Works</span>
+            <h2>Simple Process. No Runaround.</h2>
+          </div>
+          <p class="lead">Good shops do not make customers chase information. This is how repair service should feel from start to finish.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="step">
+            <div class="step-number">01</div>
+            <h3>Drop Off</h3>
+            <p>Bring your vehicle in and tell us what it is doing. We log the issue, inspect the basics, and get it into the queue fast.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">02</div>
+            <h3>Diagnose</h3>
+            <p>We inspect the problem, confirm the cause, and avoid the lazy parts-swapping that wastes your money.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">03</div>
+            <h3>Approve Repair</h3>
+            <p>You get a clear estimate, straightforward explanation, and the chance to approve the work before we move forward.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">04</div>
+            <h3>Pick Up & Go</h3>
+            <p>We complete the repair, verify the fix, and let you know when your vehicle is ready to get back on the road.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Customer Feedback</span>
+            <h2>Trusted by Drivers Who Need It Done Right</h2>
+          </div>
+          <p class="lead">A strong shop earns repeat business the hard way: clear communication, quality repairs, and no nonsense.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>They found the issue fast, explained it without the usual shop talk, and had my truck back sooner than I expected.</p>
+            <strong>— Jake M.</strong>
+          </article>
+
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>Fair pricing, solid work, and they actually called when they said they would. That alone puts them ahead of most places.</p>
+            <strong>— Samantha R.</strong>
+          </article>
+
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>Needed brakes and a battery before a road trip. Iron Valley Auto handled both without trying to upsell me on junk I did not need.</p>
+            <strong>— Chris T.</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div class="footer-card">
+        <span class="eyebrow">Get in Touch</span>
+        <h3>Need a Repair Quote or Service Check?</h3>
+        <p>Call, stop by, or send in your vehicle details to get started. Whether it is routine maintenance or a repair that cannot wait, we will give you a straight answer and a clear next step.</p>
+        <ul class="footer-list">
+          <li>Fast estimate requests and service scheduling</li>
+          <li>Clear communication before work begins</li>
+          <li>Dependable repairs built to last</li>
+        </ul>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-item">
+          <span>Phone</span>
+          <strong>(555) 248-7614</strong>
+        </div>
+        <div class="contact-item">
+          <span>Address</span>
+          <strong>1284 Iron Valley Road, Franklin, PA 16323</strong>
+        </div>
+        <div class="contact-item">
+          <span>Hours</span>
+          <strong>Mon–Fri: 7:30 AM – 6:00 PM<br>Sat: 8:00 AM – 1:00 PM<br>Sun: Closed</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="container subfooter">
+      © 2026 Iron Valley Auto. Built for strength, speed, and trust.
+    </div>
+  </footer>
+</body>
+</html>

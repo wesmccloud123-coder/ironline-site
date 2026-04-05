@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INK & IRON | Tattoo Studio</title>
+  <meta
+    name="description"
+    content="INK & IRON Tattoo Studio — bold custom work, talented artists, walk-in availability, and a clean booking experience."
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #000000;
+      --surface: #0f0f0f;
+      --surface-2: #151515;
+      --text: #ffffff;
+      --muted: #b3b3b3;
+      --line: rgba(255, 255, 255, 0.09);
+      --accent: #D62828;
+      --accent-soft: rgba(214, 40, 40, 0.15);
+      --max-width: 1200px;
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Lato", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    .btn {
+      font: inherit;
+      border: none;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 5.5rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      width: fit-content;
+      font-family: "Oswald", sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Oswald", sans-serif;
+      letter-spacing: 0.02em;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 8vw, 7rem);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+    }
+
+    h3 {
+      font-size: 1.45rem;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.75);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: "Oswald", sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      box-shadow: inset 0 0 0 6px rgba(214, 40, 40, 0.08);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 0.85rem 1.2rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(214, 40, 40, 0.25);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(214, 40, 40, 0.16), transparent 35%),
+        radial-gradient(circle at 85% 30%, rgba(214, 40, 40, 0.12), transparent 25%),
+        linear-gradient(180deg, #060606 0%, #000000 100%);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      top: 0;
+      right: -10%;
+      width: 50%;
+      height: 100%;
+      background:
+        repeating-linear-gradient(
+          120deg,
+          rgba(255,255,255,0.02) 0 2px,
+          transparent 2px 18px
+        );
+      opacity: 0.4;
+    }
+
+    .hero::after {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .hero-grid {
+      min-height: calc(100vh - 78px);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 2rem;
+      padding: 4rem 0;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy .eyebrow {
+      margin-bottom: 1rem;
+    }
+
+    .hero-copy p {
+      max-width: 620px;
+      margin: 1.25rem 0 2rem;
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      padding: 1rem 1.4rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 12px 28px rgba(214, 40, 40, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      padding: 1rem 1.4rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .hero-tags span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-tags span::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(214, 40, 40, 0.7);
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+    }
+
+    .poster {
+      width: min(100%, 460px);
+      aspect-ratio: 4 / 5;
+      border-radius: 26px;
+      background:
+        linear-gradient(160deg, rgba(214, 40, 40, 0.18), transparent 35%),
+        linear-gradient(0deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02)),
+        #111111;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(214, 40, 40, 0.25), transparent 22%),
+        repeating-linear-gradient(
+          180deg,
+          rgba(255,255,255,0.025) 0 1px,
+          transparent 1px 14px
+        );
+      opacity: 0.8;
+    }
+
+    .poster::after {
+      content: "CUSTOM INK / BOLD LINES / NO COMPROMISE";
+      position: absolute;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      right: 1.25rem;
+      color: rgba(255,255,255,0.78);
+      font-family: "Oswald", sans-serif;
+      letter-spacing: 0.14em;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    .poster-inner {
+      position: absolute;
+      inset: 1.25rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .poster-inner span {
+      font-family: "Oswald", sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      line-height: 0.95;
+      letter-spacing: 0.05em;
+    }
+
+    .poster-inner small {
+      display: block;
+      margin-top: 1rem;
+      color: var(--accent);
+      font-family: "Oswald", sans-serif;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    /* Artists */
+    .artists-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .artist-card {
+      background: linear-gradient(180deg, var(--surface-2), var(--surface));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .artist-avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,0.18), transparent 18%),
+        linear-gradient(135deg, rgba(214,40,40,0.35), rgba(255,255,255,0.04)),
+        #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .artist-role {
+      display: inline-block;
+      margin: 0.65rem 0 0.75rem;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .specialties span {
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #111;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .portfolio-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(214,40,40,0.28), transparent 45%),
+        linear-gradient(180deg, rgba(255,255,255,0.08), transparent 55%),
+        var(--bg-fill, linear-gradient(135deg, #1a1a1a, #0d0d0d));
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .portfolio-item:hover::before {
+      transform: scale(1.06);
+      filter: brightness(1.08);
+    }
+
+    .portfolio-item .overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 1.1rem;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.88));
+      transform: translateY(18%);
+      transition: transform 0.3s ease;
+      z-index: 1;
+    }
+
+    .portfolio-item:hover .overlay {
+      transform: translateY(0);
+    }
+
+    .portfolio-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .portfolio-item p {
+      font-size: 0.93rem;
+      color: #d7d7d7;
+    }
+
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
+    .tall { min-height: 320px; }
+
+    /* Schedule */
+    .schedule-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .schedule-intro,
+    .schedule-card {
+      background: linear-gradient(180deg, var(--surface-2), var(--surface));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .schedule-intro {
+      padding: 1.6rem;
+    }
+
+    .schedule-intro ul {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.85rem;
+      list-style: none;
+    }
+
+    .schedule-intro li {
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .schedule-intro li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin-top: 0.45rem;
+      border-radius: 50%;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .schedule-card {
+      overflow: hidden;
+    }
+
+    .schedule-head,
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      align-items: center;
+    }
+
+    .schedule-head {
+      background: rgba(214, 40, 40, 0.12);
+      font-family: "Oswald", sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .schedule-row {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .schedule-row:last-child {
+      border-bottom: none;
+    }
+
+    .status {
+      justify-self: start;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--line);
+    }
+
+    .status.available {
+      color: #fff;
+      background: rgba(214, 40, 40, 0.18);
+      border-color: rgba(214, 40, 40, 0.35);
+    }
+
+    .status.limited {
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .status.closed {
+      color: #8c8c8c;
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* CTA strip */
+    .cta-strip {
+      padding: 2rem;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(214,40,40,0.18), transparent 40%),
+        linear-gradient(180deg, #121212, #090909);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-strip p {
+      max-width: 640px;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 0 3rem;
+      background: #030303;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-grid,
+      .schedule-wrap,
+      .artists-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        min-height: auto;
+        padding: 3rem 0 4.5rem;
+      }
+
+      .hero-art {
+        min-height: 380px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .span-4,
+      .span-5,
+      .span-6,
+      .span-7 {
+        grid-column: span 1;
+      }
+
+      .tall {
+        min-height: 260px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        padding: 0.8rem 0;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .schedule-head,
+      .schedule-row {
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+      }
+
+      .schedule-head {
+        display: none;
+      }
+
+      .schedule-row {
+        padding: 1rem;
+      }
+
+      .schedule-row strong {
+        font-family: "Oswald", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .cta-strip {
+        padding: 1.4rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .nav-cta {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="brand-mark">II</span>
+        <span>INK & IRON</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#artists">Artists</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#availability">Walk-Ins</a>
+        <a href="#footer">Contact</a>
+        <a href="#book" class="nav-cta">Book Your Appointment</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Bold Work. Sharp Lines. Real Craft.</span>
+          <h1>INK & IRON</h1>
+          <p>
+            A gritty modern tattoo studio built for custom blackwork, fine line,
+            neo-traditional, and statement pieces that actually hold up. No fluff.
+            Just strong design, clean execution, and artists who know their lane.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#book" class="btn btn-primary">Book Your Appointment</a>
+            <a href="#portfolio" class="btn btn-secondary">View Portfolio</a>
+          </div>
+
+          <div class="hero-tags">
+            <span>Custom Designs</span>
+            <span>Walk-Ins Welcome</span>
+            <span>Private Sessions</span>
+            <span>Consultation First</span>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="poster">
+            <div class="poster-inner">
+              <div>
+                <span>Wear<br />Your Story</span>
+                <small>Since 2014</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="artists">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Artist Roster</span>
+          <h2>Meet the Needles Behind the Work</h2>
+          <p>
+            Every artist here has a clear specialty. That matters. Generalists
+            make average tattoos. Specialists make work people remember.
+          </p>
+        </div>
+
+        <div class="artists-grid">
+          <article class="artist-card">
+            <div class="artist-avatar"></div>
+            <h3>Rico Vale</h3>
+            <span class="artist-role">Lead Artist</span>
+            <p>
+              Known for heavy blackwork, geometric pieces, and large custom sleeve
+              concepts with strong contrast and clean saturation.
+            </p>
+            <div class="specialties">
+              <span>Blackwork</span>
+              <span>Geometric</span>
+              <span>Sleeves</span>
+            </div>
+          </article>
+
+          <article class="artist-card">
+            <div class="artist-avatar"></div>
+            <h3>Selene Cross</h3>
+            <span class="artist-role">Fine Line Specialist</span>
+            <p>
+              Precision-driven artist focused on delicate linework, script,
+              ornamental designs, and subtle detail pieces that stay elegant.
+            </p>
+            <div class="specialties">
+              <span>Fine Line</span>
+              <span>Script</span>
+              <span>Ornamental</span>
+            </div>
+          </article>
+
+          <article class="artist-card">
+            <div class="artist-avatar"></div>
+            <h3>Jax Mercer</h3>
+            <span class="artist-role">Color & Neo-Traditional</span>
+            <p>
+              Bold color packing, classic tattoo energy, and modern composition
+              for clients who want something loud, clean, and unmistakable.
+            </p>
+            <div class="specialties">
+              <span>Color</span>
+              <span>Neo-Traditional</span>
+              <span>Flash</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Portfolio</span>
+          <h2>Work That Speaks Before You Do</h2>
+          <p>
+            No image tags. No fake photography. Just structured placeholders that
+            make the layout production-ready for real work drops later.
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="portfolio-item span-7 tall" style="--bg-fill: linear-gradient(135deg, #1c1c1c, #320909);">
+            <div class="overlay">
+              <h4>Blackwork Sleeve Concept</h4>
+              <p>Dense contrast, layered symbolism, and long-session composition planning.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-item span-5" style="--bg-fill: linear-gradient(135deg, #151515, #222222);">
+            <div class="overlay">
+              <h4>Fine Line Floral</h4>
+              <p>Soft structure with clean line confidence and placement precision.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-item span-4" style="--bg-fill: linear-gradient(135deg, #202020, #430f0f);">
+            <div class="overlay">
+              <h4>Neo-Traditional Dagger</h4>
+              <p>High impact layout with strong red-led contrast.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-item span-4" style="--bg-fill: linear-gradient(135deg, #111111, #292929);">
+            <div class="overlay">
+              <h4>Minimal Script Piece</h4>
+              <p>Small form, high precision, zero wasted lines.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-item span-4" style="--bg-fill: linear-gradient(135deg, #171717, #3a0d0d);">
+            <div class="overlay">
+              <h4>Chest Panel Design</h4>
+              <p>Custom-fit anatomy work designed for flow, balance, and longevity.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="availability">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Walk-In Availability</span>
+          <h2>Know When to Show Up</h2>
+          <p>
+            Most tattoo sites bury this. Bad move. People want to know when they
+            can actually get in without playing phone tag.
+          </p>
+        </div>
+
+        <div class="schedule-wrap">
+          <div class="schedule-intro">
+            <h3>Studio Notes</h3>
+            <ul>
+              <li>Walk-ins are handled first-come, first-served during listed availability.</li>
+              <li>Custom appointments are recommended for sleeves, coverups, and multi-session work.</li>
+              <li>Consultations are free and help avoid bad decisions and rushed designs.</li>
+            </ul>
+          </div>
+
+          <div class="schedule-card">
+            <div class="schedule-head">
+              <div>Day</div>
+              <div>Hours</div>
+              <div>Status</div>
+            </div>
+
+            <div class="schedule-row">
+              <strong>Tuesday</strong>
+              <span>12:00 PM – 8:00 PM</span>
+              <span class="status available">Walk-Ins Open</span>
+            </div>
+
+            <div class="schedule-row">
+              <strong>Wednesday</strong>
+              <span>12:00 PM – 8:00 PM</span>
+              <span class="status limited">Limited Slots</span>
+            </div>
+
+            <div class="schedule-row">
+              <strong>Thursday</strong>
+              <span>12:00 PM – 9:00 PM</span>
+              <span class="status available">Walk-Ins Open</span>
+            </div>
+
+            <div class="schedule-row">
+              <strong>Friday</strong>
+              <span>11:00 AM – 9:00 PM</span>
+              <span class="status limited">Appointment Priority</span>
+            </div>
+
+            <div class="schedule-row">
+              <strong>Saturday</strong>
+              <span>11:00 AM – 7:00 PM</span>
+              <span class="status available">Walk-Ins Open</span>
+            </div>
+
+            <div class="schedule-row">
+              <strong>Sunday / Monday</strong>
+              <span>Closed</span>
+              <span class="status closed">Closed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="book">
+      <div class="container">
+        <div class="cta-strip">
+          <div>
+            <span class="eyebrow">Ready to Get Started?</span>
+            <h3>Book the session. Lock the design. Stop overthinking it.</h3>
+            <p>
+              Whether you want a first piece, a full sleeve plan, or a same-week
+              walk-in, INK & IRON is built to make the next step obvious.
+            </p>
+          </div>
+          <a href="mailto:bookings@inkandiron.com" class="btn btn-primary">Book Your Appointment</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="brand" style="margin-bottom: 0.4rem;">
+          <span class="brand-mark">II</span>
+          <span>INK & IRON</span>
+        </div>
+        <p class="footer-note">
+          Custom tattoo studio • 128 Blackline Ave • Open Tuesday–Saturday
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#artists">Artists</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#availability">Walk-Ins</a>
+        <a href="mailto:bookings@inkandiron.com">bookings@inkandiron.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

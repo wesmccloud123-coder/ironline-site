@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FORGE Fitness</title>
+  <meta
+    name="description"
+    content="FORGE Fitness - Strength-driven training, elite classes, and membership plans built to push you further."
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #0D0D0D;
+      --bg-soft: #161616;
+      --bg-card: #1B1B1B;
+      --text: #F5F5F5;
+      --muted: #B7B7B7;
+      --accent: #E63946;
+      --accent-dark: #b82131;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --max: 1200px;
+      --transition: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 0.95;
+      letter-spacing: 0.03em;
+      margin-bottom: 14px;
+    }
+
+    .section-copy {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform var(--transition), background var(--transition), border var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(230, 57, 70, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(13, 13, 13, 0.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color var(--transition);
+    }
+
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(120deg, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.74) 42%, rgba(230,57,70,0.18) 100%),
+        radial-gradient(circle at 80% 20%, rgba(230,57,70,0.22), transparent 30%),
+        linear-gradient(135deg, #1b1b1b, #0d0d0d);
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      background: rgba(230, 57, 70, 0.28);
+      top: 10%;
+      right: 8%;
+    }
+
+    .hero::after {
+      width: 200px;
+      height: 200px;
+      background: rgba(230, 57, 70, 0.16);
+      bottom: 8%;
+      left: 4%;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-copy h1 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(3.4rem, 8vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      margin-bottom: 18px;
+      max-width: 760px;
+    }
+
+    .hero-copy h1 span {
+      color: var(--accent);
+    }
+
+    .hero-copy p {
+      font-size: 1.06rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .badge {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      border-radius: 999px;
+      padding: 10px 16px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .hero-visual {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-card,
+    .hero-panel {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      min-height: 350px;
+      padding: 24px;
+      display: flex;
+      align-items: end;
+      justify-content: start;
+      background:
+        linear-gradient(to top, rgba(13,13,13,0.7), rgba(13,13,13,0.05)),
+        linear-gradient(135deg, #252525, #111111);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(230,57,70,0.12) 45%, transparent 100%);
+      transform: skewX(-18deg) translateX(-120%);
+      animation: sweep 4.5s infinite ease-in-out;
+    }
+
+    @keyframes sweep {
+      0% { transform: skewX(-18deg) translateX(-120%); }
+      55% { transform: skewX(-18deg) translateX(120%); }
+      100% { transform: skewX(-18deg) translateX(120%); }
+    }
+
+    .hero-card-content {
+      position: relative;
+      z-index: 1;
+      max-width: 280px;
+    }
+
+    .hero-card-title {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .hero-card-content p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-panel {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .mini-stat {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 18px 14px;
+      text-align: center;
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .mini-stat span {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* Stats */
+    .stats-wrap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::after {
+      content: "";
+      position: absolute;
+      left: -20%;
+      right: -20%;
+      top: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      animation: pulseLine 2.8s infinite ease-in-out;
+    }
+
+    @keyframes pulseLine {
+      0%, 100% { opacity: 0.35; transform: translateX(-10%); }
+      50% { opacity: 1; transform: translateX(10%); }
+    }
+
+    .stat-number {
+      display: inline-flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 3px;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.6rem, 4vw, 4rem);
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      animation: floatNumber 2.4s ease-in-out infinite;
+    }
+
+    .stat-card:nth-child(2) .stat-number { animation-delay: 0.2s; }
+    .stat-card:nth-child(3) .stat-number { animation-delay: 0.4s; }
+    .stat-card:nth-child(4) .stat-number { animation-delay: 0.6s; }
+
+    @keyframes floatNumber {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    /* Schedule */
+    .schedule-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 30px;
+      align-items: start;
+      margin-top: 34px;
+    }
+
+    .schedule-card,
+    .pricing-card,
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .schedule-info {
+      padding: 28px;
+    }
+
+    .schedule-list {
+      margin-top: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .schedule-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .schedule-item strong {
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .schedule-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .schedule-table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 520px;
+    }
+
+    th, td {
+      padding: 16px 18px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    th {
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.06em;
+      font-size: 1.2rem;
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    tr:hover td {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .class-pill {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(230,57,70,0.12);
+      color: #fff;
+      border: 1px solid rgba(230,57,70,0.35);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .pricing-card {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card.featured {
+      border-color: rgba(230,57,70,0.45);
+      transform: translateY(-8px);
+      background: linear-gradient(180deg, rgba(230,57,70,0.08), rgba(255,255,255,0.02));
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 999px;
+      padding: 8px 12px;
+    }
+
+    .pricing-tier {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .pricing-price {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 3.2rem;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .pricing-price small {
+      font-family: "Inter", sans-serif;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-left: 4px;
+    }
+
+    .pricing-copy {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .pricing-features li {
+      color: var(--text);
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .pricing-features li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .testimonial-card {
+      padding: 26px;
+    }
+
+    .quote-mark {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .testimonial-text {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .testimonial-role {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* CTA */
+    .cta-box {
+      margin-top: 34px;
+      padding: 34px;
+      border-radius: 24px;
+      border: 1px solid rgba(230,57,70,0.25);
+      background:
+        linear-gradient(135deg, rgba(230,57,70,0.14), rgba(255,255,255,0.02)),
+        var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .cta-box h3 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: 0.05em;
+      line-height: 0.95;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 26px 0 34px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .schedule-layout,
+      .pricing-grid,
+      .testimonials-grid,
+      .stats-wrap {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-grid {
+        align-items: start;
+      }
+
+      .hero-panel {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 780px) {
+      .nav {
+        display: none;
+      }
+
+      .header-inner {
+        justify-content: center;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 72px 0;
+      }
+
+      .hero-grid,
+      .schedule-layout,
+      .pricing-grid,
+      .testimonials-grid,
+      .stats-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: 280px;
+      }
+
+      .hero-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        padding: 26px;
+      }
+
+      th, td {
+        padding: 14px 14px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-copy h1 {
+        font-size: clamp(3rem, 14vw, 4.8rem);
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 11vw, 3.3rem);
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .badge {
+        width: 100%;
+        text-align: center;
+      }
+
+      .pricing-card,
+      .testimonial-card,
+      .schedule-info {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">FORGE<span> Fitness</span></a>
+      <nav class="nav">
+        <a href="#stats">Results</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#pricing">Memberships</a>
+        <a href="#testimonials">Testimonials</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Built for the relentless</span>
+          <h1>TRAIN HARD. <span>FORGE</span> STRONGER.</h1>
+          <p>
+            FORGE Fitness is a high-intensity training studio built for people
+            who want real strength, real conditioning, and zero excuses. Step
+            into a space that pushes you harder every session.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#pricing" class="btn btn-primary">Start Free Trial</a>
+            <a href="#schedule" class="btn btn-secondary">View Class Schedule</a>
+          </div>
+
+          <div class="hero-badges">
+            <div class="badge">Strength & Conditioning</div>
+            <div class="badge">Coach-Led Classes</div>
+            <div class="badge">Beginner to Advanced</div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-card-content">
+              <div class="hero-card-title">No Mirrors. No Ego. Just Work.</div>
+              <p>
+                Placeholder visual block styled to feel like a premium fitness
+                campaign without using image tags.
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-panel">
+            <div class="mini-stat">
+              <strong>24/7</strong>
+              <span>Facility Access</span>
+            </div>
+            <div class="mini-stat">
+              <strong>12+</strong>
+              <span>Weekly Classes</span>
+            </div>
+            <div class="mini-stat">
+              <strong>100%</strong>
+              <span>Effort Required</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stats">
+      <div class="container">
+        <span class="eyebrow">Performance by the numbers</span>
+        <h2 class="section-title">THE RESULTS SPEAK LOUDER</h2>
+        <p class="section-copy">
+          Fast onboarding, structured coaching, and a training culture that
+          keeps members coming back. These animated counters create motion
+          without JavaScript.
+        </p>
+
+        <div class="stats-wrap">
+          <div class="stat-card">
+            <div class="stat-number">500<span>+</span></div>
+            <div class="stat-label">Members Trained</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">18<span></span></div>
+            <div class="stat-label">Elite Coaches & Specialists</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">92<span>%</span></div>
+            <div class="stat-label">Retention Rate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">6<span>x</span></div>
+            <div class="stat-label">Weekly Average Attendance</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="schedule">
+      <div class="container">
+        <span class="eyebrow">Weekly training flow</span>
+        <h2 class="section-title">CLASS SCHEDULE</h2>
+        <p class="section-copy">
+          A clean schedule matters. If prospects cannot figure out when to show
+          up, you lose signups. This layout fixes that.
+        </p>
+
+        <div class="schedule-layout">
+          <div class="schedule-card schedule-info">
+            <h3 class="section-title" style="font-size:2.5rem; margin-bottom: 8px;">WHAT YOU CAN EXPECT</h3>
+            <p class="section-copy" style="font-size: 0.98rem;">
+              Every class is coached, scalable, and built to improve
+              performance. Whether you're cutting weight, building muscle, or
+              rebuilding your consistency, there is a lane for you.
+            </p>
+
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <strong>Strength Lab</strong>
+                <span>Heavy compound lifts + progression</span>
+              </div>
+              <div class="schedule-item">
+                <strong>MetCon Forge</strong>
+                <span>Conditioning circuits that hit hard</span>
+              </div>
+              <div class="schedule-item">
+                <strong>Mobility Reset</strong>
+                <span>Recovery, flexibility, and movement prep</span>
+              </div>
+              <div class="schedule-item">
+                <strong>Hybrid Athlete</strong>
+                <span>Speed, power, endurance, and grit</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="schedule-card schedule-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Time</th>
+                  <th>Class</th>
+                  <th>Coach</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monday</td>
+                  <td>6:00 AM</td>
+                  <td><span class="class-pill">Strength Lab</span></td>
+                  <td>Coach Mason</td>
+                </tr>
+                <tr>
+                  <td>Tuesday</td>
+                  <td>5:30 PM</td>
+                  <td><span class="class-pill">MetCon Forge</span></td>
+                  <td>Coach Avery</td>
+                </tr>
+                <tr>
+                  <td>Wednesday</td>
+                  <td>6:00 AM</td>
+                  <td><span class="class-pill">Hybrid Athlete</span></td>
+                  <td>Coach Jordan</td>
+                </tr>
+                <tr>
+                  <td>Thursday</td>
+                  <td>6:30 PM</td>
+                  <td><span class="class-pill">Mobility Reset</span></td>
+                  <td>Coach Riley</td>
+                </tr>
+                <tr>
+                  <td>Friday</td>
+                  <td>5:30 PM</td>
+                  <td><span class="class-pill">Strength Lab</span></td>
+                  <td>Coach Mason</td>
+                </tr>
+                <tr>
+                  <td>Saturday</td>
+                  <td>9:00 AM</td>
+                  <td><span class="class-pill">MetCon Forge</span></td>
+                  <td>Coach Avery</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <span class="eyebrow">Choose your level</span>
+        <h2 class="section-title">MEMBERSHIP OPTIONS</h2>
+        <p class="section-copy">
+          Weak pricing presentation kills conversions. These cards make the
+          offer easy to understand and easy to act on.
+        </p>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-tier">Starter</div>
+            <div class="pricing-price">$39<small>/month</small></div>
+            <p class="pricing-copy">
+              For people ready to stop talking and start showing up.
+            </p>
+            <ul class="pricing-features">
+              <li>2 classes per week</li>
+              <li>Gym floor access</li>
+              <li>New member assessment</li>
+              <li>Progress tracking</li>
+            </ul>
+            <a href="#" class="btn btn-secondary">Choose Starter</a>
+          </div>
+
+          <div class="pricing-card featured">
+            <span class="pricing-badge">Most Popular</span>
+            <div class="pricing-tier">Unlimited</div>
+            <div class="pricing-price">$79<small>/month</small></div>
+            <p class="pricing-copy">
+              Best for serious members who want results without limits.
+            </p>
+            <ul class="pricing-features">
+              <li>Unlimited weekly classes</li>
+              <li>24/7 facility access</li>
+              <li>Monthly coach check-in</li>
+              <li>Priority event booking</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Start Free Trial</a>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-tier">Elite Coaching</div>
+            <div class="pricing-price">$149<small>/month</small></div>
+            <p class="pricing-copy">
+              Built for members who want the highest level of accountability.
+            </p>
+            <ul class="pricing-features">
+              <li>Unlimited classes</li>
+              <li>Custom programming</li>
+              <li>1-on-1 nutrition guidance</li>
+              <li>Weekly performance reviews</li>
+            </ul>
+            <a href="#" class="btn btn-secondary">Go Elite</a>
+          </div>
+        </div>
+
+        <div class="cta-box">
+          <div>
+            <h3>YOUR FIRST WEEK IS ON US</h3>
+            <p>
+              Remove friction. Give people a reason to commit now. A clean free
+              trial CTA beats a vague “contact us” every time.
+            </p>
+          </div>
+          <a href="#" class="btn btn-primary">Claim Free Trial</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <span class="eyebrow">Proof from real members</span>
+        <h2 class="section-title">TESTIMONIALS</h2>
+        <p class="section-copy">
+          Testimonials are not decoration. They reduce doubt. These blocks are
+          built to reinforce commitment and trust.
+        </p>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-text">
+              I tried big-box gyms for years and never stayed consistent. FORGE
+              gave me structure, coaching, and a reason to keep showing up.
+            </p>
+            <div class="testimonial-author">Tyler R.</div>
+            <div class="testimonial-role">Member for 11 months</div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-text">
+              The energy is intense in the best way possible. I got stronger,
+              dropped weight, and actually look forward to training now.
+            </p>
+            <div class="testimonial-author">Brianna M.</div>
+            <div class="testimonial-role">Unlimited member</div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="quote-mark">“</div>
+            <p class="testimonial-text">
+              The coaches know when to push and when to correct. It feels elite
+              without being intimidating. That is rare.
+            </p>
+            <div class="testimonial-author">Marcus D.</div>
+            <div class="testimonial-role">Elite Coaching client</div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2026 FORGE Fitness. Built to perform.</div>
+      <div>123 Iron Street • Open 24/7 for members</div>
+    </div>
+  </footer>
+</body>
+</html>

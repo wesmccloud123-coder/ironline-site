@@ -1,14 +1,14 @@
 window.PORTFOLIO_DATA = [
   {
-    title: "Atlas Distribution Co.",
-    slug: "atlas-distribution",
-    category: "Industrial Distribution",
-    image: "assets/portfolio/atlas-distribution.jpg",
-    liveUrl: "https://example.com/atlas-distribution",
+    title: "Aurelia Golf Club",
+    slug: "aurelia-golf-club",
+    category: "Golf Club / Luxury Demo",
+    image: "assets/portfolio/aurelia-golf-club.jpg",
+    liveUrl: "aurelia_golf_flythrough.html",
     modalType: "details",
-    iframeUrl: "",
-    summary: "A rugged distributor website concept with fast quote paths, product category landing pages, and stronger trust signals for operations-heavy buyers.",
-    services: ["Website Design", "Copy Direction", "Lead Capture", "Responsive UI"],
+    iframeUrl: "aurelia_golf_flythrough.html",
+    summary: "A cinematic forward-travel golf course flythrough concept designed to showcase a premium club experience.",
+    services: ["Web Design", "Interactive Experience", "Luxury Positioning", "Course Showcase"],
     featured: true
   },
   {
