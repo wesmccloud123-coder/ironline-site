@@ -6,7 +6,6 @@ window.PORTFOLIO_DATA = [
     image: "demo-site-images/aurelia-golf-club.jpg",
     liveUrl: "demo-sites/aurelia_golf_flythrough.html",
     modalType: "details",
-    iframeUrl: "demo-sites/aurelia_golf_flythrough.html",
     summary: "A cinematic forward-travel golf course flythrough concept designed to showcase a premium club experience.",
     services: ["Web Design", "Interactive Experience", "Luxury Positioning", "Course Showcase"],
     featured: true
@@ -17,8 +16,7 @@ window.PORTFOLIO_DATA = [
     category: "Health & Aesthetics",
     image: "assets/portfolio/northshore-medspa.jpg",
     liveUrl: "https://example.com/northshore-medspa",
-    modalType: "iframe",
-    iframeUrl: "https://example.com/northshore-medspa",
+    modalType: "details",
     summary: "A luxury service brand mockup focused on premium positioning, treatment discovery, and streamlined consultation booking.",
     services: ["Brand Refresh", "UX Design", "Conversion Layouts", "Appointment Funnel"],
     featured: true
@@ -30,7 +28,6 @@ window.PORTFOLIO_DATA = [
     image: "assets/portfolio/summit-roofing-group.jpg",
     liveUrl: "https://example.com/summit-roofing-group",
     modalType: "details",
-    iframeUrl: "",
     summary: "A contractor-focused website demo that highlights financing, storm response, and neighborhood proof in a clean sales flow.",
     services: ["Local SEO Layout", "Trust Builders", "Service Pages", "CTA Strategy"],
     featured: false
@@ -41,8 +38,7 @@ window.PORTFOLIO_DATA = [
     category: "Professional Services",
     image: "assets/portfolio/harbor-legal-advisory.jpg",
     liveUrl: "https://example.com/harbor-legal-advisory",
-    modalType: "iframe",
-    iframeUrl: "https://example.com/harbor-legal-advisory",
+    modalType: "details",
     summary: "A high-trust legal services concept designed around authority, clarity, and a more confident intake experience.",
     services: ["Messaging System", "Authority Design", "Mobile UX", "Lead Intake"],
     featured: true
@@ -54,7 +50,6 @@ window.PORTFOLIO_DATA = [
     image: "assets/portfolio/forge-fitness-labs.jpg",
     liveUrl: "https://example.com/forge-fitness-labs",
     modalType: "details",
-    iframeUrl: "",
     summary: "A bold gym brand concept combining membership offers, coaching packages, and a sharper class discovery experience.",
     services: ["Landing Pages", "Offer Structuring", "Brand Presentation", "Content Blocks"],
     featured: false
@@ -65,8 +60,7 @@ window.PORTFOLIO_DATA = [
     category: "Interior Design",
     image: "assets/portfolio/cinder-oak-interiors.jpg",
     liveUrl: "https://example.com/cinder-oak-interiors",
-    modalType: "iframe",
-    iframeUrl: "https://example.com/cinder-oak-interiors",
+    modalType: "details",
     summary: "An editorial-style design studio website that balances portfolio storytelling, process education, and inquiry conversion.",
     services: ["Portfolio UX", "Editorial Layout", "Visual Direction", "Inquiry Flow"],
     featured: false

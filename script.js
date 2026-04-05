@@ -140,7 +140,7 @@ function createPortfolioCard(item) {
         <div class="list-card-meta">${services}</div>
         <div class="portfolio-actions">
           <button class="btn btn-secondary portfolio-quick-view" type="button" data-portfolio-quick-view="${item.slug}">Quick View</button>
-          <a href="${item.liveUrl}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Visit Site</a>
+          <a href="${item.liveUrl}" class="btn btn-primary portfolio-visit-link" target="_blank" rel="noopener noreferrer" data-portfolio-visit-site="${item.slug}">Visit Site</a>
         </div>
       </div>
     </article>`;
@@ -186,35 +186,16 @@ function createPortfolioDetailsMarkup(item, notice) {
         </div>
       </div>
       <div class="portfolio-detail-copy">
-        <div class="tag">${item.category}</div>
-        <h2 id="portfolioModalTitle">${item.title}</h2>
-        <p>${item.summary}</p>
-        <div class="list-card-meta">${services}</div>
-        <div class="portfolio-actions">
-          <a href="${item.liveUrl}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Open Live Site</a>
-          <button class="btn btn-secondary" type="button" data-modal-close="true">Close</button>
-        </div>
-      </div>
-    </div>`;
-}
-
-function createPortfolioIframeMarkup(item) {
-  return `
-    <div class="portfolio-iframe-shell">
-      <div class="portfolio-iframe-bar">
-        <div>
+        <div class="portfolio-detail-scroll">
           <div class="tag">${item.category}</div>
           <h2 id="portfolioModalTitle">${item.title}</h2>
+          <p>${item.summary}</p>
+          <div class="list-card-meta">${services}</div>
         </div>
-        <a href="${item.liveUrl}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Open Live Site</a>
-      </div>
-      <div class="portfolio-iframe-frame">
-        <iframe
-          src="${item.iframeUrl}"
-          title="${item.title} quick view"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin"
-        ></iframe>
+        <div class="portfolio-actions portfolio-modal-actions">
+          <a href="${item.liveUrl}" class="btn btn-primary portfolio-visit-link" target="_blank" rel="noopener noreferrer">Visit Site</a>
+          <button class="btn btn-secondary" type="button" data-modal-close="true">Close</button>
+        </div>
       </div>
     </div>`;
 }
@@ -228,7 +209,8 @@ function setupPortfolioModal() {
   if (!modal || !modalContent || !closeButton || !grid || !window.PORTFOLIO_DATA) return;
 
   let lastTrigger = null;
-  let iframeFallbackTimer = null;
+  let lockedScrollY = 0;
+  const overlay = modal.querySelector(".portfolio-modal-overlay");
 
   function applyImageFallbacks(scope) {
     scope.querySelectorAll("img[data-fallback-label]").forEach(image => {
@@ -240,16 +222,23 @@ function setupPortfolioModal() {
     });
   }
 
+  function lockBodyScroll() {
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.classList.add("modal-open");
+    document.body.style.top = `-${lockedScrollY}px`;
+  }
+
+  function unlockBodyScroll() {
+    document.body.classList.remove("modal-open");
+    document.body.style.top = "";
+    window.scrollTo(0, lockedScrollY);
+  }
+
   function closeModal() {
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
+    unlockBodyScroll();
     modalContent.innerHTML = "";
-
-    if (iframeFallbackTimer) {
-      window.clearTimeout(iframeFallbackTimer);
-      iframeFallbackTimer = null;
-    }
 
     if (lastTrigger) {
       lastTrigger.focus();
@@ -266,52 +255,36 @@ function setupPortfolioModal() {
     lastTrigger = trigger;
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
-
-    if (item.modalType === "iframe" && item.iframeUrl) {
-      modalContent.innerHTML = createPortfolioIframeMarkup(item);
-
-      const iframe = modalContent.querySelector("iframe");
-      let loaded = false;
-
-      iframeFallbackTimer = window.setTimeout(() => {
-        if (!loaded) {
-          renderDetails(item, "Quick View fell back to a details layout because the live page could not be embedded cleanly.");
-          iframeFallbackTimer = null;
-        }
-      }, 1800);
-
-      iframe.addEventListener("load", () => {
-        loaded = true;
-        if (iframeFallbackTimer) {
-          window.clearTimeout(iframeFallbackTimer);
-          iframeFallbackTimer = null;
-        }
-      }, { once: true });
-
-      iframe.addEventListener("error", () => {
-        renderDetails(item, "Quick View fell back to a details layout because the embedded preview was unavailable.");
-        if (iframeFallbackTimer) {
-          window.clearTimeout(iframeFallbackTimer);
-          iframeFallbackTimer = null;
-        }
-      }, { once: true });
-    } else {
-      renderDetails(item);
-    }
+    lockBodyScroll();
+    renderDetails(item);
 
     closeButton.focus();
   }
 
   grid.addEventListener("click", event => {
+    const visitLink = event.target.closest("[data-portfolio-visit-site]");
+    if (visitLink) {
+      event.stopPropagation();
+      return;
+    }
+
     const trigger = event.target.closest("[data-portfolio-quick-view]");
     if (!trigger) return;
+
+    event.preventDefault();
+    event.stopPropagation();
 
     const item = getPortfolioItem(trigger.dataset.portfolioQuickView);
     if (!item) return;
 
     openModal(item, trigger);
   });
+
+  closeButton.addEventListener("click", closeModal);
+
+  if (overlay) {
+    overlay.addEventListener("click", closeModal);
+  }
 
   modal.addEventListener("click", event => {
     if (event.target.closest("[data-modal-close='true']")) {
