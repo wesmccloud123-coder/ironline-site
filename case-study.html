@@ -3,30 +3,70 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Case Study | IronLine Systems</title>
-<meta name="description" content="IronLine Systems content-driven static site." />
+ 
+<!-- Title and description updated dynamically by slug script below -->
+<title id="page-title">Case Study | IronLine Systems</title>
+<meta name="description" id="page-description" content="Real operational case studies from IronLine Systems — the specific problem, what changed, and the measurable result." />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="IronLine Systems" />
+ 
+<!-- Canonical updated dynamically -->
+<link rel="canonical" id="page-canonical" href="https://ironline-site.vercel.app/case-study.html" />
+ 
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="IronLine Systems" />
+<meta property="og:title" id="og-title" content="Case Study | IronLine Systems" />
+<meta property="og:description" id="og-description" content="Real operational case studies from IronLine Systems — the specific problem, what changed, and the measurable result." />
+<meta property="og:url" id="og-url" content="https://ironline-site.vercel.app/case-study.html" />
+<meta property="og:image" content="https://ironline-site.vercel.app/assets/og-ironline.jpg" />
+ 
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" id="twitter-title" content="Case Study | IronLine Systems" />
+<meta name="twitter:description" id="twitter-description" content="Real operational case studies from IronLine Systems — the specific problem, what changed, and the measurable result." />
+<meta name="twitter:image" content="https://ironline-site.vercel.app/assets/og-ironline.jpg" />
+ 
+<!-- JSON-LD: Article schema — populated dynamically -->
+<script type="application/ld+json" id="page-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "publisher": {
+    "@type": "Organization",
+    "name": "IronLine Systems",
+    "url": "https://ironline-site.vercel.app"
+  }
+}
+</script>
+ 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+ 
 <header class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand"><div class="brand-mark">IL</div><div>IRONLINE SYSTEMS</div></a>
+    <a href="index.html" class="brand">
+      <div class="brand-mark">IL</div>
+      <div>IRONLINE SYSTEMS</div>
+    </a>
     <nav class="nav-links">
-      <a href="index.html" class="">Home</a>
-      <a href="portfolio.html" class="">Portfolio</a>
-      <a href="insights.html" class="">Insights</a>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="insights.html">Insights</a>
       <a href="case-studies.html" class="active">Case Studies</a>
-      <a href="contact.html" class="">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div>
       <a href="contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
-      <button class="menu-btn" id="menuToggle">☰</button>
+      <button class="menu-btn" id="menuToggle">&#9776;</button>
     </div>
   </div>
 </header>
+ 
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-links">
     <a href="index.html">Home</a>
@@ -36,30 +76,169 @@
     <a href="contact.html">Contact</a>
   </div>
 </div>
-
+ 
 <main>
-<section class="page-hero">
-  <div class="container page-head">
-    <div class="badge">Case Study</div>
-    <h1>Reusable case study template</h1>
-    <p>The content below is loaded by slug from <strong>case-studies.js</strong>.</p>
-  </div>
-</section>
-<section class="section" style="padding-top:0;">
-  <div class="container page-layout">
-    <div id="casePage"></div>
-    <aside id="caseMeta"></aside>
-  </div>
-</section>
+ 
+  <section class="page-hero">
+    <div class="container page-head">
+      <div class="badge" id="case-category">Case Study | IronLine Systems</div>
+      <h1 id="case-title">Case Study</h1>
+      <p id="case-summary" class="hero-sub"></p>
+      <div id="case-tags" class="tag-row"></div>
+    </div>
+  </section>
+ 
+  <section class="section" style="padding-top:0;">
+    <div class="container page-layout">
+      <div id="casePage"></div>
+    </div>
+  </section>
+ 
 </main>
-
+ 
 <footer class="footer">
   <div class="container footer-inner">
-    <div><strong>IRONLINE SYSTEMS</strong><br><span class="muted">Operational software. Automation. Systems strategy.</span></div>
-    <div>© 2026 IronLine Systems. All rights reserved.</div>
+    <div>
+      <strong>IRONLINE SYSTEMS</strong><br>
+      <span class="muted">Operational software. Automation. Systems strategy.</span>
+    </div>
+    <div>&copy; 2026 IronLine Systems. All rights reserved.</div>
   </div>
 </footer>
+ 
 <script src="case-studies.js"></script>
 <script src="script.js"></script>
+ 
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get("slug");
+ 
+  if (!slug || typeof window.CASE_STUDY_DATA === "undefined") return;
+ 
+  var study = window.CASE_STUDY_DATA.find(function (s) {
+    return s.slug === slug;
+  });
+ 
+  if (!study) return;
+ 
+  // ── Page title ──────────────────────────────────────────────
+  var titleEl = document.getElementById("page-title");
+  if (titleEl) titleEl.textContent = study.title + " | IronLine Systems";
+ 
+  // ── Meta description ────────────────────────────────────────
+  var metaDesc = document.getElementById("page-description");
+  if (metaDesc) metaDesc.setAttribute("content", study.summary);
+ 
+  // ── Canonical ───────────────────────────────────────────────
+  var canonicalEl = document.getElementById("page-canonical");
+  var fullUrl = "https://ironline-site.vercel.app/case-study.html?slug=" + slug;
+  if (canonicalEl) canonicalEl.setAttribute("href", fullUrl);
+ 
+  // ── Open Graph ──────────────────────────────────────────────
+  var ogTitle = document.getElementById("og-title");
+  if (ogTitle) ogTitle.setAttribute("content", study.title + " | IronLine Systems");
+ 
+  var ogDesc = document.getElementById("og-description");
+  if (ogDesc) ogDesc.setAttribute("content", study.summary);
+ 
+  var ogUrl = document.getElementById("og-url");
+  if (ogUrl) ogUrl.setAttribute("content", fullUrl);
+ 
+  // ── Twitter Card ────────────────────────────────────────────
+  var twTitle = document.getElementById("twitter-title");
+  if (twTitle) twTitle.setAttribute("content", study.title + " | IronLine Systems");
+ 
+  var twDesc = document.getElementById("twitter-description");
+  if (twDesc) twDesc.setAttribute("content", study.summary);
+ 
+  // ── JSON-LD schema ──────────────────────────────────────────
+  var schemaEl = document.getElementById("page-schema");
+  if (schemaEl) {
+    var schema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": study.title,
+      "description": study.summary,
+      "url": fullUrl,
+      "author": {
+        "@type": "Organization",
+        "name": "IronLine Systems",
+        "url": "https://ironline-site.vercel.app"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "IronLine Systems",
+        "url": "https://ironline-site.vercel.app"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": study.category
+      }
+    };
+    schemaEl.textContent = JSON.stringify(schema, null, 2);
+  }
+ 
+  // ── Hero section ─────────────────────────────────────────────
+  var h1 = document.getElementById("case-title");
+  if (h1) h1.textContent = study.title;
+ 
+  var categoryEl = document.getElementById("case-category");
+  if (categoryEl) categoryEl.textContent = study.category + " | IronLine Systems";
+ 
+  var summaryEl = document.getElementById("case-summary");
+  if (summaryEl) summaryEl.textContent = study.summary;
+ 
+  var tagsEl = document.getElementById("case-tags");
+  if (tagsEl && study.tags && study.tags.length) {
+    tagsEl.innerHTML = study.tags.map(function (tag) {
+      return "<span class=\"tag\">" + tag + "</span>";
+    }).join("");
+  }
+ 
+  // ── Body content ─────────────────────────────────────────────
+  var container = document.getElementById("casePage");
+  if (!container) return;
+ 
+  var detailsHtml = "";
+  if (study.details && study.details.length) {
+    detailsHtml = study.details.map(function (d) {
+      return "<p>" + d + "</p>";
+    }).join("");
+  }
+ 
+  container.innerHTML =
+    "<div class=\"case-study-body\">" +
+ 
+      "<div class=\"case-block\">" +
+        "<h2>" + study.problem_title + "</h2>" +
+        "<p>" + study.problem + "</p>" +
+      "</div>" +
+ 
+      "<div class=\"case-block\">" +
+        "<h2>" + study.change_title + "</h2>" +
+        "<p>" + study.change + "</p>" +
+      "</div>" +
+ 
+      "<div class=\"case-block case-outcome\">" +
+        "<h2>" + study.outcome_title + "</h2>" +
+        "<p>" + study.outcome + "</p>" +
+      "</div>" +
+ 
+      (detailsHtml
+        ? "<div class=\"case-block case-details\">" + detailsHtml + "</div>"
+        : "") +
+ 
+      "<div class=\"case-cta\">" +
+        "<p>Dealing with a similar problem?</p>" +
+        "<a href=\"contact.html\" class=\"btn btn-primary\">Get a Free Bottleneck Review</a>" +
+        "<a href=\"case-studies.html\" class=\"btn btn-secondary\">See All Case Studies</a>" +
+      "</div>" +
+ 
+    "</div>";
+ 
+})();
+</script>
+ 
 </body>
 </html>
