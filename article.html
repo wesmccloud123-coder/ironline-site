@@ -3,30 +3,74 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Article | IronLine Systems</title>
-<meta name="description" content="IronLine Systems content-driven static site." />
+ 
+<title id="page-title">Insights | IronLine Systems</title>
+<meta name="description" id="page-description" content="Operational guides and systems thinking from IronLine Systems — automation, workflow design, and building infrastructure that scales." />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="IronLine Systems" />
+ 
+<link rel="canonical" id="page-canonical" href="https://ironline-site.vercel.app/insights.html" />
+ 
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="IronLine Systems" />
+<meta property="og:title" id="og-title" content="Insights | IronLine Systems" />
+<meta property="og:description" id="og-description" content="Operational guides and systems thinking from IronLine Systems — automation, workflow design, and building infrastructure that scales." />
+<meta property="og:url" id="og-url" content="https://ironline-site.vercel.app/insights.html" />
+<meta property="og:image" content="https://ironline-site.vercel.app/assets/og-ironline.jpg" />
+ 
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" id="twitter-title" content="Insights | IronLine Systems" />
+<meta name="twitter:description" id="twitter-description" content="Operational guides and systems thinking from IronLine Systems — automation, workflow design, and building infrastructure that scales." />
+<meta name="twitter:image" content="https://ironline-site.vercel.app/assets/og-ironline.jpg" />
+ 
+<!-- JSON-LD populated dynamically -->
+<script type="application/ld+json" id="page-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "publisher": {
+    "@type": "Organization",
+    "name": "IronLine Systems",
+    "url": "https://ironline-site.vercel.app"
+  }
+}
+</script>
+ 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
+ 
+<style>
+  /* Hide hero content until JS populates it — prevents flash of empty/fallback text */
+  .article-hero-content { visibility: hidden; }
+  .article-hero-content.ready { visibility: visible; }
+</style>
 </head>
 <body>
+ 
 <header class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand"><div class="brand-mark">IL</div><div>IRONLINE SYSTEMS</div></a>
+    <a href="index.html" class="brand">
+      <div class="brand-mark">IL</div>
+      <div>IRONLINE SYSTEMS</div>
+    </a>
     <nav class="nav-links">
-      <a href="index.html" class="">Home</a>
-      <a href="portfolio.html" class="">Portfolio</a>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
       <a href="insights.html" class="active">Insights</a>
-      <a href="case-studies.html" class="">Case Studies</a>
-      <a href="contact.html" class="">Contact</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div>
       <a href="contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
-      <button class="menu-btn" id="menuToggle">☰</button>
+      <button class="menu-btn" id="menuToggle">&#9776;</button>
     </div>
   </div>
 </header>
+ 
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-links">
     <a href="index.html">Home</a>
@@ -36,30 +80,209 @@
     <a href="contact.html">Contact</a>
   </div>
 </div>
-
+ 
 <main>
-<section class="page-hero">
-  <div class="container page-head">
-    <div class="badge">Article</div>
-    <h1>Reusable article template</h1>
-    <p>The content below is loaded by slug from <strong>articles.js</strong>.</p>
-  </div>
-</section>
-<section class="section" style="padding-top:0;">
-  <div class="container page-layout">
-    <div id="articlePage"></div>
-    <aside id="articleMeta"></aside>
-  </div>
-</section>
+ 
+  <section class="page-hero">
+    <div class="container page-head article-hero-content" id="article-hero">
+      <div class="badge" id="article-category">Insights | IronLine Systems</div>
+      <h1 id="article-title"></h1>
+      <p id="article-summary" class="hero-sub"></p>
+      <div id="article-tags" class="tag-row"></div>
+    </div>
+  </section>
+ 
+  <section class="section" style="padding-top:0;">
+    <div class="container page-layout">
+      <div id="articlePage"></div>
+      <aside id="articleMeta"></aside>
+    </div>
+  </section>
+ 
 </main>
-
+ 
 <footer class="footer">
   <div class="container footer-inner">
-    <div><strong>IRONLINE SYSTEMS</strong><br><span class="muted">Operational software. Automation. Systems strategy.</span></div>
-    <div>© 2026 IronLine Systems. All rights reserved.</div>
+    <div>
+      <strong>IRONLINE SYSTEMS</strong><br>
+      <span class="muted">Operational software. Automation. Systems strategy.</span>
+    </div>
+    <div>&copy; 2026 IronLine Systems. All rights reserved.</div>
   </div>
 </footer>
+ 
 <script src="articles.js"></script>
 <script src="script.js"></script>
+ 
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get("slug");
+ 
+  // No slug — send visitor to the insights index instead of showing a blank page
+  if (!slug) {
+    window.location.replace("insights.html");
+    return;
+  }
+ 
+  if (typeof window.ARTICLE_DATA === "undefined") return;
+ 
+  var article = window.ARTICLE_DATA.find(function (a) {
+    return a.slug === slug;
+  });
+ 
+  // Slug not matched — send to insights index
+  if (!article) {
+    window.location.replace("insights.html");
+    return;
+  }
+ 
+  // ── Page title ────────────────────────────────────────────────
+  var titleEl = document.getElementById("page-title");
+  if (titleEl) titleEl.textContent = article.title + " | IronLine Systems";
+ 
+  // ── Meta description ──────────────────────────────────────────
+  var metaDesc = document.getElementById("page-description");
+  if (metaDesc) metaDesc.setAttribute("content", article.summary);
+ 
+  // ── Canonical ─────────────────────────────────────────────────
+  var fullUrl = "https://ironline-site.vercel.app/article.html?slug=" + slug;
+  var canonicalEl = document.getElementById("page-canonical");
+  if (canonicalEl) canonicalEl.setAttribute("href", fullUrl);
+ 
+  // ── Open Graph ────────────────────────────────────────────────
+  var ogTitle = document.getElementById("og-title");
+  if (ogTitle) ogTitle.setAttribute("content", article.title + " | IronLine Systems");
+ 
+  var ogDesc = document.getElementById("og-description");
+  if (ogDesc) ogDesc.setAttribute("content", article.summary);
+ 
+  var ogUrl = document.getElementById("og-url");
+  if (ogUrl) ogUrl.setAttribute("content", fullUrl);
+ 
+  // ── Twitter Card ──────────────────────────────────────────────
+  var twTitle = document.getElementById("twitter-title");
+  if (twTitle) twTitle.setAttribute("content", article.title + " | IronLine Systems");
+ 
+  var twDesc = document.getElementById("twitter-description");
+  if (twDesc) twDesc.setAttribute("content", article.summary);
+ 
+  // ── JSON-LD schema ────────────────────────────────────────────
+  var schemaEl = document.getElementById("page-schema");
+  if (schemaEl) {
+    var schema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": article.title,
+      "description": article.summary,
+      "url": fullUrl,
+      "author": {
+        "@type": "Organization",
+        "name": "IronLine Systems",
+        "url": "https://ironline-site.vercel.app"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "IronLine Systems",
+        "url": "https://ironline-site.vercel.app"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": article.category
+      }
+    };
+    schemaEl.textContent = JSON.stringify(schema, null, 2);
+  }
+ 
+  // ── Hero ──────────────────────────────────────────────────────
+  var h1 = document.getElementById("article-title");
+  if (h1) h1.textContent = article.title;
+ 
+  var categoryEl = document.getElementById("article-category");
+  if (categoryEl) categoryEl.textContent = article.category + " | IronLine Systems";
+ 
+  var summaryEl = document.getElementById("article-summary");
+  if (summaryEl) summaryEl.textContent = article.summary;
+ 
+  var tagsEl = document.getElementById("article-tags");
+  if (tagsEl && article.tags && article.tags.length) {
+    tagsEl.innerHTML = article.tags.map(function (tag) {
+      return "<span class=\"tag\">" + tag + "</span>";
+    }).join("");
+  }
+ 
+  // Reveal hero once all content is written in
+  var hero = document.getElementById("article-hero");
+  if (hero) hero.classList.add("ready");
+ 
+  // ── Article body ──────────────────────────────────────────────
+  var container = document.getElementById("articlePage");
+  if (!container) return;
+ 
+  var sectionsHtml = "";
+  if (article.sections && article.sections.length) {
+    sectionsHtml = article.sections.map(function (section) {
+      var html = "<div class=\"article-section\">";
+      if (section.heading) {
+        html += "<h2>" + section.heading + "</h2>";
+      }
+      if (section.paragraphs && section.paragraphs.length) {
+        html += section.paragraphs.map(function (p) {
+          return "<p>" + p + "</p>";
+        }).join("");
+      }
+      if (section.bullets && section.bullets.length) {
+        html += "<ul>" + section.bullets.map(function (b) {
+          return "<li>" + b + "</li>";
+        }).join("") + "</ul>";
+      }
+      html += "</div>";
+      return html;
+    }).join("");
+  }
+ 
+  container.innerHTML =
+    "<div class=\"article-body\">" +
+      sectionsHtml +
+      "<div class=\"article-cta\">" +
+        "<p>If this sounds like your business, the first step is a conversation.</p>" +
+        "<a href=\"contact.html\" class=\"btn btn-primary\">Get a Free Bottleneck Review</a>" +
+        "<a href=\"insights.html\" class=\"btn btn-secondary\">Read More Articles</a>" +
+      "</div>" +
+    "</div>";
+ 
+  // ── Aside meta ────────────────────────────────────────────────
+  var aside = document.getElementById("articleMeta");
+  if (aside) {
+    var tagsAside = "";
+    if (article.tags && article.tags.length) {
+      tagsAside =
+        "<div class=\"meta-block\">" +
+          "<p class=\"meta-label\">Topics</p>" +
+          "<div class=\"tag-row\">" +
+            article.tags.map(function (tag) {
+              return "<span class=\"tag\">" + tag + "</span>";
+            }).join("") +
+          "</div>" +
+        "</div>";
+    }
+    aside.innerHTML =
+      "<div class=\"meta-block\">" +
+        "<p class=\"meta-label\">Category</p>" +
+        "<p>" + article.category + "</p>" +
+      "</div>" +
+      tagsAside +
+      "<div class=\"meta-block\">" +
+        "<p class=\"meta-label\">Published by</p>" +
+        "<p>IronLine Systems</p>" +
+      "</div>" +
+      "<div class=\"meta-block\">" +
+        "<a href=\"contact.html\" class=\"btn btn-primary\" style=\"width:100%;text-align:center;\">Book a Strategy Call</a>" +
+      "</div>";
+  }
+ 
+})();
+</script>
+ 
 </body>
 </html>
