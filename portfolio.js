@@ -15,7 +15,7 @@ window.PORTFOLIO_DATA = [
     slug: "nexus-showpiece",
     category: "Futuristic Site Demo",
     image: "demo-site-images/nexus-showpiece.jpg",
-    liveUrl: "demo-sites/nexus-showpiece.html",
+    liveUrl: "demo-sites/nexus_showpiece.html",
     modalType: "details",
     summary: "A luxury service brand mockup focused on premium positioning, treatment discovery, and streamlined consultation booking.",
     services: ["Brand Refresh", "UX Design", "Conversion Layouts", "Interactive Elements"],
