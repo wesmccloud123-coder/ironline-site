@@ -11,14 +11,14 @@ window.PORTFOLIO_DATA = [
     featured: true
   },
   {
-    title: "Northshore MedSpa",
-    slug: "northshore-medspa",
-    category: "Health & Aesthetics",
-    image: "assets/portfolio/northshore-medspa.jpg",
-    liveUrl: "https://example.com/northshore-medspa",
+    title: "Nexus Showpiece",
+    slug: "nexus-showpiece",
+    category: "Futuristic Site Demo",
+    image: "demo-site-images/nexus-showpiece.jpg",
+    liveUrl: "demo-sites/nexus-showpiece.html",
     modalType: "details",
     summary: "A luxury service brand mockup focused on premium positioning, treatment discovery, and streamlined consultation booking.",
-    services: ["Brand Refresh", "UX Design", "Conversion Layouts", "Appointment Funnel"],
+    services: ["Brand Refresh", "UX Design", "Conversion Layouts", "Interactive Elements"],
     featured: true
   },
   {
@@ -26,7 +26,7 @@ window.PORTFOLIO_DATA = [
     slug: "summit-roofing-group",
     category: "Home Services",
     image: "assets/portfolio/summit-roofing-group.jpg",
-    liveUrl: "https://example.com/summit-roofing-group",
+    liveUrl: "demo-sites/summit-roofing-group.html",
     modalType: "details",
     summary: "A contractor-focused website demo that highlights financing, storm response, and neighborhood proof in a clean sales flow.",
     services: ["Local SEO Layout", "Trust Builders", "Service Pages", "CTA Strategy"],
