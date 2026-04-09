@@ -70,7 +70,14 @@
       </ul>
     </article>
     <article class="contact-card card">
-      <form id="contactForm">
+ 
+      <!-- Hidden iframe receives the form response, keeps user on the page -->
+      <iframe name="hidden_iframe" style="display:none;"></iframe>
+ 
+      <form id="contactForm"
+            action="https://script.google.com/macros/s/AKfycbyCcWObSEvQutcqxi75aCBP9VAlxQFhuTlOEojFOHnlwViGR-0Nh8WRAwT-UUMrWA7y/exec"
+            method="POST"
+            target="hidden_iframe">
         <div class="form-grid">
           <div class="input-group"><label>Name</label><input name="name" type="text" required /></div>
           <div class="input-group"><label>Company</label><input name="company" type="text" /></div>
@@ -93,46 +100,25 @@
       </form>
  
       <script>
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
- 
+      document.getElementById('contactForm').addEventListener('submit', function() {
         const btn = document.getElementById('submitBtn');
         const msg = document.getElementById('formMsg');
-        const form = e.target;
  
         btn.textContent = 'Sending...';
         btn.disabled = true;
  
-        const data = {
-          name:    form.name.value,
-          company: form.company.value,
-          email:   form.email.value,
-          need:    form.need.value,
-          message: form.message.value
-        };
- 
-        // Google Apps Script requires no-cors + text/plain to accept POST requests
-        fetch('https://script.google.com/macros/s/AKfycbyCcWObSEvQutcqxi75aCBP9VAlxQFhuTlOEojFOHnlwViGR-0Nh8WRAwT-UUMrWA7y/exec', {
-          method: 'POST',
-          mode:   'no-cors',
-          headers: { 'Content-Type': 'text/plain' },
-          body:   JSON.stringify(data)
-        }).then(function() {
+        // Give the iframe a moment to receive the response then show success
+        setTimeout(function() {
           msg.textContent = "Got it — we'll be in touch within one business day.";
           msg.style.color = '#8fd4a7';
           msg.style.display = 'block';
-          form.reset();
+          document.getElementById('contactForm').reset();
           btn.textContent = 'Send My Inquiry';
           btn.disabled = false;
-        }).catch(function() {
-          msg.textContent = 'Something went wrong. Please email us directly.';
-          msg.style.color = '#f87171';
-          msg.style.display = 'block';
-          btn.textContent = 'Send My Inquiry';
-          btn.disabled = false;
-        });
+        }, 1500);
       });
       </script>
+ 
     </article>
   </div>
 </section>
