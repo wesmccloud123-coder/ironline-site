@@ -36,7 +36,7 @@
     <a href="contact.html">Contact</a>
   </div>
 </div>
-
+ 
 <main>
 <section class="page-hero">
   <div class="container page-head">
@@ -70,7 +70,7 @@
       </ul>
     </article>
     <article class="contact-card card">
-            <form id="contactForm">
+      <form id="contactForm">
         <div class="form-grid">
           <div class="input-group"><label>Name</label><input name="name" type="text" required /></div>
           <div class="input-group"><label>Company</label><input name="company" type="text" /></div>
@@ -91,16 +91,16 @@
         <button class="btn btn-primary" type="submit" id="submitBtn">Send My Inquiry</button>
         <p id="formMsg" style="margin-top:14px;display:none;"></p>
       </form>
-
+ 
       <script>
       document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
-
+ 
         const btn = document.getElementById('submitBtn');
         const msg = document.getElementById('formMsg');
         btn.textContent = 'Sending...';
         btn.disabled = true;
-
+ 
         const data = {
           name:    this.name.value,
           company: this.company.value,
@@ -108,26 +108,25 @@
           need:    this.need.value,
           message: this.message.value
         };
-
+ 
         try {
-          await fetch("https://script.google.com/macros/s/AKfycbyCcWObSEvQutcqxi75aCBP9VAlxQFhuTlOEojFOHnlwViGR-0Nh8WRAwT-UUMrWA7y/exec", {
+          await fetch('https://script.google.com/macros/s/AKfycbyCcWObSEvQutcqxi75aCBP9VAlxQFhuTlOEojFOHnlwViGR-0Nh8WRAwT-UUMrWA7y/exec', {
             method: 'POST',
-            mode:   'no-cors',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'text/plain' },
             body:   JSON.stringify(data)
           });
-
+ 
           msg.textContent = "Got it — we'll be in touch within one business day.";
           msg.style.color = '#8fd4a7';
           msg.style.display = 'block';
           this.reset();
-
+ 
         } catch(err) {
           msg.textContent = 'Something went wrong. Please email us directly.';
           msg.style.color = '#f87171';
           msg.style.display = 'block';
         }
-
+ 
         btn.textContent = 'Send My Inquiry';
         btn.disabled = false;
       });
@@ -136,14 +135,14 @@
   </div>
 </section>
 </main>
-
+ 
 <footer class="footer">
   <div class="container footer-inner">
     <div><strong>IRONLINE SYSTEMS</strong><br><span class="muted">Operational software. Automation. Systems strategy.</span></div>
     <div>&copy; 2026 IronLine Systems. All rights reserved.</div>
   </div>
 </footer>
-
+ 
 <script src="script.js"></script>
 </body>
 </html>
