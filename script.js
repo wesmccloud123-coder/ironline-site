@@ -26,7 +26,7 @@ function escapeHtml(value) {
 // from a data object. Call after finding the matching item.
 // ─────────────────────────────────────────────────────────────
 function populateSEO({ title, description, slug, pageFile }) {
-  const fullUrl = "https://ironline-site.vercel.app/" + pageFile + "?slug=" + slug;
+  const fullUrl = "https://ironline.systems/" + pageFile + "?slug=" + slug;
 
   const titleEl = document.getElementById("page-title");
   if (titleEl) titleEl.textContent = title + " | IronLine Systems";
@@ -63,12 +63,12 @@ function populateSEO({ title, description, slug, pageFile }) {
       "author": {
         "@type": "Organization",
         "name": "IronLine Systems",
-        "url": "https://ironline-site.vercel.app"
+        "url": "https://ironline.systems"
       },
       "publisher": {
         "@type": "Organization",
         "name": "IronLine Systems",
-        "url": "https://ironline-site.vercel.app"
+        "url": "https://ironline.systems"
       }
     };
     schemaEl.textContent = JSON.stringify(schema, null, 2);

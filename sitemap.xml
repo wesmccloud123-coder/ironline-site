@@ -2,55 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://ironline-site.vercel.app</loc>
+    <loc>https://ironline.systems</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ironline-site.vercel.app/insights.html</loc>
+    <loc>https://ironline.systems/insights.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ironline-site.vercel.app/case-studies.html</loc>
+    <loc>https://ironline.systems/case-studies.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ironline-site.vercel.app/portfolio.html</loc>
+    <loc>https://ironline.systems/portfolio.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ironline-site.vercel.app/contact.html</loc>
+    <loc>https://ironline.systems/contact.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ironline-site.vercel.app/insights/slow-follow-up-cost.html</loc>
+    <loc>https://ironline.systems/insights/slow-follow-up-cost.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ironline-site.vercel.app/insights/more-software-makes-ops-worse.html</loc>
+    <loc>https://ironline.systems/insights/more-software-makes-ops-worse.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ironline-site.vercel.app/insights/when-to-automate-vs-integrate.html</loc>
+    <loc>https://ironline.systems/insights/when-to-automate-vs-integrate.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ironline-site.vercel.app/insights/cost-of-manual-data-entry.html</loc>
+    <loc>https://ironline.systems/insights/cost-of-manual-data-entry.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ironline-site.vercel.app/insights/why-crm-doesnt-fix-follow-up.html</loc>
+    <loc>https://ironline.systems/insights/why-crm-doesnt-fix-follow-up.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ironline-site.vercel.app/insights/how-to-run-an-operational-audit.html</loc>
+    <loc>https://ironline.systems/insights/how-to-run-an-operational-audit.html</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://ironline-site.vercel.app/insights/connecting-tools-vs-integrating-systems.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>google-site-verification: google7453300312fa6278.html</loc>
+    <loc>https://ironline.systems/insights/connecting-tools-vs-integrating-systems.html</loc>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

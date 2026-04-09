@@ -24,7 +24,7 @@ const articles = global.window.ARTICLE_DATA;
 const SITE = {
   name:    'IronLine Systems',
   tagline: 'Operational software. Automation. Systems strategy.',
-  baseUrl: 'https://ironline-site.vercel.app',
+  baseUrl: 'https://ironline.systems',
 };
 
 // ─── OUTPUT DIR ───────────────────────────────────────────────────────────────
