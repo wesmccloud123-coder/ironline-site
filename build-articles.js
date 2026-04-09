@@ -80,9 +80,7 @@ ${items}
 /** Renders tags as spans */
 function renderTags(tags = []) {
   if (!tags.length) return '';
-  return `<div class="article-tags">
-  ${tags.map(t => `<span class="tag">${esc(t)}</span>`).join(' ')}
-</div>`;
+  return tags.map(t => `<span class="tag">${esc(t)}</span>`).join(' ');
 }
 
 // ─── HTML TEMPLATE ────────────────────────────────────────────────────────────
@@ -135,46 +133,82 @@ function buildHTML(article) {
 ${schema}
   </script>
 
-  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-  <nav>
-    <a href="/index.html">Home</a>
-    <a href="/portfolio.html">Portfolio</a>
-    <a href="/insights.html">Insights</a>
-    <a href="/case-studies.html">Case Studies</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/contact.html" class="nav-cta">Book a Strategy Call</a>
-  </nav>
-
-  <main class="article-page">
-    <article>
-
-      <header class="article-header">
-        ${category ? `<p class="article-category">${esc(category)}</p>` : ''}
-        <h1>${esc(title)}</h1>
-        <p class="article-summary">${esc(summary)}</p>
-        ${renderTags(tags)}
-      </header>
-
-      <div class="article-body">
-        ${renderSections(sections)}
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/index.html" class="brand">
+        <div class="brand-mark">IL</div>
+        <div>IRONLINE SYSTEMS</div>
+      </a>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/insights.html" class="active">Insights</a>
+        <a href="/case-studies.html">Case Studies</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div>
+        <a href="/contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
       </div>
+    </div>
+  </header>
 
-      ${renderReferences(references)}
+  <main>
+    <section class="page-hero">
+      <div class="container page-head">
+        ${category ? `<div class="badge">${esc(category)} | IronLine Systems</div>` : ''}
+        <h1>${esc(title)}</h1>
+        <p class="hero-sub">${esc(summary)}</p>
+        ${renderTags(tags)}
+      </div>
+    </section>
 
-      <footer class="article-footer">
-        <a href="/insights.html">← Back to Insights</a>
-      </footer>
-
-    </article>
+    <section class="section" style="padding-top:0;">
+      <div class="container page-layout">
+        <div class="article-body">
+          ${renderSections(sections)}
+          <div class="article-cta">
+            <p>If this sounds like your business, the first step is a conversation.</p>
+            <a href="/contact.html" class="btn btn-primary">Get a Free Bottleneck Review</a>
+            <a href="/insights.html" class="btn btn-secondary">Read More Articles</a>
+          </div>
+        </div>
+        <aside>
+          <div class="meta-block">
+            <p class="meta-label">Category</p>
+            <p>${esc(category)}</p>
+          </div>
+          ${tags && tags.length ? `
+          <div class="meta-block">
+            <p class="meta-label">Topics</p>
+            <div class="tag-row">${renderTags(tags)}</div>
+          </div>` : ''}
+          <div class="meta-block">
+            <p class="meta-label">Published by</p>
+            <p>IronLine Systems</p>
+          </div>
+          <div class="meta-block">
+            <a href="/contact.html" class="btn btn-primary" style="width:100%;text-align:center;">Book a Strategy Call</a>
+          </div>
+        </aside>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <strong>${SITE.name}</strong><br>
-    ${SITE.tagline}<br>
-    &copy; ${new Date().getFullYear()} ${SITE.name}. All rights reserved.
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>${SITE.name}</strong><br>
+        <span class="muted">${SITE.tagline}</span>
+      </div>
+      <div>&copy; ${new Date().getFullYear()} ${SITE.name}. All rights reserved.</div>
+    </div>
   </footer>
 
 </body>

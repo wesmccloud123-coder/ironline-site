@@ -44,33 +44,46 @@
 }
   </script>
 
-  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-  <nav>
-    <a href="/index.html">Home</a>
-    <a href="/portfolio.html">Portfolio</a>
-    <a href="/insights.html">Insights</a>
-    <a href="/case-studies.html">Case Studies</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/contact.html" class="nav-cta">Book a Strategy Call</a>
-  </nav>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/index.html" class="brand">
+        <div class="brand-mark">IL</div>
+        <div>IRONLINE SYSTEMS</div>
+      </a>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/insights.html" class="active">Insights</a>
+        <a href="/case-studies.html">Case Studies</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div>
+        <a href="/contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
+      </div>
+    </div>
+  </header>
 
-  <main class="article-page">
-    <article>
-
-      <header class="article-header">
-        <p class="article-category">Systems Integration</p>
+  <main>
+    <section class="page-hero">
+      <div class="container page-head">
+        <div class="badge">Systems Integration | IronLine Systems</div>
         <h1>Stop connecting tools: why most integrations fail to scale</h1>
-        <p class="article-summary">Moving data from A to B is a connection. Changing how work happens is an integration. Businesses that confuse the two end up with fragile, siloed systems that break under growth.</p>
-        <div class="article-tags">
-  <span class="tag">Systems Integration</span> <span class="tag">SaaS Stack</span> <span class="tag">Workflow Design</span> <span class="tag">Data Flow</span>
-</div>
-      </header>
+        <p class="hero-sub">Moving data from A to B is a connection. Changing how work happens is an integration. Businesses that confuse the two end up with fragile, siloed systems that break under growth.</p>
+        <span class="tag">Systems Integration</span> <span class="tag">SaaS Stack</span> <span class="tag">Workflow Design</span> <span class="tag">Data Flow</span>
+      </div>
+    </section>
 
-      <div class="article-body">
-        <section>
+    <section class="section" style="padding-top:0;">
+      <div class="container page-layout">
+        <div class="article-body">
+          <section>
 <h2>What most people mean when they say integration</h2>
 <p>In the world of SaaS, the word integration has been diluted. Most of the time it just means a basic data pipe — using a native connector to move a customer name from a form to a CRM. These connections are useful but often fragile. They do not understand context, they handle errors poorly, and they do not change the underlying architecture of how your business operates.</p>
 <p>According to MuleSoft's research, the average organization uses hundreds of different applications, but only 29% of them are actually connected. Even when connections exist, 95% of IT and operations leaders report struggling to get a unified view of data across those systems. They have plenty of pipes. They have no plumbing system.</p>
@@ -101,27 +114,42 @@
 <p>The goal is to stop buying software for its features and start evaluating it on its connectivity. If a tool does not expose a clean, well-documented API, it does not belong in a stack you intend to scale. Design your system around the data your business owns, and treat SaaS tools as replaceable interfaces to that data — not as the source of truth itself.</p>
 
 </section>
+          <div class="article-cta">
+            <p>If this sounds like your business, the first step is a conversation.</p>
+            <a href="/contact.html" class="btn btn-primary">Get a Free Bottleneck Review</a>
+            <a href="/insights.html" class="btn btn-secondary">Read More Articles</a>
+          </div>
+        </div>
+        <aside>
+          <div class="meta-block">
+            <p class="meta-label">Category</p>
+            <p>Systems Integration</p>
+          </div>
+          
+          <div class="meta-block">
+            <p class="meta-label">Topics</p>
+            <div class="tag-row"><span class="tag">Systems Integration</span> <span class="tag">SaaS Stack</span> <span class="tag">Workflow Design</span> <span class="tag">Data Flow</span></div>
+          </div>
+          <div class="meta-block">
+            <p class="meta-label">Published by</p>
+            <p>IronLine Systems</p>
+          </div>
+          <div class="meta-block">
+            <a href="/contact.html" class="btn btn-primary" style="width:100%;text-align:center;">Book a Strategy Call</a>
+          </div>
+        </aside>
       </div>
-
-      <aside class="article-references">
-  <h3>References</h3>
-  <ul>
-  <li><a href="https://venturebeat.com/ai/93-of-it-leaders-see-value-in-ai-agents-but-struggle-to-deliver-salesforce-finds" target="_blank" rel="noopener">MuleSoft — 2025 Connectivity Benchmark Report (2025)</a></li>
-  <li><a href="https://www.moveworks.com/us/en/resources/blog/the-real-cost-of-context-switching-in-the-enterprise" target="_blank" rel="noopener">Moveworks — The Cost of Context Switching (2025)</a></li>
-  </ul>
-</aside>
-
-      <footer class="article-footer">
-        <a href="/insights.html">← Back to Insights</a>
-      </footer>
-
-    </article>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <strong>IronLine Systems</strong><br>
-    Operational software. Automation. Systems strategy.<br>
-    &copy; 2026 IronLine Systems. All rights reserved.
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>IronLine Systems</strong><br>
+        <span class="muted">Operational software. Automation. Systems strategy.</span>
+      </div>
+      <div>&copy; 2026 IronLine Systems. All rights reserved.</div>
+    </div>
   </footer>
 
 </body>

@@ -44,33 +44,46 @@
 }
   </script>
 
-  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-  <nav>
-    <a href="/index.html">Home</a>
-    <a href="/portfolio.html">Portfolio</a>
-    <a href="/insights.html">Insights</a>
-    <a href="/case-studies.html">Case Studies</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/contact.html" class="nav-cta">Book a Strategy Call</a>
-  </nav>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/index.html" class="brand">
+        <div class="brand-mark">IL</div>
+        <div>IRONLINE SYSTEMS</div>
+      </a>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/insights.html" class="active">Insights</a>
+        <a href="/case-studies.html">Case Studies</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div>
+        <a href="/contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
+      </div>
+    </div>
+  </header>
 
-  <main class="article-page">
-    <article>
-
-      <header class="article-header">
-        <p class="article-category">Systems Strategy</p>
+  <main>
+    <section class="page-hero">
+      <div class="container page-head">
+        <div class="badge">Systems Strategy | IronLine Systems</div>
         <h1>Stop buying software: how to run a high-impact operational audit first</h1>
-        <p class="article-summary">Most businesses respond to operational pain by adding headcount or software, but 20% of software budgets are wasted on complexity that a simple process audit would have prevented.</p>
-        <div class="article-tags">
-  <span class="tag">Operational Audit</span> <span class="tag">Process Improvement</span> <span class="tag">Systems Strategy</span> <span class="tag">Workflow Mapping</span>
-</div>
-      </header>
+        <p class="hero-sub">Most businesses respond to operational pain by adding headcount or software, but 20% of software budgets are wasted on complexity that a simple process audit would have prevented.</p>
+        <span class="tag">Operational Audit</span> <span class="tag">Process Improvement</span> <span class="tag">Systems Strategy</span> <span class="tag">Workflow Mapping</span>
+      </div>
+    </section>
 
-      <div class="article-body">
-        <section>
+    <section class="section" style="padding-top:0;">
+      <div class="container page-layout">
+        <div class="article-body">
+          <section>
 <h2>Why buying a solution before diagnosing the problem makes it worse</h2>
 <p>In a fast-growth environment, buying a tool is the easiest way to feel like you are solving a problem. This leads to shelfware — software that is paid for but never used. A 2025 Freshworks report found that 20% of software budgets are wasted on unnecessary business complexity. Adding a new tool to a broken process is like putting a faster engine in a car with no steering. It does not go better. It breaks faster.</p>
 <p>When you add software without an audit, you increase the cognitive load on your team. One more password to remember. One more interface to navigate. One more silo where data can hide. An audit is the filter that ensures your capital goes toward the root cause rather than the symptom.</p>
@@ -101,27 +114,42 @@
 <p>Never hire a person to solve a problem that an API could handle at a fraction of the cost. But never buy software to solve a problem that actually requires a clear decision about who owns a task. The audit is what tells you which one you are actually dealing with before any money is spent.</p>
 
 </section>
+          <div class="article-cta">
+            <p>If this sounds like your business, the first step is a conversation.</p>
+            <a href="/contact.html" class="btn btn-primary">Get a Free Bottleneck Review</a>
+            <a href="/insights.html" class="btn btn-secondary">Read More Articles</a>
+          </div>
+        </div>
+        <aside>
+          <div class="meta-block">
+            <p class="meta-label">Category</p>
+            <p>Systems Strategy</p>
+          </div>
+          
+          <div class="meta-block">
+            <p class="meta-label">Topics</p>
+            <div class="tag-row"><span class="tag">Operational Audit</span> <span class="tag">Process Improvement</span> <span class="tag">Systems Strategy</span> <span class="tag">Workflow Mapping</span></div>
+          </div>
+          <div class="meta-block">
+            <p class="meta-label">Published by</p>
+            <p>IronLine Systems</p>
+          </div>
+          <div class="meta-block">
+            <a href="/contact.html" class="btn btn-primary" style="width:100%;text-align:center;">Book a Strategy Call</a>
+          </div>
+        </aside>
       </div>
-
-      <aside class="article-references">
-  <h3>References</h3>
-  <ul>
-  <li><a href="https://ir.freshworks.com/news/news-details/2025/20-of-Software-Budgets-Wasted-on-Unnecessary-Business-Complexity-Freshworks-Survey-Finds/default.aspx" target="_blank" rel="noopener">Freshworks — Cost of Complexity Report 2025 (2025)</a></li>
-  <li><a href="https://www.hostinger.com/tutorials/saas-statistics" target="_blank" rel="noopener">Hostinger — SaaS Statistics 2024 (2024)</a></li>
-  </ul>
-</aside>
-
-      <footer class="article-footer">
-        <a href="/insights.html">← Back to Insights</a>
-      </footer>
-
-    </article>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <strong>IronLine Systems</strong><br>
-    Operational software. Automation. Systems strategy.<br>
-    &copy; 2026 IronLine Systems. All rights reserved.
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>IronLine Systems</strong><br>
+        <span class="muted">Operational software. Automation. Systems strategy.</span>
+      </div>
+      <div>&copy; 2026 IronLine Systems. All rights reserved.</div>
+    </div>
   </footer>
 
 </body>

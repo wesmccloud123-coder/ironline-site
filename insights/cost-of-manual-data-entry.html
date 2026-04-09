@@ -44,33 +44,46 @@
 }
   </script>
 
-  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-  <nav>
-    <a href="/index.html">Home</a>
-    <a href="/portfolio.html">Portfolio</a>
-    <a href="/insights.html">Insights</a>
-    <a href="/case-studies.html">Case Studies</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/contact.html" class="nav-cta">Book a Strategy Call</a>
-  </nav>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/index.html" class="brand">
+        <div class="brand-mark">IL</div>
+        <div>IRONLINE SYSTEMS</div>
+      </a>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/insights.html" class="active">Insights</a>
+        <a href="/case-studies.html">Case Studies</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div>
+        <a href="/contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
+      </div>
+    </div>
+  </header>
 
-  <main class="article-page">
-    <article>
-
-      <header class="article-header">
-        <p class="article-category">Operational Systems</p>
+  <main>
+    <section class="page-hero">
+      <div class="container page-head">
+        <div class="badge">Operational Systems | IronLine Systems</div>
         <h1>The invisible tax: why manual data entry is killing your margin</h1>
-        <p class="article-summary">Manual data re-entry is a compounding operational tax that costs mid-sized businesses thousands in wasted labor and preventable downstream errors.</p>
-        <div class="article-tags">
-  <span class="tag">Manual Admin</span> <span class="tag">Data Entry</span> <span class="tag">Workflow Efficiency</span> <span class="tag">Operations Cost</span>
-</div>
-      </header>
+        <p class="hero-sub">Manual data re-entry is a compounding operational tax that costs mid-sized businesses thousands in wasted labor and preventable downstream errors.</p>
+        <span class="tag">Manual Admin</span> <span class="tag">Data Entry</span> <span class="tag">Workflow Efficiency</span> <span class="tag">Operations Cost</span>
+      </div>
+    </section>
 
-      <div class="article-body">
-        <section>
+    <section class="section" style="padding-top:0;">
+      <div class="container page-layout">
+        <div class="article-body">
+          <section>
 <h2>Why manual data entry feels small but compounds fast</h2>
 <p>Most founders view manual data entry as a minor friction point — a few minutes spent moving a lead from a spreadsheet to a CRM, or an invoice from an email to an accounting tool. These micro-tasks represent a distributed drain on your most expensive resources. When an operations manager spends 15 minutes a day re-keying data it seems negligible. When a team of 20 does it across three different systems, you are losing over 1,200 hours of high-value labor per year.</p>
 <p>This is the manual data tax. It is a regressive tax that increases as you scale. Research from McKinsey indicates that up to 45% of current work activities can be automated using existing technology, yet most growing businesses continue to pay employees to act as human middleware between disconnected applications.</p>
@@ -101,27 +114,42 @@
 <p>The goal is a single source of truth where data is captured once at the point of origin and flows automatically to every other system. Moving from manual entry to automated data flow typically recovers 20% to 30% of a team's capacity without adding a single new hire.</p>
 
 </section>
+          <div class="article-cta">
+            <p>If this sounds like your business, the first step is a conversation.</p>
+            <a href="/contact.html" class="btn btn-primary">Get a Free Bottleneck Review</a>
+            <a href="/insights.html" class="btn btn-secondary">Read More Articles</a>
+          </div>
+        </div>
+        <aside>
+          <div class="meta-block">
+            <p class="meta-label">Category</p>
+            <p>Operational Systems</p>
+          </div>
+          
+          <div class="meta-block">
+            <p class="meta-label">Topics</p>
+            <div class="tag-row"><span class="tag">Manual Admin</span> <span class="tag">Data Entry</span> <span class="tag">Workflow Efficiency</span> <span class="tag">Operations Cost</span></div>
+          </div>
+          <div class="meta-block">
+            <p class="meta-label">Published by</p>
+            <p>IronLine Systems</p>
+          </div>
+          <div class="meta-block">
+            <a href="/contact.html" class="btn btn-primary" style="width:100%;text-align:center;">Book a Strategy Call</a>
+          </div>
+        </aside>
       </div>
-
-      <aside class="article-references">
-  <h3>References</h3>
-  <ul>
-  <li><a href="https://www.ibm.com/think/insights/cost-of-a-data-breach-industrial-sector" target="_blank" rel="noopener">IBM — Cost of a Data Breach Report 2024 (2024)</a></li>
-  <li><a href="https://www.caseware.com/us/resources/blog/problems-manual-data-entry-avoid" target="_blank" rel="noopener">McKinsey — Automation Potential Research (2024)</a></li>
-  </ul>
-</aside>
-
-      <footer class="article-footer">
-        <a href="/insights.html">← Back to Insights</a>
-      </footer>
-
-    </article>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <strong>IronLine Systems</strong><br>
-    Operational software. Automation. Systems strategy.<br>
-    &copy; 2026 IronLine Systems. All rights reserved.
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>IronLine Systems</strong><br>
+        <span class="muted">Operational software. Automation. Systems strategy.</span>
+      </div>
+      <div>&copy; 2026 IronLine Systems. All rights reserved.</div>
+    </div>
   </footer>
 
 </body>

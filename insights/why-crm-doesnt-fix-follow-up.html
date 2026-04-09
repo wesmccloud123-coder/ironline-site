@@ -44,33 +44,46 @@
 }
   </script>
 
-  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-  <nav>
-    <a href="/index.html">Home</a>
-    <a href="/portfolio.html">Portfolio</a>
-    <a href="/insights.html">Insights</a>
-    <a href="/case-studies.html">Case Studies</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/contact.html" class="nav-cta">Book a Strategy Call</a>
-  </nav>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/index.html" class="brand">
+        <div class="brand-mark">IL</div>
+        <div>IRONLINE SYSTEMS</div>
+      </a>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/insights.html" class="active">Insights</a>
+        <a href="/case-studies.html">Case Studies</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div>
+        <a href="/contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
+      </div>
+    </div>
+  </header>
 
-  <main class="article-page">
-    <article>
-
-      <header class="article-header">
-        <p class="article-category">Automation</p>
+  <main>
+    <section class="page-hero">
+      <div class="container page-head">
+        <div class="badge">Automation | IronLine Systems</div>
         <h1>The CRM paradox: why your new tool isn't fixing your sales follow-up</h1>
-        <p class="article-summary">A CRM only records the failure of human workflows — without automated follow-up logic, your expensive software is just a graveyard for expensive leads.</p>
-        <div class="article-tags">
-  <span class="tag">CRM</span> <span class="tag">Lead Follow-Up</span> <span class="tag">Sales Automation</span> <span class="tag">Workflow Design</span>
-</div>
-      </header>
+        <p class="hero-sub">A CRM only records the failure of human workflows — without automated follow-up logic, your expensive software is just a graveyard for expensive leads.</p>
+        <span class="tag">CRM</span> <span class="tag">Lead Follow-Up</span> <span class="tag">Sales Automation</span> <span class="tag">Workflow Design</span>
+      </div>
+    </section>
 
-      <div class="article-body">
-        <section>
+    <section class="section" style="padding-top:0;">
+      <div class="container page-layout">
+        <div class="article-body">
+          <section>
 <h2>The tool is not the problem — the workflow is</h2>
 <p>Businesses often buy a CRM expecting it to fix sagging sales numbers. But the software does not sell — it monitors. Recent data shows that 55% of CRM implementations fail to meet their planned objectives. The primary reason is that these tools are deployed over broken manual processes, effectively giving your team a digital version of their messy spreadsheets.</p>
 <p>When you buy a CRM without a defined automation strategy, you are not solving the follow-up problem. You are creating a more expensive place for leads to die. If your reps are not following up consistently now, a CRM will document that inconsistency with high-resolution accuracy.</p>
@@ -101,27 +114,42 @@
 <p>Focus on the basics first: an instant confirmation to every inbound lead, followed by an automated task assigned to a rep with a defined response deadline. Only after these triggers are working consistently should you worry about advanced CRM features. An automated simple workflow will consistently outperform a manually operated enterprise platform.</p>
 
 </section>
+          <div class="article-cta">
+            <p>If this sounds like your business, the first step is a conversation.</p>
+            <a href="/contact.html" class="btn btn-primary">Get a Free Bottleneck Review</a>
+            <a href="/insights.html" class="btn btn-secondary">Read More Articles</a>
+          </div>
+        </div>
+        <aside>
+          <div class="meta-block">
+            <p class="meta-label">Category</p>
+            <p>Automation</p>
+          </div>
+          
+          <div class="meta-block">
+            <p class="meta-label">Topics</p>
+            <div class="tag-row"><span class="tag">CRM</span> <span class="tag">Lead Follow-Up</span> <span class="tag">Sales Automation</span> <span class="tag">Workflow Design</span></div>
+          </div>
+          <div class="meta-block">
+            <p class="meta-label">Published by</p>
+            <p>IronLine Systems</p>
+          </div>
+          <div class="meta-block">
+            <a href="/contact.html" class="btn btn-primary" style="width:100%;text-align:center;">Book a Strategy Call</a>
+          </div>
+        </aside>
       </div>
-
-      <aside class="article-references">
-  <h3>References</h3>
-  <ul>
-  <li><a href="https://www.insidesales.com/response-time-matters/" target="_blank" rel="noopener">InsideSales — Lead Response Management Study (2024)</a></li>
-  <li><a href="https://johnnygrow.com/crm/the-crm-failure-rate-is-55-percent/" target="_blank" rel="noopener">Johnny Grow — CRM Failure Rates 2025 (2025)</a></li>
-  </ul>
-</aside>
-
-      <footer class="article-footer">
-        <a href="/insights.html">← Back to Insights</a>
-      </footer>
-
-    </article>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <strong>IronLine Systems</strong><br>
-    Operational software. Automation. Systems strategy.<br>
-    &copy; 2026 IronLine Systems. All rights reserved.
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>IronLine Systems</strong><br>
+        <span class="muted">Operational software. Automation. Systems strategy.</span>
+      </div>
+      <div>&copy; 2026 IronLine Systems. All rights reserved.</div>
+    </div>
   </footer>
 
 </body>
