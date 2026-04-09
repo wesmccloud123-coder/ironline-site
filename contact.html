@@ -93,42 +93,44 @@
       </form>
  
       <script>
-      document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
  
         const btn = document.getElementById('submitBtn');
         const msg = document.getElementById('formMsg');
+        const form = e.target;
+ 
         btn.textContent = 'Sending...';
         btn.disabled = true;
  
         const data = {
-          name:    this.name.value,
-          company: this.company.value,
-          email:   this.email.value,
-          need:    this.need.value,
-          message: this.message.value
+          name:    form.name.value,
+          company: form.company.value,
+          email:   form.email.value,
+          need:    form.need.value,
+          message: form.message.value
         };
  
-        try {
-          await fetch('https://script.google.com/macros/s/AKfycbyCcWObSEvQutcqxi75aCBP9VAlxQFhuTlOEojFOHnlwViGR-0Nh8WRAwT-UUMrWA7y/exec', {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain' },
-            body:   JSON.stringify(data)
-          });
- 
+        // Google Apps Script requires no-cors + text/plain to accept POST requests
+        fetch('https://script.google.com/macros/s/AKfycbyCcWObSEvQutcqxi75aCBP9VAlxQFhuTlOEojFOHnlwViGR-0Nh8WRAwT-UUMrWA7y/exec', {
+          method: 'POST',
+          mode:   'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body:   JSON.stringify(data)
+        }).then(function() {
           msg.textContent = "Got it — we'll be in touch within one business day.";
           msg.style.color = '#8fd4a7';
           msg.style.display = 'block';
-          this.reset();
- 
-        } catch(err) {
+          form.reset();
+          btn.textContent = 'Send My Inquiry';
+          btn.disabled = false;
+        }).catch(function() {
           msg.textContent = 'Something went wrong. Please email us directly.';
           msg.style.color = '#f87171';
           msg.style.display = 'block';
-        }
- 
-        btn.textContent = 'Send My Inquiry';
-        btn.disabled = false;
+          btn.textContent = 'Send My Inquiry';
+          btn.disabled = false;
+        });
       });
       </script>
     </article>
