@@ -3,7 +3,11 @@ function setupMenu() {
   const mobileMenu = document.getElementById("mobileMenu");
 
   if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => mobileMenu.classList.toggle("open"));
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    });
   }
 }
 
@@ -335,7 +339,7 @@ function createPortfolioCard(item) {
         <div class="list-card-meta">${services}</div>
         <div class="portfolio-actions">
           <button class="btn btn-secondary portfolio-quick-view" type="button" data-portfolio-quick-view="${item.slug}">Quick Preview</button>
-          <a href="${item.liveUrl}" class="btn btn-primary portfolio-visit-link" target="_blank" rel="noopener noreferrer" data-portfolio-visit-site="${item.slug}">Live Demo</a>
+          ${item.liveUrl ? `<a href="${item.liveUrl}" class="btn btn-primary portfolio-visit-link" target="_blank" rel="noopener noreferrer" data-portfolio-visit-site="${item.slug}">Live Demo</a>` : ""}
         </div>
       </div>
     </article>`;

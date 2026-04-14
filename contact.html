@@ -24,7 +24,7 @@
     </nav>
     <div>
       <a href="contact.html" class="btn btn-primary desktop-cta">Book a Strategy Call</a>
-      <button class="menu-btn" id="menuToggle">&#9776;</button>
+      <button class="menu-btn" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">&#9776;</button>
     </div>
   </div>
 </header>
@@ -36,6 +36,7 @@
     <a href="case-studies.html">Case Studies</a>
     <a href="contact.html">Contact</a>
   </div>
+  <a href="/contact.html" class="btn btn-primary mobile-cta">Get a Free Bottleneck Review</a>
 </div>
  
 <main>
@@ -71,14 +72,8 @@
       </ul>
     </article>
     <article class="contact-card card">
- 
-      <!-- Hidden iframe receives the form response, keeps user on the page -->
-      <iframe name="hidden_iframe" style="display:none;"></iframe>
- 
-      <form id="contactForm"
-            action="https://script.google.com/macros/s/AKfycbyCcWObSEvQutcqxi75aCBP9VAlxQFhuTlOEojFOHnlwViGR-0Nh8WRAwT-UUMrWA7y/exec"
-            method="POST"
-            target="hidden_iframe">
+
+      <form id="contactForm">
         <div class="form-grid">
           <div class="input-group"><label>Name</label><input name="name" type="text" required /></div>
           <div class="input-group"><label>Company</label><input name="company" type="text" /></div>
@@ -99,27 +94,48 @@
         <button class="btn btn-primary" type="submit" id="submitBtn">Send My Inquiry</button>
         <p id="formMsg" style="margin-top:14px;display:none;"></p>
       </form>
- 
+
       <script>
-      document.getElementById('contactForm').addEventListener('submit', function() {
-        const btn = document.getElementById('submitBtn');
-        const msg = document.getElementById('formMsg');
- 
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const btn  = document.getElementById('submitBtn');
+        const msg  = document.getElementById('formMsg');
+        const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyCcWObSEvQutcqxi75aCBP9VAlxQFhuTlOEojFOHnlwViGR-0Nh8WRAwT-UUMrWA7y/exec';
+
         btn.textContent = 'Sending...';
         btn.disabled = true;
- 
-        // Give the iframe a moment to receive the response then show success
-        setTimeout(function() {
-          msg.textContent = "Got it — we'll be in touch within one business day.";
-          msg.style.color = '#8fd4a7';
-          msg.style.display = 'block';
-          document.getElementById('contactForm').reset();
-          btn.textContent = 'Send My Inquiry';
-          btn.disabled = false;
-        }, 1500);
+        msg.style.display = 'none';
+
+        // Build FormData from the form fields
+        const body = new FormData(form);
+
+        fetch(ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',   // Google Apps Script requires no-cors for cross-origin POSTs
+          body: body
+        })
+          .then(function() {
+            // fetch resolved — request reached Google's servers
+            msg.textContent = "Got it — we\u2019ll be in touch within one business day.";
+            msg.style.color = 'var(--success)';
+            msg.style.display = 'block';
+            form.reset();
+            btn.textContent = 'Send My Inquiry';
+            btn.disabled = false;
+          })
+          .catch(function() {
+            // Network failure — show honest error with direct contact fallback
+            msg.innerHTML = 'Something went wrong on our end. Please email us directly at <a href="mailto:wesleym@ironline.systems">wesleym@ironline.systems</a> and we\u2019ll get back to you within one business day.';
+            msg.style.color = 'var(--accent)';
+            msg.style.display = 'block';
+            btn.textContent = 'Send My Inquiry';
+            btn.disabled = false;
+          });
       });
       </script>
- 
+
     </article>
   </div>
 </section>
@@ -135,7 +151,6 @@
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
